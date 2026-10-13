@@ -1,0 +1,130 @@
+<!--NAV: 3-4 斜面-->
+<div class="pagehead">
+  <span class="ref">課本 p.80–81｜3-4 簡單機械 ① 斜面</span>
+  <h2>斜面：用小力把重物送上高處</h2>
+  <p class="hook"><b>科學 tell me why：</b>徒手抬重物很費力，有哪些簡單機械能更省力地把重物抬到相同高度？最早確定「功」這個名詞的科若利，就是一位研究機器的工程師。</p>
+  <ul class="goals"><li>說出簡單機械的種類與效果（省力、省時、改變方向）</li><li>用功的觀念推出斜面的 F×L＝W×H</li><li>知道簡單機械<b>不能省功</b></li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  3-4 的核心只有一句：<b>簡單機械只能傳遞或轉換功與能，不會增加或減少對物體所作的功</b>（課本原文）。每一種機械都可以用「輸入的功＝輸出的功」推出公式，建議全節都用這個角度切入，學生就不必背四套公式。<br>
+  斜面模擬：固定高度 1 m、箱子 10 kgw，拉長斜面，讓學生看施力變小、距離變長、F×L 永遠＝10。<br>
+  無障礙坡道情境可以連結公民議題：法規要求坡度不超過 1/12，學生可以實際量學校的坡道。
+</div></details>
+
+<div class="card">
+  <h3>🔧 什麼是簡單機械？</h3>
+  <p>斜面、槓桿、滑輪、輪軸等基本元件，統稱為<b>簡單機械</b>。它們可以達到：</p>
+  <div class="grid2 even">
+    <div class="callout">💪 <b>省力</b>：用較小的力移動重物（但要多走距離 → 費時）<br>⚡ <b>省時</b>：施力端動一點點，物體動很多（但要用較大的力 → 費力）<br>↪️ <b>改變方向</b>：往下拉，物體往上升</div>
+    <div class="callout warn">⚠️ <b>不能省功！</b><br>簡單機械只能<b>傳遞或轉換</b>功與能，不會增加或減少對物體所作的功。<br><b>輸入的功（施力 × 施力距離）＝ 輸出的功（抗力 × 抗力距離）</b>（不計摩擦）</div>
+  </div>
+</div>
+
+<div data-guess="t10"></div>
+
+<div class="card">
+  <h3>🧪 斜面模擬：拉長斜面會怎樣？ <span class="tag note">箱子 10 公斤重、抬高 1 公尺，不計摩擦</span></h3>
+  <canvas class="sim" id="c3ramp"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>斜面長度 L <output for="c3rL"></output></label><input type="range" id="c3rL" min="1.5" max="5" step="0.5" value="2"></div>
+      <div class="ctl dpo"><label>🟣 摩擦力 <output for="c3rf"></output></label><input type="range" id="c3rf" min="0" max="3" step="0.5" value="0"></div>
+      <div class="btnrow"><button class="btn" id="c3rGo">▶ 推上去 vs. 直接抬</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3rR"></div>
+      <div class="callout" id="c3rTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 斜面的公式：從「功不變」推出來</h3>
+  <p>不論<b>①直接垂直抬起</b>或<b>②沿斜面推上去</b>，只要物體到達相同高度，就具有相同的重力位能，所以兩種方式對物體作的功相等（課本圖 3-16）：</p>
+  <div class="formula">沿斜面的施力 <span class="eq">F</span> × 斜面長度 <span class="eq">L</span> ＝ 物體重量 <span class="eq">W</span> × 斜面高度 <span class="eq">H</span><small>例：F × 2 ＝ 10 × 1 → F ＝ 5 公斤重</small></div>
+  <p>斜面長度 L 比高度 H 長，所以 F 比 W 小 → <b>省力</b>；但推的距離比直接抬起來長 → <b>費時</b>。</p>
+</div>
+
+<div class="card">
+  <h3>♿ 情境模擬：設計一條無障礙坡道 <span class="tag note">法規：坡度不超過 1/12（高 1 公分，至少要 12 公分長）</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="c3ada"></canvas>
+    <div class="controls">
+      <div class="ctl"><label>門口比地面高 <output for="c3adaH"></output></label><input type="range" id="c3adaH" min="5" max="75" step="5" value="30"></div>
+      <div class="ctl"><label>你設計的坡道長度 <output for="c3adaL"></output></label><input type="range" id="c3adaL" min="0.5" max="10" step="0.1" value="2"></div>
+      <div class="readout" id="c3adaR"></div>
+      <div class="callout" id="c3adaTxt"></div>
+    </div>
+  </div>
+  <p class="note">輪椅連人以 80 公斤重計算，不計摩擦。坡度標準參考內政部《建築物無障礙設施設計規範》。</p>
+</div>
+
+<div class="card">
+  <h3>🔩 斜面繞起來，就變成螺旋 <span class="tag note">課本圖 3-17：把三角形紙片捲在鉛筆上</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="c3screw"></canvas>
+    <div class="controls">
+      <div class="ctl"><label>螺紋的間距（螺距） <output for="c3sp"></output></label><input type="range" id="c3sp" min="2" max="12" step="1" value="6"></div>
+      <div class="callout" id="c3spTxt"></div>
+    </div>
+  </div>
+  <p>生活中常見的螺旋：<b>螺絲釘、瓶蓋、蜿蜒的山路</b>（課本圖 3-18）。螺紋愈密，就像斜面愈平緩：轉起來愈省力，但要轉愈多圈。</p>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-5　斜面 <span class="tag note">課本 p.81：正確打勾，錯誤請修正</span></h3>
+  <div class="q">判斷下列敘述是否正確：</div>
+  <ol class="sol">
+    <li>a. 斜面為省力的機械裝置 → <b style="color:var(--ok)">✔ 正確</b></li>
+    <li>b. 使用較為平緩的斜面可以省功 → <b style="color:var(--bad)">✘ 錯誤</b>，應改為：可以<b>省力</b>（但不能省功）</li>
+    <li>c. 山路蜿蜒的設計是利用斜面的原理 → <b style="color:var(--ok)">✔ 正確</b></li>
+    <li>d. 螺旋為斜面的應用，較為費力 → <b style="color:var(--bad)">✘ 錯誤</b>，應改為：較為<b>省力</b></li>
+  </ol>
+  <div class="ansbox">答：a、c 正確；b 改「省力」；d 改「省力」。</div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 交通｜蜿蜒的山路</div>
+    <h4>為什麼山路要繞來繞去？</h4>
+    <p>如果公路直直衝上山，坡度太陡，汽車需要很大的牽引力，下坡也危險。把路修成「之」字形，等於把斜面拉長：坡度變緩、省力，但要開比較遠（課本圖 3-18 新北瑞芳）。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜搬家公司</div>
+    <h4>斜搭一塊木板</h4>
+    <p>搬運大型貨物時，常斜搭一塊木板把貨物推進卡車（課本圖 3-14）。工人推的力比直接抬小很多，但要推的距離比較長。</p>
+  </div>
+  <div class="case">
+    <div class="where">🔪 生活｜菜刀與斧頭（劈）</div>
+    <h4>兩個斜面背對背</h4>
+    <p>刀刃、斧頭、門擋都是「楔」：兩個斜面背對背。往下壓一點點力，刀刃兩側就能把東西用很大的力往兩邊推開。刀磨得愈薄（斜面愈長），切起來愈省力。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 古埃及｜金字塔的坡道</div>
+    <h4>沒有起重機，怎麼把巨石搬上去？</h4>
+    <p>多數考古學家認為，古埃及人建造了長長的坡道，用雪橇把石塊沿坡道拖上去。坡道就是一個巨大的斜面：省力，但要走很長的路。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜真實的斜面有摩擦：機械效率＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>⚙️ 機械效率 ＝ 輸出的功 ÷ 輸入的功</h3>
+    <p>真實的斜面有摩擦。推箱子時，除了要對抗重力沿斜面的分量，還要克服摩擦力，所以施力比 W×H÷L 大。</p>
+    <div class="formula">效率 ＝ <span class="eq">W</span>×<span class="eq">H</span> ÷（<span class="eq">F</span>×<span class="eq">L</span>）× 100%</div>
+    <p>在上面的斜面模擬中打開「摩擦力」滑桿（資優模式才看得到），看效率怎麼變。斜面愈長、摩擦作的負功愈多——所以斜面不是愈長愈好！</p>
+  </div>
+  <div data-arena="t10"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t10"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t10"></div>
+</div>
+
+<div class="takeaway" data-ans="省力|費時|不能省功">💬 <b>一句話帶走：</b>斜面可以______但______；F×L＝W×H，所有簡單機械都______。</div>

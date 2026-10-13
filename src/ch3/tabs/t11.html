@@ -1,0 +1,100 @@
+<!--NAV: 3-4 槓桿-->
+<div class="pagehead">
+  <span class="ref">課本 p.82｜3-4 ② 槓桿</span>
+  <h2>給我一個支點，我就能舉起地球？</h2>
+  <p class="hook"><b>傳說：</b>古希臘的阿基米德說：「給我一個立足之處（支點），我就能移動地球。」槓桿真的這麼神奇嗎？它的代價是什麼？</p>
+  <ul class="goals"><li>認識支點、施力點、抗力點、施力臂、抗力臂</li><li>依施力臂與抗力臂的長短，判斷省力或費力槓桿</li><li>說出省力費時、費力省時的道理</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  槓桿的平衡條件（施力 × 施力臂＝抗力 × 抗力臂）在第 2 章力矩學過，這裡的重點是<b>從功的角度</b>看：施力臂長 → 施力端轉動時走的弧長也長 → 省力但費時。<br>
+  模擬裡可以拖曳三個點（支點、施力點、抗力點），按「▶ 轉動槓桿」比較兩端移動的距離。<br>
+  分類遊戲建議搭配實物（筷子、鑷子、開瓶器、剪刀）讓學生找三個點。
+</div></details>
+
+<div data-guess="t11"></div>
+
+<div class="card history">
+  <h3>📜 阿基米德與槓桿</h3>
+  <p>阿基米德（約西元前 287–212 年）是古希臘的數學家與工程師，住在西西里島的敘拉古。他研究了槓桿的原理，據記載曾說：「<b>給我一個立足之處，我就能移動地球。</b>」</p>
+  <p>這句話是後來的學者帕普斯記錄下來的，背景正是在討論槓桿：只要施力臂夠長，再小的力也能撐起再重的物體。但是——施力的那一端，要移動非常非常遠的距離（看下方資優挑戰的計算）。</p>
+</div>
+
+<div class="card">
+  <h3>🧪 槓桿實驗室 <span class="tag note">拖曳 ▲支點、🔴施力點、🟦抗力點（物體 20 公斤重）</span></h3>
+  <canvas class="sim drag" id="c3lever"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="chips" id="c3lvPre"><button class="chip" data-p="0.5,0.95,0.2">省力（像拔釘器）</button><button class="chip" data-p="0.15,0.35,0.95">費力（像鑷子）</button><button class="chip" data-p="0.5,0.9,0.1">等臂（像天平）</button></div>
+      <div class="btnrow"><button class="btn" id="c3lvGo">▶ 轉動槓桿</button><button class="btn ghost" id="c3lvReset">↺ 回到水平</button></div>
+      <div class="readout" id="c3lvR"></div>
+    </div>
+    <div class="callout" id="c3lvTxt"></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 省力槓桿與費力槓桿</h3>
+  <table class="simple">
+    <tr><th></th><th>省力槓桿</th><th>費力槓桿</th></tr>
+    <tr><td>條件</td><td>施力臂 ＞ 抗力臂</td><td>施力臂 ＜ 抗力臂</td></tr>
+    <tr><td>施力與抗力</td><td>施力 ＜ 抗力</td><td>施力 ＞ 抗力</td></tr>
+    <tr><td>效果</td><td><b>省力但費時</b></td><td><b>費力但省時</b></td></tr>
+    <tr><td>課本例子</td><td>大型釘書機、易開罐拉環</td><td>筷子、夾子、裁縫剪刀</td></tr>
+  </table>
+  <div class="formula" style="margin-top:10px">施力 × 施力臂 ＝ 抗力 × 抗力臂<small>（平衡時；不計槓桿重量與摩擦）</small></div>
+</div>
+
+<div class="card">
+  <h3>🎯 情境挑戰：生活工具大分類 <span class="tag note">每個工具的施力點、支點、抗力點在哪？</span></h3>
+  <div id="c3sort11"></div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">💪 人體｜你的手臂</div>
+    <h4>身體裡的費力槓桿</h4>
+    <p>前臂舉東西時，手肘是支點，二頭肌拉在離手肘約 4 公分的地方，手掌離手肘約 35 公分。肌肉要出約 9 倍的力，但手掌可以快速大範圍地移動——適合投球、揮拍。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜裁縫剪刀 vs. 修枝剪</div>
+    <h4>同樣是剪刀，設計大不同</h4>
+    <p>裁縫剪刀刀刃長、把手短（費力省時）：剪一刀就能剪很長，布料很軟不需大力。修枝剪刀刃短、把手長（省力費時）：樹枝很硬，需要大力。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 傳統｜桔槔（汲水用的槓桿）</div>
+    <h4>古人怎麼從井裡打水</h4>
+    <p>在井邊立一根柱子當支點，橫桿一端綁水桶、另一端綁石塊。往下拉水桶進井，石塊升高；裝滿水後，石塊落下幫忙把水桶拉起來。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 遊樂場｜蹺蹺板</div>
+    <h4>大人和小孩怎麼玩得起來？</h4>
+    <p>大人坐得離中間（支點）近一點、小孩坐遠一點，讓「重量 × 到支點的距離」相等，蹺蹺板就能平衡。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜阿基米德真的能舉起地球嗎？＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🌍 算算看</h3>
+    <p>地球的質量約 6 × 10²⁴ 公斤。假設阿基米德能出 60 公斤重的力，抗力臂（地球到支點）1 公尺：</p>
+    <ol>
+      <li>施力臂 ＝ 抗力 × 抗力臂 ÷ 施力 ＝ 6×10²⁴ × 1 ÷ 60 ＝ <b>10²³ 公尺</b>，約 1000 萬光年（銀河系直徑約 10 萬光年）！</li>
+      <li>如果要把地球抬高 1 公分，他要把槓桿壓下 10²³ × 0.01 ＝ <b>10²¹ 公尺</b>。</li>
+      <li>就算他以光速（每秒 30 萬公里）壓槓桿，也要約 <b>10 萬年</b>。</li>
+    </ol>
+    <p class="note">結論：理論上槓桿可以「省力」到任意程度，但施力端要走的距離會變得超級長——功一點也沒有省下來。</p>
+  </div>
+  <div data-arena="t11"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t11"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t11"></div>
+</div>
+
+<div class="takeaway" data-ans="施力臂|省力|費時">💬 <b>一句話帶走：</b>______比抗力臂長，就是______槓桿，但一定______；反過來就是費力省時。</div>

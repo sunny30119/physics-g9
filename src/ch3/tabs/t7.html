@@ -1,0 +1,119 @@
+<!--NAV: 3-3 力學能守恆-->
+<div class="pagehead">
+  <span class="ref">課本 p.74–75｜3-3 ① 力學能守恆</span>
+  <h2>位能和動能，會互相「換來換去」</h2>
+  <p class="hook"><b>科學 tell me why：</b>兩顆相同的球從不同樓層落下，位置較高的球重力位能較大，落地瞬間的動能也較大。重力位能和動能之間，有什麼關聯？</p>
+  <ul class="goals"><li>說出力學能＝動能＋位能</li><li>說出力學能守恆的條件與意義</li><li>用力學能守恆解釋盪鞦韆、雲霄飛車、跳水</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  建議先玩「盪鞦韆」：拉高放手，請學生盯著三根長條——位能、動能此消彼長，<b>黃色總和不動</b>。再打開空氣阻力，看到總和慢慢變少，但「熱能」補上來，為下一頁的能量守恆鋪路。<br>
+  雲霄飛車設計師：請學生分組挑戰「讓車子剛好通過最高的第三座山」，討論為什麼第一座山一定要最高。<br>
+  條件提醒：力學能守恆的前提是「只受重力或彈力作用」（課本原文）。繩子拉力、軌道支撐力和運動方向垂直，不作功，不影響。
+</div></details>
+
+<div data-guess="t7"></div>
+
+<div class="card">
+  <h3>🎠 盪鞦韆（單擺）：位能 ⇄ 動能 <span class="tag note">拖曳擺錘到某個位置，放手</span></h3>
+  <div class="grid2 wide">
+    <canvas class="sim drag" id="c3swing"></canvas>
+    <div class="controls">
+      <div class="chips" id="c3swFric"><button class="chip on" data-f="0">沒有空氣阻力（理想）</button><button class="chip" data-f="1">有空氣阻力（真實）</button></div>
+      <div class="btnrow"><button class="btn" id="c3swGo">▶ 從 60° 放手</button><button class="btn ghost" id="c3swStop">⏸ 停住</button></div>
+      <div class="readout" id="c3swR"></div>
+      <div class="callout" id="c3swTxt">把擺錘拉到左邊，放手。注意黃色「力學能」長條。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：一次擺動中的能量變化 <span class="tag note">課本圖 3-10，點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th></th><th>最高點（出發）</th><th>往下擺</th><th>最低點</th><th>往上擺</th><th>另一端最高點</th></tr>
+    <tr><td>速率</td><td>＝0</td><td><span class="fill" data-a="增加"></span></td><td><span class="fill" data-a="最大"></span></td><td><span class="fill" data-a="減少"></span></td><td>＝0</td></tr>
+    <tr><td>動能</td><td><span class="fill" data-a="0"></span></td><td>增加</td><td><span class="fill" data-a="最大"></span></td><td>減少</td><td><span class="fill" data-a="0"></span></td></tr>
+    <tr><td>位能</td><td><span class="fill" data-a="最大"></span></td><td><span class="fill" data-a="減少"></span></td><td>最小</td><td><span class="fill" data-a="增加"></span></td><td>最大</td></tr>
+  </table>
+  <div class="formula" style="margin-top:10px">力學能 ＝ 動能 ＋ 位能<small>若物體運動過程中<b>只受重力或彈力作用</b>，力學能維持不變 → <b>力學能守恆定律</b></small></div>
+</div>
+
+<div class="card">
+  <h3>🎢 情境模擬：雲霄飛車設計師 <span class="tag note">調三座山的高度，看車子能不能跑完全程</span></h3>
+  <canvas class="sim" id="c3coaster"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>第 1 座山（出發點）高度 <output for="c3h1"></output></label><input type="range" id="c3h1" min="10" max="50" step="1" value="40"></div>
+      <div class="ctl"><label>第 2 座山高度 <output for="c3h2"></output></label><input type="range" id="c3h2" min="5" max="50" step="1" value="30"></div>
+      <div class="ctl"><label>第 3 座山高度 <output for="c3h3"></output></label><input type="range" id="c3h3" min="5" max="50" step="1" value="38"></div>
+      <div class="chips" id="c3cFric"><button class="chip on" data-f="0">沒有摩擦</button><button class="chip" data-f="1">有摩擦（真實）</button></div>
+      <div class="btnrow"><button class="btn" id="c3cGo">▶ 出發</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3cR"></div>
+      <div class="callout" id="c3cTxt">🎯 挑戰：在「有摩擦」的情況下，讓車子<b>剛好</b>通過第 3 座山。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 練習　盪鞦韆</h3>
+  <div class="q">小安（連同鞦韆座椅共 30 公斤）盪鞦韆，最高點離地 1.4 公尺，最低點離地 0.6 公尺。不計空氣阻力，盪到最低點時，小安的動能是多少焦耳？（g＝<span class="gval">9.8</span>）</div>
+  <ol class="sol">
+    <li>只受重力（繩子拉力和運動方向垂直，不作功）→ 力學能守恆。</li>
+    <li>最高點速率＝0，動能＝0；從最高點到最低點，下降了 1.4 − 0.6＝<b>0.8 公尺</b>。</li>
+    <li>減少的重力位能＝重量 × 下降高度＝30 × <span class="gval">9.8</span> × 0.8＝<b id="c3ex7">235.2</b> 焦耳。</li>
+    <li>減少的位能全部變成動能。</li>
+  </ol>
+  <div class="ansbox">答：最低點的動能約 <span id="c3ex7b">235.2</span> 焦耳。</div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 遊樂園｜雲霄飛車</div>
+    <h4>沒有引擎，怎麼跑完全程？</h4>
+    <p>雲霄飛車只在一開始用鏈條把車廂拉上最高的第一座山（對它作功，存成重力位能）。之後就靠位能 ⇄ 動能互換跑完全程，所以後面的山都要比第一座矮，而且愈後面愈矮（摩擦會消耗力學能）。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 運動｜跳水</div>
+    <h4>跳台愈高，入水愈快</h4>
+    <p>課本圖 3-9：跳水選手從高處落下，重力位能轉成動能。不計空氣阻力，從 10 公尺跳台入水時速率約 14 m/s；從 3 公尺跳板只有約 7.7 m/s。</p>
+    <p class="ask">想一想：跳台高度 4 倍，入水速率是幾倍？（提示：動能和速率的平方成正比）</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 運動｜撐竿跳</div>
+    <h4>三種能量接力</h4>
+    <p>助跑的動能 → 竿子彎曲的彈力位能 → 越過橫桿時的重力位能。力學能守恆也包含彈力位能！</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 課堂｜保齡球擺錘</div>
+    <h4>敢不敢把臉貼著擺錘？</h4>
+    <p>世界各地的物理老師都愛做這個示範：把很重的擺錘拉到自己的臉前輕輕放手，站著不動。擺錘盪回來時，總是差一點點碰不到——因為力學能不會憑空增加。（下面的「迷思擂台」就是這個問題。⚠️ 千萬不要推！）</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜為什麼速率和質量、路徑都無關？＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 v ＝ √(2gh)</h3>
+    <p>物體從高度 h 由靜止滑下（不計摩擦），力學能守恆：</p>
+    <div class="formula"><span class="eq">m g h</span> ＝ ½ <span class="eq">m v</span>²　→　<span class="eq">v</span> ＝ √(2<span class="eq">gh</span>)</div>
+    <ul>
+      <li><b>和質量無關</b>：兩邊的 m 消掉了！重的人和輕的人從同一座溜滑梯滑下（不計摩擦），到底部一樣快。</li>
+      <li><b>和路徑無關</b>：直的溜滑梯、彎的溜滑梯、旋轉溜滑梯，只要高度一樣，到底部的速率一樣（但花的時間不一樣）。</li>
+    </ul>
+    <p class="note">為什麼和路徑無關？軌道的支撐力永遠和運動方向垂直，不作功；只有重力作功，而重力作的功只看「下降了多少高度」。</p>
+  </div>
+  <div data-arena="t7"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t7"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t7"></div>
+</div>
+
+<div class="takeaway" data-ans="動能＋位能|重力或彈力">💬 <b>一句話帶走：</b>力學能＝______；物體只受______作用時，力學能維持不變。</div>

@@ -1,0 +1,184 @@
+<!--NAV: 3-1 功-->
+<div class="pagehead">
+  <span class="ref">課本 p.66–68｜3-1 ① 功</span>
+  <h2>牛頓的問題：推一段距離後，東西會跑多快？</h2>
+  <p class="hook"><b>科學 tell me why：</b>在光滑的平面上，有哪些方法可以讓靜止的物體跑得更快？牛頓第二運動定律告訴我們要「施力」——但要怎麼施力，最後的速度才會更大？</p>
+  <ul class="goals"><li>說出功的定義 W＝F×S 與單位焦耳</li><li>判斷一個力是作正功、負功或不作功</li><li>知道「很累」不等於「有作功」</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 25 分鐘）：① 猜一猜投票 → ② 用「牛頓的問題」做課本討論 1、討論 2（按預設按鈕）→ ③ 按「同功不同組合」讓學生驚訝「力和距離不同，速度卻一樣」→ 這時才寫出 W＝F×S（讓定義成為「發現」而不是背誦）→ ④ 功的正負模擬 → ⑤ 分類遊戲 → ⑥ 例題 3-1。<br>
+  常見迷思：「有出力就有作功」「物體在動就有作功」。用迷思擂台處理（資優班或時間夠時全班做）。<br>
+  單位提醒：課本這節用牛頓（N）；若題目給公斤重，要先乘上 g（右上角可切換 9.8 或 10）。
+</div></details>
+
+<div data-guess="t1"></div>
+
+<div class="card">
+  <h3>🧪 牛頓的問題：力、距離、末速度 <span class="tag note">光滑平面（沒有摩擦力），兩條跑道同時比賽</span></h3>
+  <canvas class="sim" id="c3push"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="grid2 even" style="gap:12px">
+        <div>
+          <div class="ctl"><label>🅰 外力 F <output for="c3FA"></output></label><input type="range" id="c3FA" min="5" max="40" step="5" value="10"></div>
+          <div class="ctl"><label>🅰 推的距離 S <output for="c3SA"></output></label><input type="range" id="c3SA" min="0.5" max="4" step="0.5" value="2"></div>
+        </div>
+        <div>
+          <div class="ctl"><label>🅱 外力 F <output for="c3FB"></output></label><input type="range" id="c3FB" min="5" max="40" step="5" value="20"></div>
+          <div class="ctl"><label>🅱 推的距離 S <output for="c3SB"></output></label><input type="range" id="c3SB" min="0.5" max="4" step="0.5" value="2"></div>
+        </div>
+      </div>
+      <div class="btnrow"><button class="btn" id="c3pushGo">▶ 開始推</button><button class="btn ghost" id="c3pushReset">↺ 歸位</button></div>
+      <div class="chips" id="c3pushPre">
+        <button class="chip" data-p="10,2,20,2">課本討論 1：同距離、不同力</button>
+        <button class="chip" data-p="10,1,10,2">課本討論 2：同力、不同距離</button>
+        <button class="chip" data-p="20,3,30,2">🤯 力和距離都不同…</button>
+        <button class="chip" data-p="10,4,40,1">🤯 再試一組</button>
+      </div>
+      <p class="note">兩個箱子一模一樣（質量 2 公斤），原本都靜止。推到虛線就放手，之後箱子會等速滑行。</p>
+    </div>
+    <div>
+      <div class="readout" id="c3pushR"></div>
+      <div class="callout" id="c3pushTxt">先按課本討論 1、討論 2，再按「🤯」兩組，看看你發現什麼？</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 功的定義</h3>
+  <p>上面的模擬告訴我們：物體最後的速度，不是只看力，也不是只看距離，而是看兩者的<b>乘積</b>。科學家把它取名為「<b>功</b>」（work），並說「外力對物體作功」。</p>
+  <div class="formula">功 ＝ 外力 × 物體沿外力方向的位移<br><span class="eq">W</span> ＝ <span class="eq">F</span> × <span class="eq">S</span><small>（式 3-1）力的單位用牛頓（N）、位移用公尺（m）→ 功的單位是 牛頓・公尺（N・m），又叫做 <b>焦耳（J）</b></small></div>
+  <div class="grid2 even">
+    <div class="callout">🍎 <b>1 焦耳有多大？</b><br>把一顆約 100 公克的蘋果（重約 1 牛頓）慢慢舉高 1 公尺，你對它作的功大約就是 1 焦耳。</div>
+    <div class="callout">📜 <b>為什麼叫「功」？</b><br>1829 年，法國機械工程師<b>科若利</b>研究機器時，把「力 × 距離」命名為 travail（工作）。中文翻成「功」，就像「功勞」：力真的讓物體移動了，才算有功勞。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>➕➖ 作正功、作負功、不作功 <span class="tag note">拖曳紅色箭頭，改變力的方向</span></h3>
+  <div class="grid2">
+    <canvas class="sim drag" id="c3sign"></canvas>
+    <div class="controls">
+      <div class="chips" id="c3signMove"><button class="chip on" data-m="1">物體向右移動 3 公尺</button><button class="chip" data-m="0">物體沒有移動（S＝0）</button></div>
+      <div class="chips" id="c3signPre"><button class="chip" data-a="0">同向</button><button class="chip" data-a="180">反向</button><button class="chip" data-a="90">垂直</button><button class="chip" data-a="30">斜的</button></div>
+      <div class="readout" id="c3signR"></div>
+      <div class="callout" id="c3signTxt"></div>
+    </div>
+  </div>
+  <table class="simple" style="margin-top:12px">
+    <tr><th>情形</th><th>力和位移的關係</th><th>例子</th></tr>
+    <tr><td style="color:var(--ok)"><b>作正功</b></td><td>外力 F 與位移 S <b>同向</b></td><td>推車往前，推力對車作正功</td></tr>
+    <tr><td style="color:var(--bad)"><b>作負功</b></td><td>外力 F 與位移 S <b>反向</b></td><td>滑行的箱子，摩擦力對箱子作負功</td></tr>
+    <tr><td><b>不作功</b></td><td>物體<b>沒有位移</b>（S＝0），或外力與位移<b>垂直</b></td><td>推牆推不動；提著水桶水平走</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>🎯 分類挑戰：這個力對物體作什麼功？</h3>
+  <div id="c3sort1"></div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-1　功 <span class="tag note">課本 p.68</span></h3>
+  <div class="q">施力使木塊在水平面上向右運動，期間受到外力 F（向右）、重力 W（向下）、摩擦力 f（向左）。運動過程中，三種力對木塊各作什麼功？</div>
+  <ol class="sol">
+    <li>先找出木塊的<b>位移方向</b>：向右。</li>
+    <li>外力 F 向右，和位移<b>同向</b> → 作<b>正功</b>。</li>
+    <li>重力 W 向下，和位移（向右）<b>垂直</b> → <b>不作功</b>。</li>
+    <li>摩擦力 f 向左，和位移<b>反向</b> → 作<b>負功</b>。</li>
+  </ol>
+  <div class="ansbox">答：外力 F 作正功（A）；重力 W 不作功（C）；摩擦力 f 作負功（B）。</div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記 <span class="tag note">點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th colspan="2">施外力於物體</th><th>作功情形</th></tr>
+    <tr><td colspan="2">無位移</td><td><span class="fill" data-a="不作功"></span></td></tr>
+    <tr><td rowspan="3">有位移</td><td>外力與物體位移垂直</td><td><span class="fill" data-a="不作功"></span></td></tr>
+    <tr><td>外力與物體位移平行、同向</td><td><span class="fill" data-a="作正功"></span></td></tr>
+    <tr><td>外力與物體位移平行、反向</td><td><span class="fill" data-a="作負功"></span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>🎭 生活情境劇場：這個力有沒有作功？ <span class="tag note">選一個情境，先猜再看答案</span></h3>
+  <div class="chips" id="c3sceneBtns" style="margin-bottom:8px"></div>
+  <canvas class="sim" id="c3scene"></canvas>
+  <div class="callout" id="c3sceneTxt"></div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 運動｜舉重</div>
+    <h4>舉重選手什麼時候在「作功」？</h4>
+    <p>舉重比賽的挺舉，選手要把槓鈴從地上舉到頭頂（大約 2 公尺高），站穩後等裁判亮燈才能放下。</p>
+    <p>舉起 100 公斤（重約 <span class="gval">9.8</span>×100 牛頓）的槓鈴到 2 公尺高，選手大約作了 <b class="num" id="c3liftW">1960</b> 焦耳的功。</p>
+    <p class="ask">想一想：舉起來、停在頭頂、慢慢放下，這三段選手對槓鈴分別作正功、負功還是不作功？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜推牆</div>
+    <h4>推牆推到滿頭大汗</h4>
+    <p>用盡全力推教室的牆，牆完全沒動。物理上，你對牆作的功是 <b>0</b>（S＝0）。但你的身體確實消耗了能量——變成肌肉的熱。</p>
+    <p class="ask">想一想：如果你推的是一台沒有煞車的手推車，同樣出力，結果有什麼不同？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 太空｜國際太空站</div>
+    <h4>繞著地球轉的太空站，重力有沒有作功？</h4>
+    <p>太空站以接近圓形的軌道繞地球運轉。地球的重力一直指向地心，而太空站的運動方向一直沿著圓的切線——兩者隨時<b>垂直</b>。</p>
+    <p class="ask">所以重力對太空站作多少功？太空站的速率會改變嗎？（提示：想想等速圓周運動）</p>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 運動｜拔河</div>
+    <h4>僵持不下的拔河，誰在作功？</h4>
+    <p>兩隊用力拉、繩子卻不動時，雙方的拉力都<b>不作功</b>（沒有位移）——雖然所有人都累得半死。等到一隊被拉過去，勝隊的拉力作正功、敗隊的拉力作負功。</p>
+    <p class="ask">想一想：拔河比賽「贏」的關鍵，是誰作的正功比較多嗎？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜背書包</div>
+    <h4>背書包上樓 vs. 背書包走平路</h4>
+    <p>背著 5 公斤的書包從 1 樓爬到 4 樓（3 層樓，約 9 公尺），肩膀向上的支撐力對書包作功約 5×<span class="gval">9.8</span>×9 ≈ <b id="c3bagW">441</b> 焦耳；但在平地走 100 公尺，支撐力對書包作的功卻是 0。</p>
+    <p class="ask">想一想：那為什麼走平路背書包也會累？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 歷史｜古埃及金字塔</div>
+    <h4>把 2.5 噸重的石塊搬上去</h4>
+    <p>大金字塔的石塊平均約 2.5 噸。把一塊石頭抬高 50 公尺，對抗重力要作約 2500×<span class="gval">9.8</span>×50 ≈ <b id="c3pyrW">123</b> 萬焦耳的功。不管用什麼方法搬（拉斜坡、用槓桿），這個功都省不掉（3-4 節會學到原因）。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜斜著拉的力作多少功？功＝F–S 圖的面積＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 力斜著拉：只有「沿位移方向的那一份力」作功</h3>
+    <p>拉行李箱時，拉桿是斜的。拉力可以拆成兩份：<b>沿著地面的水平分力</b>（讓箱子前進）和<b>垂直地面的分力</b>（稍微把箱子往上提）。箱子只在水平方向移動，所以只有水平分力作功：</p>
+    <div class="formula"><span class="eq">W</span> ＝（<span class="eq">F</span> 沿位移方向的分力）× <span class="eq">S</span> ＝ <span class="eq">F</span> cos θ × <span class="eq">S</span><small>θ 是力和位移的夾角。θ＝0° 時 cos θ＝1（同向）；θ＝90° 時 cos θ＝0（不作功）；θ＝180° 時 cos θ＝−1（負功）。高中會正式學 cos，這裡先用上面的模擬「看」出分力。</small></div>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>📈 力會變的時候怎麼算功？——看 F–S 圖的面積</h3>
+    <div class="grid2">
+      <canvas class="sim" id="c3fs"></canvas>
+      <div class="controls">
+        <div class="chips" id="c3fsMode"><button class="chip on" data-m="c">固定的力 10 N</button><button class="chip" data-m="r">愈拉愈大（像拉彈簧）</button><button class="chip" data-m="s">先大後小</button></div>
+        <div class="callout" id="c3fsTxt"></div>
+      </div>
+    </div>
+    <p class="note">在 v–t 圖中，「圖形下的面積」代表位移；同樣的道理，在 F–S 圖中，「圖形下的面積」代表功。這個方法在 ⑥ 彈力位能會再用到。</p>
+  </div>
+  <div data-arena="t1"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t1"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t1"></div>
+</div>
+
+<div class="takeaway" data-ans="力的方向|垂直">💬 <b>一句話帶走：</b>功＝力 × 物體沿______移動的距離；有出力但沒移動、或力和移動方向______，都不作功。</div>

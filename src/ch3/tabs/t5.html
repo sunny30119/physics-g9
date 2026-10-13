@@ -1,0 +1,143 @@
+<!--NAV: 3-2 重力位能-->
+<div class="pagehead">
+  <span class="ref">課本 p.72｜3-2 ③ 重力位能</span>
+  <h2>站在高處的東西，為什麼也有能量？</h2>
+  <p class="hook"><b>想一想：</b>同一顆蘋果，從 1 樓窗台掉下來和從 10 樓掉下來，哪一個砸到地上比較危險？高處的物體一放手，重力就會對它作功——<b>位置愈高，作功的能力愈大</b>。</p>
+  <ul class="goals"><li>說出重力位能的意義</li><li>知道重力位能和質量、高度都有關</li><li>能用「重力作的功」計算重力位能</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  課本用「坑洞深淺」比較位能（圖 3-6），模擬沿用同樣的想法。可先請學生預測：「2 kg 從 1 m」和「1 kg 從 2 m」誰的坑深？<br>
+  課本的關係式：<b>物體在高處的重力位能大小＝下落過程中重力對該物體所作的功</b>，也就是 W＝F×S＝(mg)×h。課本圖表關鍵字頁有出現 mg 和 h，一般班可以用「重量 × 高度」說明。<br>
+  ⚠️ 位能需要選「基準面」（位能＝0 的地方），課本預設是地面。資優挑戰有基準面的討論。
+</div></details>
+
+<div data-guess="t5"></div>
+
+<div class="card">
+  <h3>🧪 沙坑實驗：重錘從高處落下 <span class="tag note">坑愈深，代表重錘落地時作功的能力愈大</span></h3>
+  <canvas class="sim" id="c3sand"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>重錘質量 m <output for="c3sm"></output></label><input type="range" id="c3sm" min="1" max="5" step="1" value="2"></div>
+      <div class="ctl"><label>釋放高度 h <output for="c3sh"></output></label><input type="range" id="c3sh" min="0.5" max="3" step="0.5" value="1"></div>
+      <div class="btnrow"><button class="btn" id="c3sandGo">▶ 放手</button><button class="btn warn" id="c3sandRec">📋 記錄</button><button class="btn ghost" id="c3sandClr">清除紀錄</button></div>
+    </div>
+    <div>
+      <table class="rec"><thead><tr><th>#</th><th>質量</th><th>高度</th><th>坑深</th><th>重力作的功</th></tr></thead><tbody id="c3sandT"><tr><td colspan="5" class="note">按「記錄」把結果加進表格</td></tr></tbody></table>
+      <div class="callout" id="c3sandTxt">試試看：① 2 kg 從 1 m；② 1 kg 從 2 m。坑一樣深嗎？</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 重力位能</h3>
+  <p>因為<b>位置高低不同</b>，使地表附近的物體具有不同作功能力的物理量，稱為<b>重力位能</b>。單位和功、動能一樣，都是<b>焦耳（J）</b>。</p>
+  <div class="formula">物體在高處的重力位能 ＝ 下落過程中重力對它作的功<br>＝ 重量 × 高度 ＝（<span class="eq">m</span> × <span class="eq">g</span>）× <span class="eq">h</span><small>以地面為基準（地面上的重力位能＝0）</small></div>
+  <div class="grid2 even">
+    <div class="callout">📏 <b>同質量</b>的兩物體：位置愈高，重力位能愈大。（課本圖 3-6a）</div>
+    <div class="callout">⚖️ <b>同高度</b>的兩物體：質量愈大，重力位能愈大。（課本圖 3-6b）</div>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-3　動能與重力位能 <span class="tag note">課本 p.72</span></h3>
+  <div class="grid2">
+    <div>
+      <div class="q">樹上有甲、乙、丙三顆質量相同的蘋果（如右圖）。哪一顆蘋果的重力位能最大？蘋果成熟落地時，哪一顆著地瞬間的動能最大？</div>
+      <ol class="sol">
+        <li>質量相同，重力位能只看<b>高度</b>：乙最高 → 乙的重力位能最大。</li>
+        <li>落下時，重力作的功＝減少的重力位能＝增加的動能。</li>
+        <li>乙落下的高度最大 → 重力對乙作的功最多 → 乙著地時動能最大。</li>
+      </ol>
+      <div class="ansbox">答：重力位能最大的是乙；著地瞬間動能最大的也是乙。</div>
+    </div>
+    <svg viewBox="0 0 260 220" style="width:100%;max-width:300px;justify-self:center" role="img" aria-label="蘋果樹，乙最高、丙中間、甲最低">
+      <rect x="0" y="200" width="260" height="20" fill="#A1887F"/>
+      <rect x="118" y="110" width="22" height="92" fill="#795548"/>
+      <ellipse cx="130" cy="85" rx="105" ry="75" fill="#66BB6A"/>
+      <g font-size="15" font-weight="bold" fill="#fff" text-anchor="middle">
+        <circle cx="132" cy="30" r="13" fill="#E53935"/><text x="132" y="36">乙</text>
+        <circle cx="200" cy="85" r="13" fill="#E53935"/><text x="200" y="91">丙</text>
+        <circle cx="60" cy="130" r="13" fill="#E53935"/><text x="60" y="136">甲</text>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🏙️ 情境模擬：高空墜物有多危險？ <span class="tag note">不計空氣阻力；每層樓約 3 m</span></h3>
+  <canvas class="sim" id="c3fall"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="chips" id="c3fobj"><button class="chip" data-o="apple">🍎 蘋果</button><button class="chip on" data-o="bottle">🧴 瓶裝水</button><button class="chip" data-o="phone">📱 手機</button><button class="chip" data-o="pot">🪴 小盆栽</button><button class="chip" data-o="brick">🧱 磚頭</button></div>
+      <div class="ctl"><label>從第幾樓的窗台掉下 <output for="c3ff"></output></label><input type="range" id="c3ff" min="2" max="31" step="1" value="10"></div>
+      <div class="btnrow"><button class="btn" id="c3fallGo">▶ 掉下去</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3fallR"></div>
+      <div class="callout warn">⚠️ 真實情況有空氣阻力，輕的東西（像紙、羽毛）會慢很多；但瓶裝水、手機、磚頭這類東西，在十幾層樓的高度內，空氣阻力影響不大，非常危險。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 南投｜日月潭抽蓄水力發電</div>
+    <h4>把水庫當成「大電池」</h4>
+    <p>臺電的大觀、明潭抽蓄電廠，在半夜用電少的時候，用多餘的電把水從下池抽到高處的日月潭（電能 → 重力位能）；白天用電尖峰時再放水，讓水衝動水輪機發電（重力位能 → 動能 → 電能）。</p>
+    <p class="ask">想一想：上下兩池的高度差愈大，同樣多的水能發的電會怎樣？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 社會｜高空拋物</div>
+    <h4>一瓶水從 10 樓掉下來</h4>
+    <p>一瓶 600 公克的瓶裝水，從 10 樓窗台（離地約 27 公尺）掉下，落地前的動能約 0.6 × <span class="gval">9.8</span> × 27 ≈ <b class="num" id="c3bottle">176</b> 焦耳——比一顆職棒快速球（約 126 J）還大！</p>
+    <p class="ask">想一想：所以為什麼法律禁止高空拋物？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 工程｜打樁機</div>
+    <h4>把重錘一次次舉高再放下</h4>
+    <p>蓋大樓前要把長長的鋼樁打進地下。打樁機把幾噸重的重錘舉高（作功、儲存重力位能），放手後重錘落下砸在樁頂，把樁一點一點打進土裡。</p>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 運動｜跳水 10 公尺跳台</div>
+    <h4>入水時速約 50 公里</h4>
+    <p>10 公尺跳台的選手，起跳前的重力位能全部轉成動能，入水時速率約 14 m/s（時速 50 公里）。所以選手入水要用手掌先破開水面，姿勢不對可能受傷。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 能源｜水庫發電</div>
+    <h4>水位愈高，發電愈多</h4>
+    <p>水力發電廠把水壩後方高處的水引下來，重力位能轉成水的動能，再推動水輪機發電。同樣多的水，落差愈大，能發的電就愈多。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 自然｜隕石坑</div>
+    <h4>亞利桑那隕石坑</h4>
+    <p>美國亞利桑那州有一個直徑約 1.2 公里的隕石坑，是約 5 萬年前一顆鐵隕石撞出來的。就像本頁的沙坑實驗：動能愈大，坑愈大。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜重力位能的「基準面」＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📏 重力位能＝0 的地方，可以自己選！</h3>
+    <p>一本 1 kg 的書放在 1 m 高的桌上。它的重力位能是多少？——要看你把「哪裡」當成位能＝0（基準面）。</p>
+    <div class="chips" id="c3ref"><button class="chip on" data-r="0">以地面為基準</button><button class="chip" data-r="1">以桌面為基準</button><button class="chip" data-r="3">以天花板（3 m）為基準</button></div>
+    <div class="readout" id="c3refR" style="margin-top:8px"></div>
+    <div class="callout">🔑 <b>重點：</b>基準面不同，位能的數值會變（甚至可以是負的），但書從桌上掉到地上時，<b>減少的位能</b>（＝重力作的功）永遠一樣。物理上真正有意義的是<b>位能的「變化」</b>。</div>
+  </div>
+  <div data-arena="t5"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t5"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t5"></div>
+</div>
+
+<div class="takeaway" data-ans="位置高低|重力對它作的功">💬 <b>一句話帶走：</b>重力位能是物體因______不同而具有的作功能力；它的大小＝落下過程中______。</div>

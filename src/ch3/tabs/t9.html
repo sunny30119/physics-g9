@@ -1,0 +1,128 @@
+<!--NAV: 3-3 能源-->
+<div class="pagehead">
+  <span class="ref">課本 p.77–79｜3-3 ③ 能源・跨科主題：能源開發、利用及永續性</span>
+  <h2>臺灣的電從哪裡來？</h2>
+  <p class="hook"><b>能量的來源，稱為能源。</b>人類利用的能源分成兩大類：用完就沒有的<b>非再生能源</b>，和在自然中會持續補充的<b>再生能源</b>。臺灣的能源超過九成仰賴進口，該怎麼辦？</p>
+  <ul class="goals"><li>區分再生能源與非再生能源</li><li>說出各種發電方式的能量轉換</li><li>讀懂臺灣發電結構圖，提出節能減碳的做法</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  發電結構圖可切換 113 年（課本圖 3-12 用的年份）與 114 年最新數據，讓學生找「變化」：燃氣首度超越燃煤（113 年起）、核能因核三廠 2025 年 5 月停機而接近 0、再生能源上升。<br>
+  課本探究提問（地熱、垃圾沼氣、生質能的可行性與限制）可以用下方的「臺灣再生能源卡」分組討論，每組一種，3 分鐘報告。<br>
+  家庭用電計算器可作為回家作業：請學生找家裡電器的標示功率與每天使用時間。
+</div></details>
+
+<div data-guess="t9"></div>
+
+<div class="card">
+  <h3>📊 臺灣發電結構 <span class="tag note">占全國總發電量的百分比</span></h3>
+  <div class="chips" id="c3mixYr" style="margin-bottom:8px"><button class="chip on" data-y="113">民國 113 年（2024）</button><button class="chip" data-y="114">民國 114 年（2025）</button><button class="chip" data-y="cmp">兩年並排比較</button></div>
+  <canvas class="sim" id="c3mix"></canvas>
+  <p class="note">資料來源：113 年為台大風險社會與政策研究中心整理之經濟部能源署《能源統計月報》數據；114 年為經濟部能源署「發電概況」、環境部能源資訊平台（查詢日 2026-10-12）。課本圖 3-12（113 年）：火力 81.6%、再生能源 11.7%、核能 4.2%、其他 2.5%，因統計口徑略有差異，數字稍有不同。能源署 114 年頁面沒有分列燃油與抽蓄水力，所以兩年都把它們併入「其他」；不同媒體引用的數字口徑也可能不同。</p>
+</div>
+
+<div class="grid2 even">
+  <div class="card">
+    <h3>⛽ 非再生能源 <span class="tag note">蘊藏量有限，正快速減少</span></h3>
+    <p><b>化石能源</b>：遠古生物遺骸經長時間地質作用形成的煤、石油、天然氣。燃燒取得熱能，再轉成電能（火力發電）。<br><span class="note">能量轉換：化學能 → 熱能 → 動能 → 電能｜缺點：排放二氧化碳、空氣汙染</span></p>
+    <p><b>核能</b>：用中子撞擊鈾原子核，產生核分裂反應而獲得能量。<br><span class="note">能量轉換：核能 → 熱能 → 動能 → 電能｜發電時幾乎不排碳，但有核廢料處理與安全問題</span></p>
+  </div>
+  <div class="card">
+    <h3>🌱 再生能源 <span class="tag note">在自然中持續補充，不會耗盡</span></h3>
+    <p><b>太陽能</b>：光 → 熱能（熱水器）或電能（太陽能板）。目前是臺灣再生能源發電比例最高的方式。</p>
+    <p><b>風力</b>：風的動能 → 扇葉轉動 → 電能。近年成長最快速的再生能源。</p>
+    <p><b>水力</b>：歷史最悠久的再生能源發電，利用水壩蓄水的高低落差（重力位能）發電。</p>
+    <p><b>生質能</b>：利用沼氣、農作物殘渣等生物產生的有機物質。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🎯 分類挑戰：再生還是非再生？</h3>
+  <div id="c3sort9"></div>
+</div>
+
+<div class="card">
+  <h3>🔍 課本探究提問：臺灣再生能源的可行性與限制 <span class="tag note">點卡片翻面</span></h3>
+  <div class="cases" id="c3reCards"></div>
+</div>
+
+<div class="card">
+  <h3>🏠 情境模擬：我家一天用多少電？ <span class="tag note">1 度電＝1 千瓦 × 1 小時＝360 萬焦耳</span></h3>
+  <div class="grid2">
+    <div id="c3home" class="controls"></div>
+    <div>
+      <div class="readout" id="c3homeR"></div>
+      <div class="callout" id="c3homeTxt"></div>
+      <p class="note">排碳以「每度電約 0.47 公斤二氧化碳」粗估（113 年電力排碳係數約此數值）；電費以每度約 3 元粗估，實際依級距與季節而不同。</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🌍 節能減碳，從生活做起</h3>
+  <div class="grid2 even">
+    <div>
+      <p><b>認明標章</b>（課本圖 3-13）：選購有<b>節能標章</b>（同類產品中特別省電）與<b>環保標章</b>（製造到回收都對環境較友善）的產品。</p>
+      <p><b>交通</b>：多搭大眾運輸，選購低耗能車輛。</p>
+      <p><b>政策</b>：臺灣在民國 98 年通過《再生能源發展條例》，鼓勵發展再生能源產業。</p>
+    </div>
+    <ul class="selfcheck" data-key="save">
+      <li>離開房間隨手關燈、關電扇</li>
+      <li>冷氣設定在 26～28 °C，搭配電扇</li>
+      <li>手機充飽就拔掉充電器</li>
+      <li>短距離走路或騎腳踏車</li>
+      <li>買家電時看節能標章與能源效率分級</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 南投｜明潭抽蓄水力發電廠</div>
+    <h4>把電「存」在高處</h4>
+    <p>半夜用電少時，用多餘的電把水抽回日月潭（電能 → 重力位能）；白天尖峰時放水發電。它本身不「生產」能源，而是像一顆巨大的電池。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 臺灣海峽｜離岸風電</div>
+    <h4>強勁的季風是寶藏</h4>
+    <p>臺灣海峽冬季東北季風強勁，是世界上風場條件很好的海域之一。苗栗、彰化、雲林外海已建置數百座離岸風機。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 冰島｜地熱王國</div>
+    <h4>九成家庭用地熱取暖</h4>
+    <p>冰島位在板塊交界，地熱豐富，大部分家庭用地熱供暖。臺灣也在板塊交界上（地科第 6 章！），宜蘭清水、大屯山都有地熱發電的潛力。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜「度」是什麼？＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>⚡ 1 度電有多少焦耳？</h3>
+    <p>電費帳單上的「度」，是<b>能量</b>的單位，不是功率：1 度＝1 千瓦小時（kWh）＝1000 W × 3600 s＝<b>3,600,000 J</b>。</p>
+    <p>例：1000 W 的吹風機吹 1 小時＝1 度；10 W 的 LED 燈開 100 小時也是 1 度。</p>
+    <p>挑戰：1 度電如果全部拿來舉起 60 kg 的人，可以把他舉高多少？ 3,600,000 ÷ (60 × 9.8) ≈ <b>6100 公尺</b>——比玉山（3952 m）還高！</p>
+  </div>
+  <div data-arena="t9"></div>
+</div></details>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-3 能量守恆定律與能源 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="3-3">
+    <li>我能說出力學能＝動能＋位能，以及力學能守恆的條件</li>
+    <li>我能用力學能守恆解釋盪鞦韆、雲霄飛車</li>
+    <li>我能說出焦耳實驗的結論與能量守恆定律</li>
+    <li>我能區分再生能源與非再生能源，並各舉兩個例子</li>
+    <li>我能提出至少三種節能減碳的做法</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t9"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t9"></div>
+</div>
+
+<div class="takeaway" data-ans="能源|會不斷補充">💬 <b>一句話帶走：</b>能量的來源稱為______；再生能源在自然中______，非再生能源用完就沒有了。</div>

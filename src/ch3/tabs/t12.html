@@ -1,0 +1,146 @@
+<!--NAV: 3-4 滑輪與輪軸-->
+<div class="pagehead">
+  <span class="ref">課本 p.83–85｜3-4 ③ 滑輪 ④ 輪軸</span>
+  <h2>升旗、吊車、水龍頭：會轉的簡單機械</h2>
+  <p class="hook"><b>想一想：</b>升旗時，你往下拉繩子，國旗卻往上升；工地的吊車用好幾個滑輪，就能吊起好幾噸的鋼筋。轉動水龍頭、螺絲起子為什麼比較省力？</p>
+  <ul class="goals"><li>比較定滑輪、動滑輪的效果</li><li>用「功不變」推出動滑輪 F＝½W、拉繩距離 2 倍</li><li>判斷輪軸施力在輪或軸上時，是省力或費力</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  滑輪模擬可以讓學生「拉繩子」：拖動滑桿，同時看手拉的長度和物體上升的高度。動滑輪：拉 2 m、升 1 m，施力只要一半——F×S₁＝W×S₂。<br>
+  課本也把滑輪類比成槓桿：定滑輪 F×r＝W×r（等臂）；動滑輪 F×2r＝W×r（支點在繩子固定的那一側）。資優班可以畫出來。<br>
+  滑輪組（多段繩子）不是課本必考內容，放在資優層。「工地挑戰」是綜合題，建議分組討論。
+</div></details>
+
+<div data-guess="t12"></div>
+
+<div class="card">
+  <h3>🧪 滑輪實驗室 <span class="tag note">物體 20 公斤重；不計滑輪重量與摩擦</span></h3>
+  <div class="chips" id="c3pMode" style="margin-bottom:8px"><button class="chip on" data-n="1">定滑輪</button><button class="chip" data-n="2">動滑輪</button><button class="chip dpo" data-n="4">🟣 滑輪組（4 段繩子）</button></div>
+  <div class="grid2">
+    <canvas class="sim" id="c3pulley"></canvas>
+    <div class="controls">
+      <div class="ctl"><label>手往下（往上）拉的繩長 <output for="c3pS"></output></label><input type="range" id="c3pS" min="0" max="2" step="0.05" value="0"></div>
+      <div class="readout" id="c3pR"></div>
+      <div class="callout" id="c3pTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 定滑輪與動滑輪</h3>
+  <table class="simple">
+    <tr><th></th><th>定滑輪</th><th>動滑輪</th></tr>
+    <tr><td>樣子</td><td>位置固定不動</td><td>滑輪和物體一起上升</td></tr>
+    <tr><td>施力</td><td>F ＝ W</td><td>F ＝ ½ W</td></tr>
+    <tr><td>拉繩距離</td><td>S₁ ＝ S₂</td><td>S₁ ＝ 2 S₂</td></tr>
+    <tr><td>類比槓桿</td><td>F × r ＝ W × r（施力臂＝抗力臂）</td><td>F × 2r ＝ W × r（施力臂＝2 倍抗力臂）</td></tr>
+    <tr><td>效果</td><td>不省力、不省時，<b>能改變力的方向</b></td><td><b>省力、費時</b>，無法改變力的方向</td></tr>
+    <tr><td>課本例子</td><td>升旗桿頂的滑輪（圖 3-19）</td><td>吊車的滑輪（圖 3-20）</td></tr>
+  </table>
+  <div class="formula" style="margin-top:10px">施力作的功 ＝ 物體獲得的重力位能：<span class="eq">F</span> × <span class="eq">S</span>₁ ＝ <span class="eq">W</span> × <span class="eq">S</span>₂</div>
+</div>
+
+<div class="card">
+  <h3>🧪 輪軸實驗室 <span class="tag note">輪和軸固定在同一根轉軸上，一起轉</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="c3wheel"></canvas>
+    <div class="controls">
+      <div class="chips" id="c3wMode"><button class="chip on" data-m="wheel">施力在輪上（省力）</button><button class="chip" data-m="axle">施力在軸上（費力）</button></div>
+      <div class="ctl"><label>輪半徑 R <output for="c3wR"></output></label><input type="range" id="c3wR" min="7" max="20" step="1" value="10"></div>
+      <div class="ctl"><label>軸半徑 r <output for="c3wr"></output></label><input type="range" id="c3wr" min="2" max="6" step="1" value="5"></div>
+      <div class="btnrow"><button class="btn" id="c3wGo">⟳ 轉 ¼ 圈</button></div>
+      <div class="readout" id="c3wRR"></div>
+      <div class="callout" id="c3wTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 輪軸</h3>
+  <p>兩個不同半徑的圓輪固定在同一轉軸上：半徑大的叫<b>輪</b>（R），半徑小的叫<b>軸</b>（r）。輪轉一圈，軸也轉一圈。</p>
+  <div class="grid2 even">
+    <div class="callout">🟢 <b>施力在輪上</b>：F × R ＝ W × r<br>施力臂＞抗力臂 → <b>省力費時</b><br>例：水龍頭、螺絲起子、門把、方向盤（課本圖 3-21）</div>
+    <div class="callout">🔴 <b>施力在軸上</b>：F × r ＝ W × R<br>施力臂＜抗力臂 → <b>費力省時</b><br>例：擀麵棍、竹蜻蜓、腳踏車後輪（課本圖 3-22）</div>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-6　輪軸 <span class="tag note">課本 p.85</span></h3>
+  <div class="q">一個輪軸裝置，輪半徑 10 cm、軸半徑 5 cm。軸上用繩子吊著 40 公斤重的物體，在輪上施力 F。若不計摩擦：① 此輪軸是省力還是費力機械？② F 最少須施力多少公斤重，才能將物體吊起？</div>
+  <ol class="sol">
+    <li>施力在<b>輪</b>上：施力臂＝輪半徑 10 cm；抗力在<b>軸</b>上：抗力臂＝軸半徑 5 cm。</li>
+    <li>施力臂＞抗力臂 → <b>省力</b>機械。</li>
+    <li>F × R ＝ W × r → F × 10 ＝ 40 × 5 → F ＝ <b>20 公斤重</b>。</li>
+  </ol>
+  <div class="ansbox">答：① 省力；② 至少 20 公斤重。</div>
+</div>
+
+<div class="card">
+  <h3>🏗️ 情境挑戰：工地吊鋼琴 <span class="tag note">把 200 kg 的鋼琴送上 5 m 高的二樓陽台，工人最多只能出 60 公斤重的力</span></h3>
+  <div class="grid2">
+    <div class="controls">
+      <div class="chips" id="c3site"></div>
+      <div class="callout" id="c3siteTxt">選一種方法試試看！</div>
+    </div>
+    <div class="readout" id="c3siteR"></div>
+  </div>
+  <p class="note">不計滑輪重量與摩擦；斜面假設鋼琴放在有輪子的推車上。真實工地會加上安全係數。</p>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 學校｜升旗</div>
+    <h4>站在地上把國旗送上去</h4>
+    <p>旗桿頂的定滑輪不省力，但讓你可以「往下拉」，站在地面就能把國旗升到十幾公尺高。想像一下沒有它：要有人爬上旗桿頂把旗子拉上去！</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 工地｜塔式起重機</div>
+    <h4>好幾段繩子分攤重量</h4>
+    <p>吊車的吊鉤上有一組動滑輪，鋼索來回穿過好幾次。繩子段數愈多，每段繩子的拉力愈小，馬達就能吊起好幾噸重的鋼筋——但要捲很長的鋼索。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜水龍頭與螺絲起子</div>
+    <h4>把手做得粗一點</h4>
+    <p>水龍頭的把手、螺絲起子的握柄都是「輪」，裡面的閥桿、刀桿是「軸」。施力在輪上 → 省力。螺絲起子握柄愈粗，鎖螺絲愈省力。</p>
+  </div>
+  <div class="case">
+    <div class="where">🚲 生活｜腳踏車</div>
+    <h4>後輪是「費力省時」的輪軸</h4>
+    <p>鏈條帶動後面的小齒輪（軸），小齒輪和大後輪（輪）固定在一起。施力在軸上 → 費力，但後輪輪緣跑得又快又遠。變速腳踏車爬坡時換到大齒輪，就是讓「軸」變大、比較不費力。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜滑輪組：繩子段數＝省力的倍數＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>⛓️ 撐住物體的繩子有幾段？</h3>
+    <p>把定滑輪和動滑輪組合起來，就成了<b>滑輪組</b>。同一條繩子各處的張力相同，如果有 n 段繩子一起撐住動滑輪和物體：</p>
+    <div class="formula"><span class="eq">F</span> ＝ <span class="eq">W</span> ÷ <span class="eq">n</span>　　拉繩距離 ＝ <span class="eq">n</span> × 物體上升距離</div>
+    <p>上面的滑輪實驗室，在資優模式可以選「滑輪組（4 段繩子）」：施力只要 5 公斤重，但物體升高 0.5 m，手要拉 2 m。</p>
+    <p class="note">真實的動滑輪本身有重量：F ＝（W ＋ 動滑輪重）÷ n。</p>
+  </div>
+  <div data-arena="t12"></div>
+</div></details>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-4 簡單機械 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="3-4">
+    <li>我知道簡單機械可以省力、省時或改變方向，但不能省功</li>
+    <li>我能用 F×L＝W×H 計算斜面的施力</li>
+    <li>我能依施力臂與抗力臂判斷省力或費力槓桿</li>
+    <li>我能比較定滑輪與動滑輪的效果</li>
+    <li>我能用 F×R＝W×r 計算輪軸的施力</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t12"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t12"></div>
+</div>
+
+<div class="takeaway" data-ans="改變方向|一半|兩倍">💬 <b>一句話帶走：</b>定滑輪能______；動滑輪施力只要______，但繩子要拉______長。</div>

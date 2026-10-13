@@ -1,0 +1,143 @@
+<!--NAV: 3-2 彈力位能-->
+<div class="pagehead">
+  <span class="ref">課本 p.73｜3-2 ④ 彈力位能</span>
+  <h2>壓扁的彈簧，藏著什麼能量？</h2>
+  <p class="hook"><b>課本圖 3-7：</b>把彈簧一端固定在牆上、另一端接木塊。壓縮彈簧再放開，木塊會被推動——表示<b>被壓縮的彈簧具有作功的能力</b>。</p>
+  <ul class="goals"><li>說出彈力位能的意義</li><li>知道壓縮或拉長都會儲存彈力位能</li><li>能說出「位能」的完整定義</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  模擬可以拖曳木塊（往左＝壓縮、往右＝拉長），放開後木塊會來回振動。請學生注意右邊長條：彈力位能和動能此消彼長，但<b>總和不變</b>——這是 3-3 力學能守恆的預告。<br>
+  可搭配實物：橡皮筋動力車、彈射玩具。課本圖 3-8 的橡皮筋彈射也可以現場示範（注意安全，不要對人）。<br>
+  ½kx² 是資優內容（要用到虎克定律：彈力和形變量成正比），一般班只要知道「形變愈大，彈力位能愈大」。
+</div></details>
+
+<div data-guess="t6"></div>
+
+<div class="card">
+  <h3>🧪 彈簧與木塊 <span class="tag note">拖曳木塊：往左壓縮、往右拉長，放開看看</span></h3>
+  <canvas class="sim drag" id="c3spr"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="chips" id="c3sprPre"><button class="chip" data-x="-0.1">壓縮 0.1 m</button><button class="chip" data-x="-0.2">壓縮 0.2 m</button><button class="chip" data-x="0.1">拉長 0.1 m</button><button class="chip" data-x="0.2">拉長 0.2 m</button></div>
+      <div class="chips" id="c3sprMode"><button class="chip on" data-m="hold">木塊黏在彈簧上（來回振動）</button><button class="chip" data-m="free">木塊沒黏（會被彈出去）</button></div>
+      <div class="ctl dpo"><label>🟣 彈簧的硬度 k（彈力常數） <output for="c3sprK"></output></label><input type="range" id="c3sprK" min="50" max="400" step="50" value="200"></div>
+      <div class="btnrow"><button class="btn ghost" id="c3sprStop">⏹ 停住、歸位</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3sprR"></div>
+      <div class="callout" id="c3sprTxt">往左拖木塊（壓縮彈簧），放手！</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 彈力位能與「位能」</h3>
+  <p>當彈簧被<b>壓縮</b>或<b>拉長</b>時，具有作功的能力，稱彈簧儲存了<b>彈力位能</b>。放手後，彈力位能逐漸減少，轉換成木塊的動能。</p>
+  <p>生活中常見的例子：拉長的橡皮筋放手會彈射出去（課本圖 3-8）。</p>
+  <div class="formula">位能：物體在<b>特定位置</b>上或<b>形變</b>時所儲存的潛在物理量<small>重力位能（位置高低）＋ 彈力位能（形變）</small></div>
+  <table class="simple">
+    <tr><th></th><th>重力位能</th><th>彈力位能</th></tr>
+    <tr><td>來源</td><td>物體在高處</td><td>物體被壓縮或拉長（形變）</td></tr>
+    <tr><td>愈大的條件</td><td>質量愈大、位置愈高</td><td>形變愈大、彈簧愈硬</td></tr>
+    <tr><td>例子</td><td>水庫的水、樹上的蘋果</td><td>拉滿的弓、壓縮的彈簧、彎曲的撐竿</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h3>🎯 分類挑戰：這是哪一種能量？</h3>
+  <div id="c3sort6"></div>
+</div>
+
+<div class="card">
+  <h3>🎯 情境模擬：彈弓能射多高？ <span class="tag note">彈力位能 → 動能 → 重力位能（不計空氣阻力）</span></h3>
+  <canvas class="sim" id="c3sling"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>橡皮筋拉長 <output for="c3slx"></output></label><input type="range" id="c3slx" min="5" max="30" step="5" value="10"></div>
+      <div class="chips" id="c3slb"><button class="chip" data-b="m1">彈珠 20 g</button><button class="chip on" data-b="m2">小石頭 50 g</button><button class="chip" data-b="m3">網球 60 g</button></div>
+      <div class="btnrow"><button class="btn" id="c3slGo">▶ 發射（往正上方）</button><button class="btn ghost" id="c3slClr">清除紀錄</button></div>
+      <div class="readout" id="c3slR"></div>
+    </div>
+    <div>
+      <table class="rec"><thead><tr><th>#</th><th>彈丸</th><th>拉長</th><th>最高高度</th></tr></thead><tbody id="c3slT"></tbody></table>
+      <div class="callout">🔍 試試看：同一顆石頭，拉長 10 cm 和 20 cm，射的高度差幾倍？<br><span class="note">真實的彈弓有空氣阻力、橡皮筋也會發熱，實際高度會低很多。千萬不要對著人或窗戶射！</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 運動｜射箭</div>
+    <h4>拉滿弓的那一刻</h4>
+    <p>射箭選手把弓拉開時，對弓作功，弓臂彎曲儲存彈力位能；放開弓弦，彈力位能轉成箭的動能。臺灣射箭隊在 2020 東京奧運拿下男子團體銀牌。</p>
+    <p class="ask">想一想：同一把弓，拉得愈開，箭射得愈遠還是愈近？為什麼？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 運動｜撐竿跳</div>
+    <h4>三段式的能量接力</h4>
+    <p>撐竿跳選手先全速助跑（動能）→ 把竿子插進地上，竿子彎成一個大弧形（彈力位能）→ 竿子彈直，把選手送上 6 公尺高（重力位能）。頂尖選手的紀錄已經超過 6 公尺。</p>
+    <p class="ask">想一想：如果竿子是硬的不會彎，還能跳那麼高嗎？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜彈跳床、跳床</div>
+    <h4>愈跳愈高的祕密</h4>
+    <p>落下時把床面壓得很深（儲存彈力位能），床面彈回時把人往上送。在床面被壓下時用腳出力，就能多「存」一點能量，愈跳愈高。</p>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case world">
+    <div class="where">🌍 極限運動｜高空彈跳</div>
+    <h4>繩子變成彈簧</h4>
+    <p>高空彈跳的人往下掉時，重力位能變成動能；彈性繩被拉長後，動能又變成繩子的彈力位能，把人拉回上方。繩子的長度和彈性要精準計算，才能讓人在碰到地面或水面前停下。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜發條玩具</div>
+    <h4>上緊發條就會跑</h4>
+    <p>轉動發條鑰匙時，你對發條作功，把彈力位能存在捲緊的金屬片裡。放手後，發條慢慢鬆開，把彈力位能轉成玩具的動能。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 交通｜機車避震器</div>
+    <h4>過坑洞不會被彈飛</h4>
+    <p>機車的避震器裡有彈簧。壓過坑洞時彈簧被壓縮，暫時把能量存成彈力位能，再慢慢釋放，騎士就不會被猛力彈起。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜彈力位能＝½kx²（F–x 圖的面積）＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📈 為什麼是 ½kx²？</h3>
+    <div class="grid2">
+      <canvas class="sim" id="c3fx"></canvas>
+      <div>
+        <p>虎克定律：彈力 F＝k × x（k 是彈簧的硬度，x 是壓縮量或伸長量）。把彈簧慢慢壓縮 x，施力從 0 增加到 kx，作的功＝F–x 圖下的三角形面積：</p>
+        <div class="formula">彈力位能 ＝ ½ × x × kx ＝ ½ <span class="eq">k</span> <span class="eq">x</span>²</div>
+        <p class="note">上面模擬中拖動木塊時，左圖的紫色三角形會跟著變大。壓縮量 2 倍 → 三角形的底和高都 2 倍 → 面積 4 倍。</p>
+      </div>
+    </div>
+  </div>
+  <div data-arena="t6"></div>
+</div></details>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-2 動能與位能 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="3-2">
+    <li>我能說出動能是運動物體作功的能力，和質量、速率有關</li>
+    <li>我知道外力作正功動能增加、作負功動能減少</li>
+    <li>我能說出重力位能和質量、高度有關</li>
+    <li>我知道彈簧壓縮或拉長都會儲存彈力位能</li>
+    <li>我能說出「位能」的定義</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t6"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t6"></div>
+</div>
+
+<div class="takeaway" data-ans="形變|特定位置">💬 <b>一句話帶走：</b>彈簧、橡皮筋因為______而儲存彈力位能；位能就是物體在______上或形變時儲存的作功能力。</div>

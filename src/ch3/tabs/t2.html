@@ -1,0 +1,189 @@
+<!--NAV: 3-1 功率-->
+<div class="pagehead">
+  <span class="ref">課本 p.69｜3-1 ② 功率</span>
+  <h2>同樣的功，誰作得比較快？</h2>
+  <p class="hook"><b>功的定義沒有考慮時間。</b>用 1 牛頓推 20 公尺、和用 4 牛頓推 5 公尺，作的功都是 20 焦耳——但一個花 20 秒，一個只花 5 秒。怎麼描述「作功的快慢」？</p>
+  <ul class="goals"><li>說出功率的定義 P＝W÷t 與單位瓦特</li><li>分清楚「功」和「功率」</li><li>能估算自己爬樓梯的功率</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  建議做「爬樓梯測功率」活動（約 15 分鐘）：兩人一組，一人跑上一層樓、一人計時；樓層高度可先用捲尺量一階的高度 × 階數。回教室把數據輸入下方計算器，全班比較誰的功率最大——<b>體重大的同學不一定功率大</b>，是很好的討論點。<br>
+  類比：功率之於功，就像速率之於距離（都是「÷ 時間」）。學生 3 上第 1 章才學過速率，可以直接連結。<br>
+  例題 3-2 的「40 公斤」是陷阱數字：等速推動時推力＝摩擦力＝100 N，跟質量無關。
+</div></details>
+
+<div data-guess="t2"></div>
+
+<div class="card history">
+  <h3>📜 瓦特賣蒸汽機：「我的機器抵得過幾匹馬？」</h3>
+  <p>18 世紀的英國，礦坑抽水、磨坊轉磨都靠馬。<span class="who">瓦特</span>改良了蒸汽機後，要說服礦場老闆購買，最直接的說法就是：「這台機器能取代幾匹馬？」</p>
+  <p>他觀察拉磨的馬，估計 1 匹馬每分鐘大約能把 33000 磅的東西舉高 1 英尺，把這個定為「<b>1 馬力</b>」（hp）。換成今天的單位，1 馬力約等於 <b>746 瓦特</b>。</p>
+  <p>後人為了紀念瓦特，就把功率的單位命名為「<b>瓦特</b>」（W）。今天汽車、機車還常用「馬力」，而家電標示的是「瓦特」。</p>
+</div>
+
+<div class="card">
+  <h3>🏁 功率賽跑：作功一樣多，誰比較快？ <span class="tag note">下方的圖是「已經作的功」隨時間的變化</span></h3>
+  <canvas class="sim" id="c3race"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="grid2 even" style="gap:12px">
+        <div>
+          <div class="ctl"><label>🅰 外力 F <output for="c3pFA"></output></label><input type="range" id="c3pFA" min="1" max="20" step="1" value="1"></div>
+          <div class="ctl"><label>🅰 距離 S <output for="c3pSA"></output></label><input type="range" id="c3pSA" min="1" max="20" step="1" value="20"></div>
+          <div class="ctl"><label>🅰 花的時間 t <output for="c3pTA"></output></label><input type="range" id="c3pTA" min="1" max="20" step="1" value="20"></div>
+        </div>
+        <div>
+          <div class="ctl"><label>🅱 外力 F <output for="c3pFB"></output></label><input type="range" id="c3pFB" min="1" max="20" step="1" value="4"></div>
+          <div class="ctl"><label>🅱 距離 S <output for="c3pSB"></output></label><input type="range" id="c3pSB" min="1" max="20" step="1" value="5"></div>
+          <div class="ctl"><label>🅱 花的時間 t <output for="c3pTB"></output></label><input type="range" id="c3pTB" min="1" max="20" step="1" value="5"></div>
+        </div>
+      </div>
+      <div class="btnrow"><button class="btn" id="c3raceGo">▶ 開始</button></div>
+      <div class="chips" id="c3racePre">
+        <button class="chip on" data-p="1,20,20,4,5,5">課本圖 3-2</button>
+        <button class="chip" data-p="10,10,2,10,20,20">功率大的作功一定多？</button>
+      </div>
+    </div>
+    <div>
+      <div class="readout" id="c3raceR"></div>
+      <div class="callout" id="c3raceTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 功率的定義</h3>
+  <div class="formula">功率 ＝ 外力作功 ÷ 經歷時間<br><span class="eq">P</span> ＝ <span class="eq">W</span> ÷ <span class="eq">t</span><small>（式 3-2）功用焦耳（J）、時間用秒（s）→ 功率的單位是 焦耳／秒（J/s），又叫做 <b>瓦特（W）</b>　｜　1 千瓦（kW）＝ 1000 瓦特　｜　1 馬力 ≈ 746 瓦特</small></div>
+  <div class="grid2 even">
+    <div class="callout">⚠️ <b>小心兩個 W！</b><br>斜體的 <span class="eq">W</span> 是「功」（work），正體的 W 是功率單位「瓦特」（watt）。<br>例：<span class="eq">W</span>＝20 J；<span class="eq">P</span>＝4 W。</div>
+    <div class="callout">🏃 <b>功率之於功，就像速率之於距離</b><br>速率＝距離 ÷ 時間：跑得多快。<br>功率＝功 ÷ 時間：作功多快。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🧗 活動：測量你爬樓梯的功率 <span class="tag note">把數據填進去，自動算出功率</span></h3>
+  <div class="grid2">
+    <div class="controls">
+      <div class="ctl"><label>你的質量 <output for="c3stM"></output></label><input type="range" id="c3stM" min="30" max="100" step="1" value="55"></div>
+      <div class="ctl"><label>爬的高度（量一階的高度 × 階數） <output for="c3stH"></output></label><input type="range" id="c3stH" min="1" max="15" step="0.1" value="3.3"></div>
+      <div class="ctl"><label>花的時間 <output for="c3stT"></output></label><input type="range" id="c3stT" min="2" max="30" step="0.1" value="6"></div>
+    </div>
+    <div>
+      <div class="readout" id="c3stR"></div>
+      <div class="callout" id="c3stTxt"></div>
+    </div>
+  </div>
+  <p class="note">算法：你的體重＝質量 × g（牛頓）；對抗重力作的功＝體重 × 高度；功率＝功 ÷ 時間。實際上身體消耗的能量比這個多好幾倍（身體的效率大約只有兩、三成）。</p>
+</div>
+
+<div class="card">
+  <h3>🔌 生活中的功率 <span class="tag note">家電數據參考台電月刊〈生活中的一度電〉（2023），實際依廠牌型號而不同</span></h3>
+  <table class="simple">
+    <tr><th>東西</th><th>約略功率</th><th>相當於幾個「你爬樓梯」</th></tr>
+    <tbody id="c3appl"></tbody>
+  </table>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-2　功率 <span class="tag note">課本 p.69</span></h3>
+  <div class="q">在粗糙的水平地面上，恰恰以 100 牛頓的水平力推 40 公斤的木箱，木箱以 1 公尺／秒的等速度移動了 20 公尺，花了 20 秒。恰恰對木箱作的功和功率分別是多少？</div>
+  <ol class="sol">
+    <li>先找「力」和「沿力方向的位移」：推力 F＝100 N（水平），位移 S＝20 m（也是水平）。</li>
+    <li>功：W＝F × S＝100 × 20＝<b>2000 J</b>。</li>
+    <li>功率：P＝W ÷ t＝2000 ÷ 20＝<b>100 W</b>。</li>
+    <li>⚠️ 題目給的「40 公斤」用不到！推力已經直接給了 100 N。不要把質量乘進去。</li>
+  </ol>
+  <div class="ansbox">答：功 2000 焦耳；功率 100 瓦特。</div>
+</div>
+
+<div class="card">
+  <h3>🏢 從 1 樓到 4 樓的三種方法：作功一樣，功率不一樣 <span class="tag note">只算「把人抬高 9 公尺」對抗重力的功</span></h3>
+  <canvas class="sim" id="c3floor"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>你的質量 <output for="c3floorM"></output></label><input type="range" id="c3floorM" min="30" max="90" step="5" value="55"></div>
+      <div class="ctl"><label>🚶 走樓梯花的時間 <output for="c3floorT0"></output></label><input type="range" id="c3floorT0" min="20" max="60" step="2" value="40"></div>
+      <div class="ctl"><label>🏃 跑樓梯花的時間 <output for="c3floorT1"></output></label><input type="range" id="c3floorT1" min="8" max="20" step="1" value="12"></div>
+      <div class="ctl"><label>🛗 電梯花的時間 <output for="c3floorT2"></output></label><input type="range" id="c3floorT2" min="4" max="20" step="1" value="8"></div>
+      <div class="btnrow"><button class="btn" id="c3floorGo">▶ 出發</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3floorR"></div>
+      <div class="callout">三種方法都把你從 1 樓抬到 4 樓（3 層樓，約 9 公尺），對你作的功<b>一樣多</b>；差別只在快慢，也就是<b>功率</b>。<br><span class="note">電梯馬達實際上還要抬升車廂、克服摩擦，所以耗電比這裡算的多。</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 臺北｜臺北 101 高速電梯</div>
+    <h4>37 秒衝上 89 樓</h4>
+    <p>臺北 101 的高速電梯，從 5 樓到 89 樓觀景台上升約 382 公尺，只要約 37 秒。</p>
+    <p>假設電梯連乘客共 3000 公斤，對抗重力每秒要作的功約：<br>3000 × <span class="gval">9.8</span> × 382 ÷ 37 ≈ <b class="num" id="c3e101">304000</b> 瓦特</p>
+    <p class="ask">想一想：這相當於幾匹馬？（1 馬力 ≈ 746 瓦）</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 運動｜自行車選手</div>
+    <h4>人類能輸出多少瓦？</h4>
+    <p>一般健康的成人劇烈運動一小時，機械功率大約 50～150 瓦；頂尖的職業自行車選手可以維持約 440 瓦長達一小時，衝刺時短暫可超過 2000 瓦。</p>
+    <p class="ask">想一想：所以「1 馬力」（746 瓦）對一般人來說，能維持很久嗎？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 歷史｜工業革命</div>
+    <h4>從馬到蒸汽機</h4>
+    <p>瓦特的蒸汽機讓工廠不再需要建在河邊（靠水車）或養一大群馬。功率變大，同樣的工作就能更快完成，這就是工業革命的動力來源。</p>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case world">
+    <div class="where">🌍 德國｜奧運選手 vs. 烤麵包機</div>
+    <h4>用腳踩出一片吐司</h4>
+    <p>德國奧運場地自行車選手佛斯特曼曾挑戰：踩腳踏車發電，供電給一台約 700 瓦的烤麵包機，烤好一片吐司。他拚命踩了一分多鐘，下車時幾乎累癱——人體很難長時間輸出幾百瓦。</p>
+    <p class="ask">想一想：家裡一天要用多少「人力」才供得起電？</p>
+  </div>
+  <div class="case">
+    <div class="where">🫀 人體｜心臟的功率</div>
+    <h4>一輩子不休息的小幫浦</h4>
+    <p>心臟每次跳動都要把血液推出去，對血液作功。它的機械功率只有大約 1～1.5 瓦，比一顆 LED 燈泡還小，但一天 24 小時、一輩子都不停。</p>
+  </div>
+  <div class="case">
+    <div class="where">☀️ 太陽｜陽光的功率</div>
+    <h4>每平方公尺約 1000 瓦</h4>
+    <p>晴朗的中午，陽光照在地面上每平方公尺的功率大約 1000 瓦——相當於一台吹風機。太陽能板就是把這些光能的一部分（約兩成）轉成電能。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜P＝F×v、W–t 圖的斜率＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🚗 等速運動時：功率＝力 × 速率</h3>
+    <p>如果物體受一個固定的力 F，以等速度 v 沿力的方向前進，經過時間 t 走了 S＝v × t：</p>
+    <div class="formula"><span class="eq">P</span> ＝ <span class="eq">W</span> ÷ <span class="eq">t</span> ＝ <span class="eq">F</span> × <span class="eq">S</span> ÷ <span class="eq">t</span> ＝ <span class="eq">F</span> × <span class="eq">v</span></div>
+    <p>例題 3-2：P＝100 N × 1 m/s＝100 W，和上面算的一樣！</p>
+    <p>👉 這就是為什麼汽車爬坡要「換低速檔」：引擎的最大功率是固定的，要得到比較大的推力 F，速率 v 就得變小。</p>
+    <p>👉 上面「功率賽跑」下方的 W–t 圖：直線的<b>斜率</b>（每秒增加多少功）就是功率。斜率愈陡，功率愈大。</p>
+  </div>
+  <div data-arena="t2"></div>
+</div></details>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-1 功與功率 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="3-1">
+    <li>我了解功的定義：W＝F×S，單位是焦耳</li>
+    <li>我能判斷力對物體作正功、負功或不作功</li>
+    <li>我可以說明功率的概念：P＝W÷t，單位是瓦特</li>
+    <li>我能分清楚「功」和「功率」的差別</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t2"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t2"></div>
+</div>
+
+<div class="takeaway" data-ans="快慢|瓦特">💬 <b>一句話帶走：</b>功率描述作功的______，P＝W÷t，單位是焦耳／秒，又叫______。</div>

@@ -1,0 +1,4 @@
+.DS_Store
+__pycache__/
+# research/ 含審題報告（有段考題號與題目概括）、查證草稿，只留在老師電腦，不公開
+research/

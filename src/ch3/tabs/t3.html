@@ -1,0 +1,149 @@
+<!--NAV: 3-2 動能-->
+<div class="pagehead">
+  <span class="ref">課本 p.70｜3-2 ① 動能</span>
+  <h2>被快的球打到，為什麼比較痛？</h2>
+  <p class="hook"><b>科學 tell me why：</b>打躲避球時，被比較快的球打到會比較痛。運動的物體撞到靜止的物體，可以讓它移動、變形——<b>運動的物體具有「作功的能力」</b>。這個能力和什麼有關？</p>
+  <ul class="goals"><li>說出動能的意義：運動物體作功的能力</li><li>知道動能和質量、速率都有關</li><li>發現：速率對動能的影響比質量更大</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  這頁用 18 世紀「活力之爭」當主線：先讓學生投票支持笛卡兒（mv）還是萊布尼茲（mv²），再用黏土模擬「當裁判」。<br>
+  操作建議：先固定質量 1 kg，速率 1 → 2 → 3 m/s 各按一次「記錄」，請學生看坑深的倍數（1:4:9）；再固定速率，質量 1 → 2 → 3 kg（1:2:3）。<br>
+  課本 3-2 沒有寫出 ½mv² 公式（一般班只要知道「質量愈大、速率愈大，動能愈大」）；「速率 2 倍→動能 4 倍」可以從表格自然看出，資優班再用 W＝F×S 推導公式。
+</div></details>
+
+<div data-guess="t3"></div>
+
+<div class="card history">
+  <h3>📜 18 世紀的大吵架：「運動的力量」是 mv 還是 mv²？</h3>
+  <div class="grid2 even">
+    <div>
+      <p><span class="who">笛卡兒派</span>：運動的力量＝質量 × 速率（mv）。速率變 2 倍，力量就變 2 倍。</p>
+      <p><span class="who">萊布尼茲派</span>：運動的力量＝質量 × 速率²（mv²），他叫它「活力」。速率變 2 倍，力量變 4 倍！</p>
+    </div>
+    <div>
+      <p>1722 年，荷蘭的<span class="who">格拉弗桑德</span>想出一個裁判方法：把銅球從不同高度丟進軟黏土裡，<b>比較凹坑的大小</b>。坑愈大，代表球「作功的能力」愈大。他發現結果符合萊布尼茲的 mv²。</p>
+      <p>後來<span class="who">夏特萊侯爵夫人</span>在書中介紹這個實驗，讓更多人接受了萊布尼茲的看法。</p>
+    </div>
+  </div>
+  <p class="note">👇 下面的模擬就是這個實驗。你來當裁判！</p>
+</div>
+
+<div class="card">
+  <h3>🧪 黏土牆實驗：球射進黏土，坑有多深？ <span class="tag note">黏土對球的阻力固定為 50 N</span></h3>
+  <canvas class="sim" id="c3clay"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>球的質量 m <output for="c3cm"></output></label><input type="range" id="c3cm" min="0.5" max="4" step="0.5" value="1"></div>
+      <div class="ctl"><label>球的速率 v <output for="c3cv"></output></label><input type="range" id="c3cv" min="1" max="5" step="1" value="2"></div>
+      <div class="btnrow"><button class="btn" id="c3clayGo">▶ 發射</button><button class="btn warn" id="c3clayRec">📋 記錄這一次</button><button class="btn ghost" id="c3clayClr">清除紀錄</button></div>
+    </div>
+    <div>
+      <table class="rec"><thead><tr><th>#</th><th>質量</th><th>速率</th><th>坑深</th><th class="dp">½mv²</th></tr></thead><tbody id="c3clayT"><tr><td colspan="5" class="note">按「記錄這一次」把結果加進表格</td></tr></tbody></table>
+      <div class="callout" id="c3clayTxt">建議：① 固定質量 1 kg，速率 1、2、3 各記錄一次；② 固定速率 2 m/s，質量 1、2、3 各記錄一次。比較坑深的倍數。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 動能</h3>
+  <p>科學家把<b>運動物體作功的能力</b>稱為這個物體的<b>動能</b>。動能的單位和功一樣，是<b>焦耳（J）</b>。</p>
+  <div class="grid2 even">
+    <div class="callout">⚖️ <b>質量相同</b>的兩個物體：速率愈大，動能愈大。（課本圖 3-3a）</div>
+    <div class="callout">🏃 <b>速率相同</b>的兩個物體：質量愈大，動能愈大。（課本圖 3-3b）</div>
+  </div>
+  <div class="callout warn">🔍 <b>從實驗表格發現：</b>質量變 2 倍 → 坑深變 2 倍；但<b>速率變 2 倍 → 坑深變 4 倍</b>，速率變 3 倍 → 坑深變 9 倍。<b>速率對動能的影響比質量大得多！</b>萊布尼茲贏了。</div>
+</div>
+
+<div class="card">
+  <h3>🎯 比比看：哪一個的動能比較大？</h3>
+  <div id="c3kesort"></div>
+</div>
+
+<div class="card">
+  <h3>🚗 情境模擬：煞車距離 <span class="tag note">駕駛看到行人 → 反應 → 踩煞車 → 停下</span></h3>
+  <canvas class="sim" id="c3brake"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>車速 <output for="c3bv"></output></label><input type="range" id="c3bv" min="20" max="110" step="10" value="50"></div>
+      <div class="ctl"><label>反應時間 <output for="c3brt"></output></label><input type="range" id="c3brt" min="0.5" max="2.5" step="0.1" value="1"></div>
+      <div class="chips" id="c3brtPre"><button class="chip" data-t="0.7">專心開車 0.7 秒</button><button class="chip" data-t="1">一般 1 秒</button><button class="chip" data-t="2">滑手機分心 2 秒</button></div>
+      <div class="ctl"><label>行人在前方 <output for="c3bd"></output></label><input type="range" id="c3bd" min="15" max="100" step="5" value="35"></div>
+      <div class="chips" id="c3broad"><button class="chip on" data-mu="0.7">乾燥路面</button><button class="chip" data-mu="0.4">下雨濕滑</button></div>
+      <div class="btnrow"><button class="btn" id="c3brakeGo">▶ 開始</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3brakeR"></div>
+      <div class="callout">🔍 試試看：車速 30、60、90 km/h 的<b>煞車距離</b>差幾倍？（提示：動能和速率的平方成正比，摩擦力要作負功把動能吃掉。）</div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 交通｜為什麼要限速？</div>
+    <h4>車速 2 倍，煞車距離約 4 倍</h4>
+    <p>踩煞車後，路面摩擦力要對車子作負功，把動能「吃掉」車子才會停。摩擦力差不多固定，所以<b>煞車距離和動能成正比</b>。</p>
+    <table class="simple"><tr><th>車速</th><th>30 km/h</th><th>60 km/h</th><th>90 km/h</th><th>120 km/h</th></tr><tr><td>動能（倍）</td><td>1</td><td>4</td><td>9</td><td>16</td></tr><tr><td>煞車距離（倍）</td><td>1</td><td>4</td><td>9</td><td>16</td></tr></table>
+    <p class="ask">想一想：學校附近為什麼常限速 30 km/h？（還沒算進「看到危險到踩下煞車」的反應距離喔）</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 運動｜棒球</div>
+    <h4>一顆快速球有多少動能？</h4>
+    <p>棒球質量約 0.145 公斤。職棒投手時速 150 公里（約 41.7 m/s）的快速球，動能約 <b class="num">126</b> 焦耳（用資優挑戰的公式 ½mv² 算出來）——相當於把 13 公斤的東西舉高 1 公尺所作的功。</p>
+    <p class="ask">想一想：所以打擊者為什麼一定要戴頭盔？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 俄羅斯｜2013 年 車里雅賓斯克隕石</div>
+    <h4>質量不大，速率卻超快</h4>
+    <p>2013 年 2 月，一顆直徑約 20 公尺的小行星以每秒約 19 公里的速率衝進大氣層，在空中爆炸，衝擊波震破了上千棟建築的玻璃，約 1500 人受傷。</p>
+    <p class="ask">想一想：這顆隕石的大小只像一棟大樓，為什麼破壞力這麼驚人？（提示：速率的平方）</p>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 天氣｜颱風</div>
+    <h4>風速 2 倍，破壞力不只 2 倍</h4>
+    <p>風就是流動的空氣，帶有動能。同樣多的空氣，風速變 2 倍，動能就變 4 倍。所以強颱的破壞力遠遠超過輕颱。</p>
+    <p class="ask">想一想：氣象署用「級」描述風力，12 級風（約 33 m/s）和 6 級風（約 12 m/s），每公斤空氣的動能差幾倍？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 太空｜太空垃圾</div>
+    <h4>一片油漆碎片也能打凹窗戶</h4>
+    <p>在地球軌道上，東西的速率約每秒 7～8 公里。美國太空梭曾被一片很小的油漆碎片撞出小坑。質量雖小，速率超大，動能就很驚人。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 運動｜躲避球</div>
+    <h4>課本的問題：快球比較痛</h4>
+    <p>同一顆躲避球，速率 2 倍時動能 4 倍，打到身上時要讓它停下來，身體得承受更大的力（或更長的距離），所以比較痛。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜從 W＝F×S 推導出動能公式 ½mv²＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 推導：外力作的功，全部變成動能</h3>
+    <p>質量 m 的靜止物體，在光滑平面上受固定外力 F，被推了距離 S 後速率變成 v。（回想 ① 功 的「牛頓的問題」）</p>
+    <ol>
+      <li>牛頓第二運動定律：加速度 a＝F ÷ m，所以 <b>F＝m × a</b>。</li>
+      <li>等加速度運動，從靜止開始：平均速率＝v ÷ 2，花的時間 t＝v ÷ a，所以距離 S＝（v ÷ 2）× t＝<b>v² ÷ 2a</b>。（也就是 v–t 圖三角形的面積）</li>
+      <li>外力作的功：W＝F × S＝m a × v² ÷ 2a＝<b>½ m v²</b>。</li>
+    </ol>
+    <div class="formula">動能 <span class="eq">E</span><sub>k</sub> ＝ ½ <span class="eq">m</span> <span class="eq">v</span>²<small>質量用公斤、速率用公尺／秒，算出來就是焦耳。這就是科若利在 1829 年給萊布尼茲的 mv² 加上 ½ 的原因。</small></div>
+    <p>📋 回到上面的黏土實驗，表格最右邊的「½mv²」欄現在會顯示。驗證：坑深 × 50 N ＝ ½mv²？</p>
+    <p class="note">那笛卡兒的 mv 錯了嗎？其實也沒錯——mv 叫做「動量」，在碰撞中也會守恆，高中會學到。兩派吵的其實是兩個不同的物理量！</p>
+  </div>
+  <div data-arena="t3"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t3"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t3"></div>
+</div>
+
+<div class="takeaway" data-ans="作功|速率">💬 <b>一句話帶走：</b>動能是運動物體______的能力；質量愈大、速率愈大，動能愈大，而且______的影響更大（2 倍變 4 倍）。</div>

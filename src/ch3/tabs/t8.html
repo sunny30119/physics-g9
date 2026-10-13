@@ -1,0 +1,130 @@
+<!--NAV: 3-3 能量守恆-->
+<div class="pagehead">
+  <span class="ref">課本 p.76｜3-3 ② 能量守恆定律</span>
+  <h2>能量會消失嗎？焦耳用一桶水找答案</h2>
+  <p class="hook"><b>1843 年，焦耳問了一個問題：</b>不加熱、不曬太陽，有沒有其他方法讓水溫上升？力學能能不能變成熱？</p>
+  <ul class="goals"><li>說出焦耳實驗的過程與結論</li><li>說出能量守恆定律</li><li>能舉出生活中的能量轉換例子</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  焦耳模擬用的是<b>真實數量級</b>：重錘落下一次，水溫只上升約 0.07 °C（預設值；重錘加重、水減少可到 0.3 °C 左右）——這正是焦耳實驗困難的地方（他要讓重錘反覆落下二十幾次、溫度計要讀到很精細）。課本圖 3-11 的 25 → 27 °C 是示意。<br>
+  「熱量」在 2 上學過（卡），1 卡 ≈ 4.2 焦耳可以順便連結。<br>
+  能量轉換鏈遊戲適合分組搶答；彈跳球模擬用來處理「能量守恆 ≠ 力學能守恆」的混淆。
+</div></details>
+
+<div data-guess="t8"></div>
+
+<div class="card history">
+  <h3>📜 三個人，同一個發現</h3>
+  <div class="grid2 even">
+    <div>
+      <p><span class="who">邁爾（1842，德國船醫）</span>：在熱帶航行時發現水手的靜脈血比在歐洲時鮮紅，推想身體在熱的地方不需要「燒」那麼多養分來保暖——熱和運動應該可以互相轉換。</p>
+      <p><span class="who">焦耳（1843–1845，英國）</span>：家裡開釀酒廠，從小就很會量溫度。他用各種實驗證明「一定量的功，一定產生一定量的熱」。相傳他連蜜月旅行都帶著溫度計，想量瀑布上下的水溫差！</p>
+    </div>
+    <div>
+      <p><span class="who">亥姆霍茲（1847，德國）</span>：把力學、熱、電、磁、生命現象中的能量統整起來，完整提出<b>能量守恆定律</b>。</p>
+      <p class="note">當時很多科學家並不相信焦耳——他測的溫度變化實在太小了（不到 1 °C）。直到 1847 年年輕的克耳文聽了他的報告、開始支持他，這個觀念才慢慢被接受。</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🧪 焦耳的槳輪實驗 <span class="tag note">真實數量級：重錘落下一次，水溫只升一點點</span></h3>
+  <canvas class="sim" id="c3joule"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>兩個重錘的總質量 <output for="c3jm"></output></label><input type="range" id="c3jm" min="10" max="40" step="5" value="20"></div>
+      <div class="ctl"><label>落下高度 <output for="c3jh"></output></label><input type="range" id="c3jh" min="0.5" max="2" step="0.5" value="1.5"></div>
+      <div class="ctl"><label>容器裡的水 <output for="c3jw"></output></label><input type="range" id="c3jw" min="0.5" max="3" step="0.5" value="1"></div>
+      <div class="btnrow"><button class="btn" id="c3jGo">⬇ 放下重錘</button><button class="btn warn" id="c3j10">⏩ 連續 10 次</button><button class="btn ghost" id="c3jReset">↺ 重來</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3jR"></div>
+      <div class="callout">重錘每次落下，減少的重力位能 → 葉片的動能 → 攪動水 → 水的熱能。<br>焦耳發現：<b>約 4.2 焦耳的功＝1 卡的熱量</b>（1 卡：讓 1 公克的水升高 1 °C）。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📐 能量守恆定律</h3>
+  <div class="formula">能量可以從一種形式轉變成另一種形式，<br>而且在轉換過程中，<b>總能量既不會增加，也不會減少</b>。</div>
+  <div class="grid2 even">
+    <div class="callout">⚡ <b>能量的形式</b>：動能、位能（重力、彈力）、熱能、光能、電能、化學能、聲能、核能……</div>
+    <div class="callout">🔁 <b>和力學能守恆的差別</b>：力學能守恆只看「動能＋位能」，有摩擦就不守恆；能量守恆把<b>所有形式</b>都算進來，永遠成立。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🏀 情境模擬：彈跳球的能量跑去哪了？ <span class="tag note">每次落地都有一部分力學能變成熱和聲音</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="c3bounce"></canvas>
+    <div class="controls">
+      <div class="chips" id="c3bBall"><button class="chip on" data-k="0.9">超級彈力球</button><button class="chip" data-k="0.75">籃球</button><button class="chip" data-k="0.5">網球（舊）</button><button class="chip" data-k="0">黏土球</button></div>
+      <div class="btnrow"><button class="btn" id="c3bGo">▶ 從 2 m 放手</button></div>
+      <div class="readout" id="c3bR"></div>
+      <div class="callout">力學能（黃）一次比一次少，熱＋聲音（紅）一次比一次多，<b>總能量（灰框）不變</b>。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🔗 情境遊戲：能量轉換鏈 <span class="tag note">依照能量轉換的順序，依序點選下面的能量形式</span></h3>
+  <div class="chips" id="c3chainSc" style="margin-bottom:10px"></div>
+  <div id="c3chainQ" class="big" style="margin-bottom:8px"></div>
+  <div class="chips" id="c3chainOpts"></div>
+  <div id="c3chainAns" style="margin:10px 0;font-size:1.1rem;min-height:1.6em"></div>
+  <div class="btnrow"><button class="btn ghost" id="c3chainUndo">↶ 退一步</button><button class="btn ghost" id="c3chainShow">看答案</button></div>
+  <div class="callout" id="c3chainTxt" style="display:none"></div>
+</div>
+
+<div class="card" style="background:#F7FAFD">
+  <h3>🧸 費曼的積木比喻 <span class="tag note">課本 p.76 課程補充</span></h3>
+  <p>費曼在《費曼物理學講義》裡說了一個故事：有個小男孩有 28 塊打不壞的積木。媽媽每天晚上數一次，有時候只數到 25 塊——後來發現 3 塊藏在玩具箱裡；有時候數到 30 塊——原來是朋友來玩時留下了 2 塊。</p>
+  <p>媽媽發現：只要把<b>藏起來的、跑出去的、跑進來的</b>都算進去，總數永遠是 28。</p>
+  <p>能量也是這樣：動能變少了，可能「藏」到位能、熱能裡；只要每一種形式都算進去，總數永遠不變。<b>能量不是一種「東西」，而是一個永遠算得出相同總數的數字。</b></p>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 生活｜太陽能電池</div>
+    <h4>光能 → 電能</h4>
+    <p>課本舉例：太陽能電池把光能轉換成電能。計算機上那一小片太陽能板，就能讓計算機不用換電池。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 能源｜風力發電</div>
+    <h4>風的動能 → 電能</h4>
+    <p>風吹動扇葉（空氣的動能 → 扇葉的動能），帶動發電機發電（→ 電能）。苗栗、彰化外海都有大片的風機。</p>
+  </div>
+  <div class="case">
+    <div class="where">🫀 人體｜吃飯和運動</div>
+    <h4>食物的化學能</h4>
+    <p>食物包裝上的「大卡」就是能量：1 大卡 ≈ 4200 焦耳。一碗白飯約 280 大卡，大約可以讓 55 公斤的人爬上 2000 公尺高……嗎？其實身體的效率只有約兩成，大部分變成體溫！</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 夢想｜永動機</div>
+    <h4>不用能源、永遠會動的機器？</h4>
+    <p>幾百年來，有無數人宣稱發明了「永動機」，但沒有一台成功。能量守恆定律告訴我們：機器不可能憑空變出能量；而且每次轉換都會有熱散掉，所以停下來是必然的。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜算算看焦耳的實驗有多難＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🧮 為什麼焦耳要讓重錘落下二十幾次？</h3>
+    <p>假設重錘共 20 kg，落下 1.5 m：位能減少 20 × 9.8 × 1.5 ＝ 294 J ≈ 70 卡。容器裡有 1000 g 的水，溫度只上升 70 ÷ 1000 ＝ <b>0.07 °C</b>！</p>
+    <p>當時最好的溫度計，大約只能讀到 0.01 °C 左右。為了讓溫度變化大到量得出來，焦耳讓重錘反覆落下約 20 次，再仔細扣掉散熱的影響。</p>
+    <p>他在 1850 年發表的結果是：約 4.16 焦耳＝1 卡，和今天公認的 4.18～4.19 只差不到 1%！</p>
+  </div>
+  <div data-arena="t8"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t8"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t8"></div>
+</div>
+
+<div class="takeaway" data-ans="形式|不會增加，也不會減少">💬 <b>一句話帶走：</b>能量可以從一種______轉變成另一種，總能量______。</div>

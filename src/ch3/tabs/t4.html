@@ -1,0 +1,141 @@
+<!--NAV: 3-2 功與動能變化-->
+<div class="pagehead">
+  <span class="ref">課本 p.71｜3-2 ② 功與動能的變化</span>
+  <h2>外力作的功，跑到哪裡去了？</h2>
+  <p class="hook"><b>關鍵發現：</b>自高處落下的棒球，重力對它作正功，它的速率愈來愈快；往上拋的棒球，重力對它作負功，它愈來愈慢。<b>外力對物體作的功，等於物體動能的變化。</b></p>
+  <ul class="goals"><li>說出：外力作正功 → 動能增加；作負功 → 動能減少</li><li>能用「作功＝動能變化」解釋落下與上拋</li><li>能用這個關係解釋生活現象（接球、煞車）</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  這頁是本章的「樞紐」：把 3-1 的功和 3-2 的動能接起來。模擬右邊兩根長條「力作的功」和「動能的變化」永遠一樣高，請學生盯著看。<br>
+  操作順序：① 自由落下 → ② 垂直上拋（注意最高點：動能 0，重力共作了負功）→ ③ 光滑地面推箱子 → ④ 粗糙地面滑行（摩擦力作負功）。<br>
+  上拋的「下降段」重力作正功，所以球回到手中時，重力的總功是 0，動能回到原來大小——可以讓資優生先預測。
+</div></details>
+
+<div data-guess="t4"></div>
+
+<div class="card">
+  <h3>🧪 功與動能的變化 <span class="tag note">右邊兩根長條：「外力作的功」和「動能的變化」永遠一樣</span></h3>
+  <div class="chips" id="c3wkMode" style="margin-bottom:8px">
+    <button class="chip on" data-m="drop">① 自由落下</button><button class="chip" data-m="up">② 垂直上拋</button>
+    <button class="chip" data-m="push">③ 光滑地面推箱子</button><button class="chip" data-m="slide">④ 箱子在粗糙地面滑行</button>
+  </div>
+  <canvas class="sim" id="c3wk"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label id="c3wkPL">落下高度 <output for="c3wkP"></output></label><input type="range" id="c3wkP" min="2" max="10" step="1" value="8"></div>
+      <div class="btnrow"><button class="btn" id="c3wkGo">▶ 播放</button><button class="btn ghost" id="c3wkPause">⏸ 暫停</button><button class="btn ghost" id="c3wkReset">↺ 重來</button></div>
+      <p class="note">球的質量 0.5 kg；箱子的質量 2 kg。播放是慢動作。</p>
+    </div>
+    <div>
+      <div class="readout" id="c3wkR"></div>
+      <div class="callout" id="c3wkTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記 <span class="tag note">課本 p.71，點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th>外力與物體運動的方向</th><th>物體速率變化</th><th>作功的正負</th><th>動能變化</th></tr>
+    <tr><td>同向 →→</td><td><span class="fill" data-a="變快"></span></td><td><span class="fill" data-a="正功"></span></td><td><span class="fill" data-a="增加"></span></td></tr>
+    <tr><td>反向 ←→</td><td><span class="fill" data-a="變慢"></span></td><td><span class="fill" data-a="負功"></span></td><td><span class="fill" data-a="減少"></span></td></tr>
+  </table>
+  <div class="formula" style="margin-top:10px">重力作正功 ＝ 物體獲得的動能　｜　重力作負功 ＝ 物體失去的動能</div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 練習　自由落下的動能</h3>
+  <div class="q">一顆 0.5 公斤的球從 5 公尺高處靜止落下（不計空氣阻力，g＝<span class="gval">9.8</span>）。落地瞬間，球的動能是多少焦耳？</div>
+  <ol class="sol">
+    <li>球受的重力：F＝m × g＝0.5 × <span class="gval">9.8</span>＝<b id="c3ex4F">4.9</b> N（向下）。</li>
+    <li>球的位移：向下 5 m，和重力<b>同向</b> → 重力作正功。</li>
+    <li>重力作的功：W＝F × S＝<span id="c3ex4F2">4.9</span> × 5＝<b id="c3ex4W">24.5</b> J。</li>
+    <li>重力作的功＝球獲得的動能，球一開始靜止（動能 0）。</li>
+  </ol>
+  <div class="ansbox">答：落地瞬間動能＝<span id="c3ex4A">24.5</span> 焦耳。</div>
+</div>
+
+<div class="card">
+  <h3>🥚 接雞蛋挑戰：怎麼接才不會破？ <span class="tag note">雞蛋 60 g；平均受力超過 25 N 就會破（模擬設定）</span></h3>
+  <canvas class="sim" id="c3egg"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>雞蛋落下的高度 <output for="c3eh"></output></label><input type="range" id="c3eh" min="0.5" max="3" step="0.5" value="1.5"></div>
+      <div class="ctl"><label>緩衝距離（手往下縮多少） <output for="c3es"></output></label><input type="range" id="c3es" min="1" max="25" step="1" value="2"></div>
+      <div class="chips" id="c3ePre"><button class="chip" data-s="1">硬地板（約 1 cm）</button><button class="chip" data-s="3">手硬接（3 cm）</button><button class="chip" data-s="8">枕頭（8 cm）</button><button class="chip" data-s="15">手順勢往下縮（15 cm）</button></div>
+      <div class="btnrow"><button class="btn" id="c3eggGo">▶ 放手</button></div>
+    </div>
+    <div>
+      <div class="readout" id="c3eggR"></div>
+      <div class="callout">要讓雞蛋停下來，手必須對它作<b>負功</b>，把動能「吃掉」：<b>F × S ＝ 動能</b>。<br>動能固定時，緩衝距離 S 愈長，需要的力 F 就愈小，蛋就不會破。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 棒球｜捕手接球</div>
+    <h4>為什麼接球時手要往後縮？</h4>
+    <p>要讓球停下來，手套必須對球作負功，「吃掉」球的動能。動能固定時，W＝F × S：<b>手往後縮的距離 S 愈長，需要的力 F 就愈小</b>，手就不會那麼痛。</p>
+    <p class="ask">想一想：跳遠落地時為什麼要屈膝？汽車的安全氣囊是什麼道理？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 賽車｜F1 煞車盤</div>
+    <h4>煞車煞到發紅</h4>
+    <p>F1 賽車從時速 300 公里以上煞車時，煞車盤會被燒到發出橘紅色的光。摩擦力對車子作負功，車子失去的動能變成了熱。</p>
+    <p class="ask">想一想：下長坡時一直踩煞車，為什麼可能讓煞車「過熱失靈」？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜溜滑梯</div>
+    <h4>滑下來為什麼屁股會熱？</h4>
+    <p>重力對你作正功，讓你愈滑愈快；但滑梯的摩擦力同時對你作負功，一部分動能變成熱。如果滑梯沒有摩擦力，你會衝得更快！</p>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 交通｜安全帽與安全氣囊</div>
+    <h4>多爭取幾公分</h4>
+    <p>安全帽裡的保麗龍、汽車的安全氣囊，都是在撞擊時讓頭「多移動幾公分才停下」。緩衝距離變長，撞擊力就變小。所以安全帽被重摔過一次就該換——保麗龍已經被壓扁，沒有緩衝距離了。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 運動｜跳遠、跳高</div>
+    <h4>沙坑和海綿墊</h4>
+    <p>跳遠落在沙坑、跳高落在厚海綿墊上，身體陷進去一段距離才停，地面（墊子）作負功的距離變長，力就變小，不會受傷。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 科學競賽｜雞蛋空投</div>
+    <h4>Egg Drop Challenge</h4>
+    <p>世界各地的學校都愛玩「雞蛋空投」：用吸管、紙張做一個保護裝置，讓雞蛋從高樓掉下不破。優勝作品的共同點：<b>讓蛋停下來的距離盡量長</b>。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜好幾個力同時作功：功能定理＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 功能定理：所有外力作功的總和 ＝ 動能的變化</h3>
+    <div class="grid2">
+      <div>
+        <p>推箱子時，推力作正功、摩擦力作負功。箱子的動能變化，要看<b>兩個力的功加起來</b>：</p>
+        <div class="formula">W<sub>推力</sub> ＋ W<sub>摩擦力</sub> ＝ ΔE<sub>k</sub></div>
+        <div class="ctl"><label>推力 F <output for="c3netF"></output></label><input type="range" id="c3netF" min="0" max="30" step="1" value="20"></div>
+        <div class="ctl"><label>摩擦力 f <output for="c3netf"></output></label><input type="range" id="c3netf" min="0" max="30" step="1" value="5"></div>
+        <div class="ctl"><label>移動距離 S <output for="c3netS"></output></label><input type="range" id="c3netS" min="1" max="5" step="1" value="3"></div>
+      </div>
+      <div class="readout" id="c3netR"></div>
+    </div>
+  </div>
+  <div data-arena="t4"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t4"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t4"></div>
+</div>
+
+<div class="takeaway" data-ans="動能的變化|增加|減少">💬 <b>一句話帶走：</b>外力對物體作的功＝物體______；作正功動能______，作負功動能______。</div>
