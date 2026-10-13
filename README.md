@@ -1,5 +1,9 @@
 # 三上理化互動電子課本（第 3 章 功與能）
 
+- 線上網址：https://sunny30119.github.io/physics-g9/ch3.html （首頁 https://sunny30119.github.io/physics-g9/ ；QR code 在 downloads/QR_第三章功與能.png）
+- 更新流程：改 `src/` → `cd src && python3 build.py ch3`（題庫改了先跑 make_downloads.py）→ `git add . && git commit && git push` → 1–2 分鐘自動上線
+- ⚠️ `research/` 已列入 .gitignore（含審題報告、段考題號），**不可上傳**
+
 - 教學對象：九年級自然（理化），一般生＋數理資優生共用同一份網頁；也給學生自學、複習
 - 使用情境：課堂投影授課＋學生用手機/平板自學
 - 右上角三種模式：**學生**（預設，自學用）／**資優**（展開紫色資優挑戰）／**老師**（再加教學提示與舉手計數）
