@@ -1,0 +1,236 @@
+<!--NAV: 3-3 聲音三要素-->
+<div class="pagehead">
+  <span class="ref">課本 p.73–77｜3-3 多變的聲音</span>
+  <h2>為什麼聽得出大小聲、高低音，還有「是誰在說話」？</h2>
+  <p class="hook"><b>科學 tell me why：</b>阿翰該起床了還在賴床，還沒看到媽媽的表情，就先聽到媽媽的大罵聲。聲音有哪些特色，讓阿翰知道是<b>媽媽</b>在說話？還能判斷媽媽在<b>生氣</b>？</p>
+  <ul class="goals"><li>說出聲音三要素：音量（響度）、音調、音色</li><li>知道音量由振幅決定（單位分貝 dB），音調由頻率決定（單位赫 Hz），音色由波形決定</li><li>知道發音體愈短、愈細、愈緊、愈薄，音調愈高</li><li>分辨樂音與噪音，了解噪音對健康的影響</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 45 分鐘）：① 猜一猜 → ② 聲音實驗室：一次只動一個拉桿（先音量、再頻率、最後音色），每次請學生說出示波器的變化 → ③ 試管與琴弦（重現探討活動 3-3）→ ④ 分貝尺與聽力保健 → ⑤ 樂音與噪音、麥克風示波器（探討活動 3-4）→ ⑥ 例題 3-5。<br>
+  聲音實驗室的示波器是「位移–時間圖」，橫軸固定 10 毫秒：頻率愈高，畫面裡的波愈多、愈密。<br>
+  ⚠ 播放前先把教室喇叭調小；頻率超過 2000 赫的純音聽久了會不舒服，示範時間短一點。<br>
+  麥克風功能需要瀏覽器授權，只在這台裝置上分析，不會錄音、不會上傳。
+</div></details>
+
+<div data-guess="t4"></div>
+
+<div class="card">
+  <h3>🔬 聲音實驗室：示波器看聲音 <span class="tag note">示波器把聲音的振動畫成「位移–時間圖」，橫軸固定 10 毫秒</span></h3>
+  <canvas class="sim" id="w4scope"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>🔊 音量（振幅） <output for="w4vol"></output></label><input type="range" id="w4vol" min="0" max="100" step="5" value="50"></div>
+      <div class="ctl"><label>🎵 音調（頻率） <output for="w4freq"></output></label><input type="range" id="w4freq" min="0" max="100" step="1" value="47"></div>
+      <div class="chips" id="w4tim"></div>
+      <div class="btnrow"><button class="btn" id="w4play">▶ 播放</button><button class="btn ghost" id="w4stop">■ 停止</button></div>
+      <div class="chips" id="w4keys" style="margin-top:6px"></div>
+    </div>
+    <div>
+      <div class="readout" id="w4R"></div>
+      <div class="callout" id="w4Txt">一次只動一個拉桿，觀察示波器上的波形怎麼變。</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid2 even">
+  <div class="card" style="margin:0 0 16px">
+    <h3>🔊 音量與振幅</h3>
+    <p><b>音量</b>（響度）表示聲音的大小。敲擊力量小，音量小，波形振幅小；敲擊力量大，音量大，波形振幅大。</p>
+    <p>→ <b>聲波振幅愈大，音量愈大</b>。生活中常用<b>分貝（dB）</b>比較聲音大小。</p>
+  </div>
+  <div class="card" style="margin:0 0 16px">
+    <h3>🎵 音調與頻率</h3>
+    <p><b>音調</b>表示聲音的高低。音調低的音叉振動頻率低；音調高的音叉振動頻率高。</p>
+    <p>→ <b>頻率愈高，音調愈高</b>，單位是赫（Hz）。人說話的頻率大約在 90～560 赫之間；通常女生的音調比男生高。</p>
+  </div>
+</div>
+<div class="card">
+  <h3>🎻 音色與波形</h3>
+  <p><b>音色</b>是不同發音體獨特的發音特性，由聲音的<b>波形</b>決定。長笛、小號、小提琴演奏同一個音（同頻率、同音量），我們仍然聽得出是哪一種樂器，因為它們的波形不同（課本圖 3-21）。在上面的實驗室切換「音色」按鈕試試看。</p>
+  <p class="note">媽媽罵人的例子：聽出是「媽媽」靠的是<b>音色</b>；聽出她在「生氣」，靠的是比平常<b>大聲</b>（音量）、比平常<b>尖</b>（音調）。</p>
+</div>
+
+<div class="card">
+  <h3>🧪 探討活動 3-3 線上版：試管的聲音 <span class="tag note">拖動拉桿改變水量，再按「吹」或「敲」（會發出聲音）</span></h3>
+  <canvas class="sim" id="w4tube"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="grid2 even" style="gap:8px">
+        <div class="ctl"><label>試管 1 水量 <output for="w4w1"></output></label><input type="range" id="w4w1" min="0" max="80" step="5" value="10"></div>
+        <div class="ctl"><label>試管 2 水量 <output for="w4w2"></output></label><input type="range" id="w4w2" min="0" max="80" step="5" value="40"></div>
+        <div class="ctl"><label>試管 3 水量 <output for="w4w3"></output></label><input type="range" id="w4w3" min="0" max="80" step="5" value="70"></div>
+        <div class="ctl"><label>湯匙敲的力量 <output for="w4force"></output></label><input type="range" id="w4force" min="1" max="5" step="1" value="3"></div>
+      </div>
+      <div class="btnrow"><button class="btn" data-b="0">🌬️ 吹 1</button><button class="btn" data-b="1">🌬️ 吹 2</button><button class="btn" data-b="2">🌬️ 吹 3</button><button class="btn ghost" id="w4knock">🥄 用湯匙敲試管 2</button></div>
+    </div>
+    <div class="callout" id="w4tubeTxt">對管口吹氣時，振動發聲的是管內的<b>空氣柱</b>（淺藍色部分）。水愈多，空氣柱愈短。哪一支吹起來最高？</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🎸 情境模擬：烏克麗麗怎麼調音？ <span class="tag note">課本圖 3-20b：調整弦的鬆緊和按壓位置</span></h3>
+  <canvas class="sim" id="w4string"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>手指按的位置 → 振動部分的長度 <output for="w4sL"></output></label><input type="range" id="w4sL" min="20" max="60" step="1" value="60"></div>
+      <div class="ctl"><label>弦的鬆緊（轉弦鈕） <output for="w4sT"></output></label><input type="range" id="w4sT" min="1" max="9" step="1" value="5"></div>
+      <div class="chips" id="w4sThick"><button class="chip" data-m="2">粗弦</button><button class="chip on" data-m="1">中弦</button><button class="chip" data-m="0.5">細弦</button></div>
+      <div class="btnrow"><button class="btn" id="w4pluck">🤏 撥弦</button></div>
+    </div>
+    <div>
+      <div class="readout" id="w4sR"></div>
+      <div class="callout">發音體愈<b>短</b>、愈<b>細</b>、愈<b>緊</b>、愈<b>薄</b>，音調愈高（課本 p.75）。這就是 1636 年梅森整理出的規律。鐵琴的琴鍵也是愈短，音調愈高。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：聲音三要素 <span class="tag note">點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th>要素</th><th>音量（響度）</th><th>音調</th><th>音色</th></tr>
+    <tr><td>代表</td><td>聲音的大小</td><td>聲音的高低</td><td>發音體的獨特發音特性</td></tr>
+    <tr><td>影響因素</td><td><span class="fill" data-a="振幅"></span></td><td><span class="fill" data-a="頻率"></span></td><td>波形</td></tr>
+    <tr><td>關係</td><td>振幅愈大，聲音愈<span class="fill" data-a="大"></span></td><td>頻率愈高，音調愈<span class="fill" data-a="高"></span></td><td>波形不同，音色不同</td></tr>
+    <tr><td>單位</td><td><span class="fill" data-a="分貝（dB）"></span></td><td><span class="fill" data-a="赫（Hz）"></span></td><td>（沒有單位）</td></tr>
+  </table>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-5　聲音三要素 <span class="tag note">課本 p.76</span></h3>
+  <div class="q">有關樂器演奏時所聽到的聲音，判斷是或否：① 樂器發出的聲音愈大者，其傳播的速率愈快　② 樂器發出的頻率較高者，聽起來音調比較高　③ 能區分各種樂器的聲音，是因為它們的音色不同　④ 樂器引起空氣的振動愈大者，代表響度愈大</div>
+  <ol class="sol">
+    <li>① <b>否</b>：聲速只和介質（種類、溫度）有關，和音量無關。</li>
+    <li>② <b>是</b>：頻率愈高，音調愈高。</li>
+    <li>③ <b>是</b>：不同樂器的波形不同，音色不同。</li>
+    <li>④ <b>是</b>：空氣振動愈大＝振幅愈大＝響度愈大。</li>
+  </ol>
+  <div class="ansbox">答：①否 ②是 ③是 ④是。</div>
+</div>
+
+<div class="card">
+  <h3>📏 分貝尺：聲音有多大？ <span class="tag note">課本 p.75、p.77 課程補充；拖動拉桿</span></h3>
+  <canvas class="sim" id="w4db"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>音量 <output for="w4dbv"></output></label><input type="range" id="w4dbv" min="0" max="140" step="5" value="60"></div>
+    </div>
+    <div class="callout" id="w4dbTxt"></div>
+  </div>
+  <p class="note">分區界線為大約值，依課本 p.77 圖示整理。0 分貝是正常耳朵能聽見的最小音量（不是「沒有聲音」）。每增加 10 分貝，聲音的強度變成 10 倍；增加 20 分貝，強度變成 100 倍。</p>
+  <details class="deep"><summary>🧠 資優：兩台 60 分貝的電風扇一起開，是 120 分貝嗎？</summary><div class="inner"><p>不是！強度變 2 倍，分貝只增加約 <b>3 分貝</b>（10 × log 2 ≈ 3），變成約 63 分貝。分貝是「對數」刻度，不能直接相加。要從 60 分貝變 70 分貝，強度要變 10 倍——相當於 10 台電風扇一起開。</p></div></details>
+</div>
+
+<div class="card">
+  <h3>🎶 探討活動 3-4 線上版：樂音與噪音 <span class="tag note">按按鈕聽聲音，看示波器上的波形</span></h3>
+  <canvas class="sim" id="w4mn"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="w4mnB">
+        <button class="chip" data-k="piano">🎹 鋼琴的 Do</button><button class="chip" data-k="flute">🎵 長笛的 La</button><button class="chip" data-k="chord">🎼 和弦（Do Mi Sol）</button>
+        <button class="chip" data-k="noise">📢 沙沙的雜訊</button><button class="chip" data-k="drill">🚧 工地電鑽</button><button class="chip" data-k="fire">🧨 鞭炮聲</button>
+      </div>
+      <div class="btnrow"><button class="btn ghost" id="w4mnStop">■ 停止</button></div>
+    </div>
+    <div class="callout" id="w4mnTxt">優美、令人愉悅的聲音稱為<b>樂音</b>，波形有<b>規律性</b>；吵雜、令人不舒服的聲音稱為<b>噪音</b>，波形<b>沒有規律性</b>。此外，音量太大、超過人耳能承受的範圍，也算是噪音。<br>示波器右上角有每種聲音的大約分貝數，記錄下來，再做下面的分類。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📋 探討活動 3-4：分類與歸納 <span class="tag note">依照你聽起來的感受分類</span></h3>
+  <div id="w4mnSort"></div>
+  <details style="margin-top:8px"><summary><b>✍️ 歸納：愉悅與不舒服的聲音，分貝數和波形各有什麼特徵？</b>（先寫下你的答案，再點開）</summary>
+    <p>聽起來愉悅的聲音，分貝數大多<b>低於 70 分貝</b>，波形大多<b>有規律</b>；聽起來不舒服的聲音，分貝數大多<b>高於 70 分貝</b>，或波形<b>沒有規律</b>。（課本 p.122「實驗一點靈」探討活動 3-4）</p>
+  </details>
+</div>
+
+<div class="card">
+  <h3>🎤 用麥克風看你自己的聲音 <span class="tag note">需要允許使用麥克風；只在這台裝置上即時分析，不會錄音或上傳</span></h3>
+  <canvas class="sim" id="w4mic"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="btnrow"><button class="btn" id="w4micOn">🎤 打開麥克風</button><button class="btn ghost" id="w4micOff">■ 關閉</button></div>
+      <p class="note">試試看：① 發「啊——」再慢慢拉高音 ② 吹口哨 ③ 拍手 ④ 男生、女生各說一句話，比較頻率。</p>
+    </div>
+    <div>
+      <div class="readout" id="w4micR"></div>
+      <div class="callout">課本建議用平板或手機的 App（例如 phyphox）觀察「聲音振幅」與「聲譜」。這個網頁版也能做到類似的事。</div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case world">
+    <div class="where">🌍 健康｜世界衛生組織</div>
+    <h4>全世界超過 10 億年輕人有聽損風險</h4>
+    <p>世界衛生組織（WHO）提醒：長時間戴耳機聽大聲的音樂、待在吵雜的演唱會或夜店，會造成<b>無法恢復</b>的聽力損傷。常見的建議是「60／60 原則」：音量不超過最大音量的 60%，連續聽不超過 60 分鐘就讓耳朵休息。</p>
+    <p class="ask">想一想：課本說長期在幾分貝以上的環境，可能使聽力受損？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 法規｜噪音管制</div>
+    <h4>噪音也有法律管</h4>
+    <p>為了保障生活環境品質，政府制定了<b>噪音管制法</b>，社會秩序維護法也處罰製造噪音、妨礙安寧的行為。環保單位會用噪音計在現場測量分貝數。</p>
+    <p class="ask">想一想：你家附近最常見的噪音來源是什麼？可以怎麼減少？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 音樂｜聲音能震碎玻璃杯？</div>
+    <h4>唱出和杯子相同的頻率</h4>
+    <p>每個玻璃杯都有自己「最容易振動」的頻率（輕敲它聽到的音）。如果歌手唱出<b>同樣頻率</b>、又夠大聲的音，杯子會愈振愈厲害，甚至破裂。2005 年美國電視節目就曾拍到聲樂老師只靠歌聲震碎紅酒杯。</p>
+    <p class="ask">想一想：這個例子用到了聲音三要素中的哪兩個？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜聽聲辨人</div>
+    <h4>手機的「聲紋辨識」</h4>
+    <p>每個人的聲帶、口腔、鼻腔形狀不同，說話的波形也不同——這就是音色。有些手機、銀行客服會用「聲紋」確認你的身分，原理就是比對音色。</p>
+    <p class="ask">想一想：模仿秀的藝人，主要在模仿聲音三要素中的哪一個？</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜音色的秘密：諧波疊加、八度與畢達哥拉斯＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🎛️ 自己調配音色：基音＋諧波</h3>
+    <p>樂器發出的聲音，不只有一個頻率：除了最低的<b>基音</b>（決定音調），還同時有 2 倍、3 倍、4 倍……頻率的<b>諧波</b>。各個諧波的強弱比例不同，疊加出來的波形就不同——這就是<b>音色</b>的秘密。拖動拉桿，邊聽邊看波形。</p>
+    <div class="grid2">
+      <canvas class="sim" id="w4harm"></canvas>
+      <div>
+        <div id="w4harmS"></div>
+        <div class="chips" id="w4harmP"><button class="chip" data-p="1">純音</button><button class="chip" data-p="saw">像小提琴</button><button class="chip" data-p="odd">像單簧管</button><button class="chip" data-p="rnd">隨機</button></div>
+        <div class="btnrow"><button class="btn deepb" id="w4harmPlay">▶ 播放 220 Hz</button><button class="btn ghost" id="w4harmStop">■ 停止</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🎹 八度音＝頻率 2 倍</h3>
+    <p>傳說畢達哥拉斯發現：弦長減半，音高「八度」。用今天的話說：頻率變 2 倍。鋼琴中央 Do 約 262 赫，高音 Do 約 523 赫（課本圖 3-20 用 262×2＝524 赫，剛好兩倍；鋼琴實際的調音法約 523 赫）。按下面兩顆鈕比較，再按「一起播」：頻率比 2:1、3:2 的兩個音聽起來特別和諧。</p>
+    <div class="chips" id="w4oct"><button class="chip" data-f="262">Do 262 Hz</button><button class="chip" data-f="523">高音 Do 523 Hz</button><button class="chip" data-f="392">Sol 392 Hz（3:2）</button><button class="chip" data-f="both">一起播 Do＋高音 Do</button><button class="chip" data-f="bad">一起播 Do＋277 Hz（不和諧）</button></div>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🧪 試管：吹和敲，結果相反！</h3>
+    <p>對試管口<b>吹氣</b>，振動的是<b>空氣柱</b>：水愈多、空氣柱愈短 → 音調愈高。用湯匙<b>敲</b>試管，振動的主要是<b>玻璃和裡面的水</b>：水愈多、振動的東西愈重 → 音調反而愈<b>低</b>。在上面的試管模擬中，切換水量後按「敲」，聽聽看。判斷音調之前，先問：<b>到底是誰在振動？</b></p>
+    <p>定量一點：一端封閉的管子，發出的最低音，波長大約是<b>空氣柱長度的 4 倍</b>，所以 <span class="eq">f</span> ≈ <span class="eq">v</span> ÷ (4<span class="eq">L</span>)。試管模擬就是用這個公式。</p>
+    <p class="ask">算算看：空氣柱 14.4 公分（試管 1 的預設）時，340 ÷ (4×0.144) ≈ 590 Hz，和模擬讀數（約 576 Hz，模擬還加了一點管口修正）接近嗎？</p>
+  </div>
+  <div data-arena="t4"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t4"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t4"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-3 多變的聲音 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8w-3-3">
+    <li>我能說出聲音三要素與聲波的關係（課本 p.74）</li>
+    <li>我知道發音體的長短、粗細、鬆緊、厚薄如何影響音調</li>
+    <li>我能了解樂音與噪音的差異</li>
+    <li>我知道分貝的意義，以及保護聽力的方法</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="振幅|頻率|波形">💬 <b>一句話帶走：</b>音量看______，音調看______，音色看______。</div>

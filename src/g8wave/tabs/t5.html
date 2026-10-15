@@ -1,0 +1,215 @@
+<!--NAV: 3-4 回聲與超聲波-->
+<div class="pagehead">
+  <span class="ref">課本 p.78–82｜3-4 聲波的傳播與應用</span>
+  <h2>聲音撞到牆會回來；聽不到的聲音也很有用</h2>
+  <p class="hook"><b>科學 tell me why：</b>為什麼遠處傳來的雷聲，通常不是「一聲」巨響，而是「轟隆隆」的連續聲響？</p>
+  <ul class="goals"><li>說出聲波反射與回聲的意義，知道什麼表面容易反射、什麼表面容易吸收聲音</li><li>會用「距離＝聲速×時間÷2」計算回聲測距</li><li>知道人耳可聽頻率約 20～20000 赫，超過 20000 赫的是超聲波</li><li>舉出超聲波的應用：聲納、產檢、清洗、動物的回聲定位</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 40 分鐘）：① 猜一猜（除以 2 的陷阱）→ ② 山谷回聲：先把距離拉到 10 公尺，問學生「為什麼教室裡聽不到回聲？」→ ③ 禮堂牆面材質 → ④ 聽力測試（全班一起舉手，看誰還聽得到；⚠ 音量先調小）→ ⑤ 聲納畫海底地形 → ⑥ 倒車雷達 → ⑦ 例題 3-6。<br>
+  章首問題：雷聲轟隆隆，是因為閃電很長，各段到你的距離不同、聲音先後抵達，再加上山壁、建築物、雲層的多次反射。<br>
+  聽力測試只用來體驗，<b>不能當作醫學檢查</b>；筆電喇叭通常放不出很低或很高的頻率。
+</div></details>
+
+<div data-guess="t5"></div>
+
+<details class="card"><summary><b>💡 回答開頭的問題：雷聲為什麼是「轟隆隆」？</b>（先自己想，再點開）</summary>
+  <p>閃電是一條很長（可能好幾公里）的放電通道。通道上每一段到你的距離不同，聲音<b>先後</b>抵達，就拉成一長串；再加上雷聲碰到山壁、建築、雲層會<b>反射</b>，回聲一個接一個傳來，就變成「轟隆隆」。先到下面的「山谷回聲」看看聲音怎麼反射回來。</p>
+</details>
+
+<div class="card">
+  <h3>⛰️ 山谷回聲：聲音去了又回來 <span class="tag note">拖動拉桿改變山壁距離，再按「喂～」（會發出聲音）</span></h3>
+  <canvas class="sim" id="w5echo"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>你和山壁的距離 <output for="w5d"></output></label><input type="range" id="w5d" min="5" max="700" step="5" value="170"></div>
+      <div class="ctl"><label>氣溫 <output for="w5T"></output></label><input type="range" id="w5T" min="0" max="35" step="1" value="15"></div>
+      <div class="btnrow"><button class="btn" id="w5shout">📣 喂～</button></div>
+    </div>
+    <div>
+      <div class="readout" id="w5echoR"></div>
+      <div class="callout" id="w5echoTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📖 聲波反射與回聲</h3>
+  <p>波傳遞遇到障礙物、返回原介質的現象稱為<b>反射</b>；反射回來的聲波稱為<b>回聲</b>。</p>
+  <p>平時不容易感受到回聲：① 反射的障礙物太近，原聲和回聲間隔太短，人耳無法分辨；② 周遭有太多物體會吸收聲音。<b>光滑、堅硬</b>的表面容易反射聲音；<b>粗糙、柔軟</b>的表面容易吸收聲音（課本圖 3-23）。</p>
+  <div class="formula">回聲測距：障礙物的距離 ＝ 聲速 × 來回時間 ÷ 2<small>聲音走了「去程＋回程」，所以要除以 2</small></div>
+</div>
+
+<div class="card">
+  <h3>🎭 情境模擬：禮堂的牆該貼什麼？ <span class="tag note">選牆面材質，按「拍手」聽聽殘響（會發出聲音）</span></h3>
+  <canvas class="sim" id="w5hall"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="w5wall"><button class="chip on" data-k="brick">磚砌牆面（堅硬）</button><button class="chip" data-k="tile">光滑磁磚</button><button class="chip" data-k="curtain">布幔</button><button class="chip" data-k="foam">吸音海綿</button><button class="chip" data-k="bumpy">凹凸紋路板</button></div>
+      <div class="btnrow"><button class="btn" id="w5clap">👏 拍手</button></div>
+    </div>
+    <div class="callout" id="w5hallTxt"></div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case"><div class="where">📯 集中聲音</div><h4>傳聲筒</h4><p>把聲波反射、集中朝同一方向傳播，遠方的人更容易聽見（課本圖 3-24）。</p></div>
+  <div class="case"><div class="where">🩺 不讓聲音散掉</div><h4>聽診器</h4><p>聲波在細管內不斷反射，避免聲音散失，也防止周圍聲音干擾（課本圖 3-25）。</p></div>
+  <div class="case"><div class="where">🇹🇼 高雄衛武營</div><h4>音樂廳的聲學設計</h4><p>凹凸紋路減少回聲；布幔、吸音板吸收雜亂反射；平滑曲面反射牆把樂音送到遠方觀眾席（課本圖 3-26）。</p></div>
+  <div class="case world"><div class="where">🌍 北京天壇</div><h4>回音壁</h4><p>天壇的圓形圍牆非常光滑堅硬，對著牆輕聲說話，聲音會沿著弧形牆面一路反射，站在遠處牆邊的人也聽得到。</p></div>
+</div>
+
+<div class="card">
+  <h3>🦻 聽力極限與動物的耳朵 <span class="tag note">⚠ 先把音量調小再按播放；這只是體驗，不是醫學聽力檢查</span></h3>
+  <canvas class="sim" id="w5hear"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>頻率 <output for="w5hf"></output></label><input type="range" id="w5hf" min="0" max="100" step="1" value="50"></div>
+      <div class="btnrow"><button class="btn" id="w5hPlay">▶ 播放</button><button class="btn ghost" id="w5hStop">■ 停止</button></div>
+      <div class="chips" id="w5hPre"><button class="chip" data-f="20">20 Hz</button><button class="chip" data-f="1000">1000 Hz</button><button class="chip" data-f="8000">8000 Hz</button><button class="chip" data-f="15000">15000 Hz</button><button class="chip" data-f="17400">17400 Hz（「蚊子音」）</button><button class="chip" data-f="22000">22000 Hz（超聲波）</button></div>
+    </div>
+    <div>
+      <div class="readout" id="w5hR"></div>
+      <div class="callout" id="w5hTxt">一般人能聽到的聲音頻率約在 <b>20～20000 赫</b>之間。頻率超過 20000 赫的聲音稱為<b>超聲波</b>（超音波）；低於 20 赫的稱為次聲波。年紀愈大，通常愈聽不到很高的音。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🚢 聲納：用回聲畫出海底地形 <span class="tag note">按「自動航行」或點海面任一處發出超聲波</span></h3>
+  <canvas class="sim drag" id="w5sonar"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="btnrow"><button class="btn" id="w5sAuto">⛵ 自動航行掃描</button><button class="btn ghost" id="w5sClear">↺ 清除地圖</button></div>
+      <p class="note">海水中聲速約 1500 m/s。船上的聲納發出超聲波，接收海底（或魚群）反射的回聲。</p>
+    </div>
+    <div>
+      <div class="readout" id="w5sR"></div>
+      <div class="callout" id="w5sTxt">深度 ＝ 1500 × 來回時間 ÷ 2。一個點一個點量下去，就畫出海底的地形；如果回聲提早回來，可能是遇到了魚群。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🚗 情境模擬：倒車雷達 <span class="tag note">課本 p.81 彈性延伸；拖動拉桿倒車（會發出嗶嗶聲）</span></h3>
+  <canvas class="sim" id="w5car"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>車尾和障礙物的距離 <output for="w5cd"></output></label><input type="range" id="w5cd" min="20" max="250" step="5" value="200"></div>
+      <div class="chips" id="w5cObj"><button class="chip on" data-k="wall">後面是牆</button><button class="chip" data-k="kid">後面蹲著一個小朋友</button><button class="chip" data-k="pole">細細的柱子</button></div>
+      <div class="btnrow"><button class="btn" id="w5cBeep">🔊 開啟雷達聲</button><button class="btn ghost" id="w5cOff">■ 關閉</button></div>
+    </div>
+    <div>
+      <div class="readout" id="w5cR"></div>
+      <div class="callout" id="w5cTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-6　超聲波 <span class="tag note">課本 p.81</span></h3>
+  <div class="q">蝙蝠能發出超聲波，並利用回聲探測自身與障礙物的距離，其所發出的聲音人耳聽不到，是與下列聲音何種特性有關？(A) 振幅　(B) 頻率　(C) 波速　(D) 波形</div>
+  <ol class="sol">
+    <li>人耳聽不聽得到，看的是頻率是否在 20～20000 赫之間。</li>
+    <li>超聲波的頻率超過 20000 赫，所以人耳聽不到。振幅（大小聲）、波形（音色）都不是原因；波速在相同介質中和一般聲音一樣。</li>
+  </ol>
+  <div class="ansbox">答：(B) 頻率。</div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 練習　回聲測距 <span class="tag note">本網頁補充</span></h3>
+  <div class="q">漁船上的聲納向海底發出超聲波，0.4 秒後收到回聲。若超聲波在海水中的速率為 1500 公尺／秒，海深多少公尺？</div>
+  <ol class="sol">
+    <li>聲音來回共走了 1500 × 0.4 ＝ 600 公尺。</li>
+    <li>這是去程＋回程，海深是一半：600 ÷ 2 ＝ <b>300 公尺</b>。</li>
+  </ol>
+  <div class="ansbox">答：300 公尺。</div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記 <span class="tag note">點空格看答案</span></h3>
+  <ul>
+    <li>聲音碰到<span class="fill" data-a="光滑、堅硬"></span>的表面容易反射；碰到<span class="fill" data-a="粗糙、柔軟"></span>的表面容易被吸收。</li>
+    <li>人耳可聽頻率約 <span class="fill" data-a="20～20000"></span> 赫；頻率超過 <span class="fill" data-a="20000"></span> 赫稱為超聲波。</li>
+    <li>相同介質中，超聲波和一般聲波的傳播速率<span class="fill" data-a="一樣"></span>。</li>
+    <li>聲納探測＝<span class="fill" data-a="回聲"></span>＋<span class="fill" data-a="超聲波"></span>；距離＝聲速×時間÷<span class="fill" data-a="2"></span>。</li>
+  </ul>
+</div>
+
+<div class="cases">
+  <div class="case world">
+    <div class="where">🌍 生物｜蝙蝠</div>
+    <h4>用耳朵「看」見蚊子</h4>
+    <p>1794 年斯帕蘭札尼發現塞住耳朵的蝙蝠會撞牆；1938 年葛里芬終於偵測到蝙蝠的超聲波。蝙蝠靠回聲判斷獵物的距離和方向，靠近獵物時會把叫聲加快成一連串「嗡——」。</p>
+    <p class="ask">想一想：為什麼蝙蝠要用頻率很高（波長很短）的聲音？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 醫療｜超音波檢查</div>
+    <h4>產檢、肝膽腸胃檢查</h4>
+    <p>超聲波碰到人體內不同的組織會反射，電腦把回聲的時間和強度畫成影像。它不像 X 光有游離輻射，所以常用來檢查胎兒（課本圖 3-28）。</p>
+    <p class="ask">想一想：做超音波檢查前，醫生為什麼要在皮膚上塗一層凝膠？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜眼鏡行</div>
+    <h4>超聲波清洗機</h4>
+    <p>眼鏡行常用超聲波清洗機：超聲波讓水快速振動，產生非常微小的氣泡不斷生成、破裂，把縫隙裡的髒汙震出來（課本圖 3-29）。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 歷史｜鐵達尼號</div>
+    <h4>從冰山到聲納</h4>
+    <p>1912 年鐵達尼號撞冰山沉沒後，科學家開始研究用聲音偵測水下障礙物。1917 年前後，朗之萬用石英晶體發出超聲波偵測潛艇——現代聲納的開端。今天臺灣的漁船也用「魚群探測器」找魚。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 生物｜大象</div>
+    <h4>聽不見的「次聲波」</h4>
+    <p>大象能發出頻率低於 20 赫的次聲波，人耳聽不到，卻能在地面和空氣中傳到幾公里外，讓遠方的同伴收到訊息。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 科技｜「蚊子」裝置</div>
+    <h4>只有年輕人聽得到的聲音</h4>
+    <p>英國曾有商店裝設發出約 17000 赫高音的裝置，用來驅散在門口逗留的青少年——因為多數成年人已經聽不到這麼高的音。後來也有學生反過來把它當作「老師聽不到的手機鈴聲」。</p>
+    <p class="ask">試試上面的聽力測試：你聽得到 17400 赫嗎？</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜為什麼要超過 17 公尺才聽得到回聲？救護車的都卜勒效應＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>⏱️ 人耳的「0.1 秒」</h3>
+    <p>人耳大約要原聲和回聲相隔 <b>0.1 秒</b>以上，才分辨得出是兩個聲音。0.1 秒內聲音來回走了 340×0.1＝34 公尺，所以障礙物至少要 <b>34÷2＝17 公尺</b>遠，才聽得到清楚的回聲。教室只有 10 公尺左右，回聲和原聲混在一起，只會讓聲音聽起來比較「響亮、拖長」（殘響）。在山谷回聲模擬中，把距離拉到 17 公尺上下試試看。</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🚑 都卜勒效應：救護車經過時音調會變</h3>
+    <p>救護車開過來時，警笛聲聽起來比較<b>高</b>；開走後，聽起來比較<b>低</b>。救護車迎面而來時，每一個新發出的波峰都離你更近一點，波峰被「擠」在一起，你每秒收到的波數變多（頻率變高）；遠離時波峰被「拉開」，頻率變低。這是 1842 年奧地利物理學家<b>都卜勒</b>提出的。（警笛本身的頻率沒有改變！）</p>
+    <div class="formula">聽到的頻率 <span class="eq">f′</span> ＝ <span class="eq">f</span> × <span class="eq">v</span> ÷ (<span class="eq">v</span> ∓ <span class="eq">v</span>ₛ)<small>v：聲速；vₛ：聲源速率。靠近用「−」（分母變小，頻率變高），遠離用「＋」</small></div>
+    <p class="ask">算算看：警笛 700 Hz、救護車 25 m/s、聲速 340 m/s。靠近時聽到約多少赫？遠離時呢？（答：約 756 Hz、約 652 Hz）用下面的模擬驗證。</p>
+    <canvas class="sim" id="w5dop"></canvas>
+    <div class="grid2 even" style="margin-top:6px">
+      <div class="ctl"><label>救護車速率 <output for="w5dv"></output></label><input type="range" id="w5dv" min="0" max="40" step="5" value="25"></div>
+      <div class="btnrow"><button class="btn deepb" id="w5dGo">🚑 開過來（會發出聲音）</button></div>
+    </div>
+  </div>
+  <div data-arena="t5"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t5"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t5"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-4 聲波的傳播與應用 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8w-3-4">
+    <li>我能說出聲波反射的意義（課本 p.78）</li>
+    <li>我能說出回聲對生活的影響（課本 p.79）</li>
+    <li>我能說出超聲波的定義以及應用</li>
+    <li>我會用「聲速×時間÷2」計算回聲測距</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="反射|2|20000|頻率">💬 <b>一句話帶走：</b>回聲是聲波的______，測距時要除以______；頻率超過______赫的是超聲波，人耳聽不到是因為______太高。</div>

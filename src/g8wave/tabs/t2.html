@@ -1,0 +1,240 @@
+<!--NAV: 3-1 週期波-->
+<div class="pagehead">
+  <span class="ref">課本 p.64–68｜3-1 ② 週期波的特徵</span>
+  <h2>怎麼用數字描述一個波？</h2>
+  <p class="hook"><b>先想一想：</b>取一條繩子規律地擺動，會產生一個接一個、形狀重複的波穩定地往外傳。要告訴別人「這個波長什麼樣子、跑多快」，需要哪些數字？</p>
+  <ul class="goals"><li>認識週期波的波峰、波谷、振幅、波長、疏部、密部</li><li>說出週期 T 與頻率 f 的意義、單位，並知道 f＝1/T</li><li>由「速率＝距離÷時間」推出波速 v＝λ/T＝f×λ</li><li>知道同一種均勻介質中，波速固定</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 40 分鐘）：① 名詞圖解（點按鈕逐一亮起）→ ② 繩波產生器：先固定頻率改振幅，再固定振幅改頻率，請學生預測波長變化 → ③ 用「⏱ 數一數」數 1 秒內通過紅點的波數＝頻率 → ④ 寫出 v＝λ/T＝f×λ → ⑤ 兩條繩子比賽（猜一猜的答案）→ ⑥ 例題。<br>
+  常見錯誤：把「波峰到波谷的高度」當成振幅（應是一半）；把「一個波峰到下一個波谷」當成波長（應是一半）。用名詞圖解的「⚠ 常見錯誤」按鈕當場比較。<br>
+  資優班：加做「電磁波也符合 v＝f×λ」計算器與「海邊數浪」探究任務。
+</div></details>
+
+<div data-guess="t2"></div>
+
+<div class="card">
+  <h3>🔤 名詞圖解：點一個名詞，看它在波的哪裡 <span class="tag note">上面是橫波，下面是同一個波的縱波樣子</span></h3>
+  <canvas class="sim" id="w2terms"></canvas>
+  <div class="chips" id="w2termBtns" style="margin-top:8px">
+    <button class="chip" data-k="crest">波峰</button><button class="chip" data-k="trough">波谷</button><button class="chip" data-k="eq">平衡位置</button>
+    <button class="chip" data-k="amp">振幅</button><button class="chip" data-k="lam">波長 λ</button><button class="chip" data-k="full">一個全波</button>
+    <button class="chip" data-k="dense">密部、疏部</button><button class="chip" data-k="err">⚠ 常見錯誤</button>
+  </div>
+  <div class="callout" id="w2termTxt" style="margin-top:8px">👆 點上面的名詞。</div>
+</div>
+
+<div class="card">
+  <h3>〰️ 繩波產生器：改變頻率和振幅 <span class="tag note">紅點 P 是繩子上固定的一小段；尺的單位是公分</span></h3>
+  <canvas class="sim" id="w2rope"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>手擺動的快慢：頻率 f <output for="w2f"></output></label><input type="range" id="w2f" min="0.5" max="4" step="0.25" value="1"></div>
+      <div class="ctl"><label>手擺動的幅度：振幅 A <output for="w2A"></output></label><input type="range" id="w2A" min="1" max="5" step="0.5" value="3"></div>
+      <div class="chips" id="w2med"><button class="chip on" data-v="10">繩子 A（波速 10 cm/s）</button><button class="chip" data-v="20">拉緊一點的繩子 B（20 cm/s）</button></div>
+      <div class="btnrow"><button class="btn" id="w2pause">⏸ 暫停</button><button class="btn ghost" id="w2slow">🐢 慢動作</button><button class="btn ghost" id="w2count">⏱ 數一數：1 秒內有幾個全波通過 P？</button></div>
+    </div>
+    <div>
+      <div class="readout" id="w2R"></div>
+      <div class="callout" id="w2Txt">先只拉「振幅」，再只拉「頻率」。哪一個會讓波長改變？波速讀數有沒有變？</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>⏱️ 週期與頻率：一秒內產生幾個波？ <span class="tag note">課本圖 3-8、3-9 的動畫版</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="w2hand"></canvas>
+    <div>
+      <div class="chips" id="w2handF"><button class="chip on" data-f="2">擺動慢：一秒振動 2 次</button><button class="chip" data-f="4">擺動快：一秒振動 4 次</button></div>
+      <div class="btnrow"><button class="btn" id="w2handGo">▶ 計時 1 秒</button></div>
+      <p>產生<b>一個全波</b>所需的時間稱為<b>週期</b>，符號 <span class="eq">T</span>，單位：秒（s）。也就是繩子上任意一點做一次完整振動的時間。</p>
+      <p>在<b>一秒內</b>產生的全波數目稱為<b>頻率</b>，符號 <span class="eq">f</span>，單位：次／秒，也寫成 1/s 或<b>赫茲（Hz，簡稱赫）</b>。</p>
+      <div class="formula">頻率 ＝ 1 ÷ 週期　　<span class="eq">f</span> ＝ 1 / <span class="eq">T</span><small>（式 3-1）擺動愈快 → 週期愈小、頻率愈高</small></div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:8px">📜 <b>「赫茲」是誰？</b>德國物理學家<b>赫茲</b>（Heinrich Hertz）在 1887 年用實驗製造並偵測到電磁波，證明電磁波真的存在。1930 年國際電工委員會決定用他的名字當頻率的單位；1960 年國際單位制正式採用。今天手機規格上的「GHz」，就是「十億赫」。</div>
+</div>
+
+<div class="card">
+  <h3>📐 推導：週期波的波速 v＝f×λ</h3>
+  <div class="grid2 even">
+    <div>
+      <p><b>第 1 步：</b>國小學過：速率＝移動距離 ÷ 花費時間。波傳遞的快慢稱為<b>波速</b>（v）：</p>
+      <div class="formula">波速 <span class="eq">v</span> ＝ 波傳遞的距離 <span class="eq">L</span> ÷ 波傳遞的時間 <span class="eq">t</span><small>單位：公尺／秒（m/s）或公分／秒（cm/s）</small></div>
+      <p><b>第 2 步：</b>波源每振動一次，就產生一個全波，波往前推進<b>一個波長 λ</b>；花的時間是<b>一個週期 T</b>。</p>
+    </div>
+    <div>
+      <div class="formula"><span class="eq">v</span> ＝ 波長 ÷ 週期 ＝ <span class="eq">λ</span> / <span class="eq">T</span></div>
+      <p><b>第 3 步：</b>又因為 1/T＝f：</p>
+      <div class="formula">波速 ＝ 頻率 × 波長<br><span class="eq">v</span> ＝ <span class="eq">f</span> × <span class="eq">λ</span><small>（式 3-2）</small></div>
+      <p class="note">用「繩波產生器」驗證：把頻率調成 2 倍，波長是不是剛好變一半？</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🏁 兩條一樣的繩子比賽 <span class="tag note">課本圖 3-11：同一種均勻介質，波速固定</span></h3>
+  <canvas class="sim" id="w2race"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>上面繩子的頻率 <output for="w2rf1"></output></label><input type="range" id="w2rf1" min="1" max="6" step="1" value="2"></div>
+      <div class="ctl"><label>下面繩子的頻率 <output for="w2rf2"></output></label><input type="range" id="w2rf2" min="1" max="6" step="1" value="4"></div>
+      <div class="btnrow"><button class="btn" id="w2raceGo">▶ 同時開始擺動</button></div>
+    </div>
+    <div>
+      <div class="readout" id="w2raceR"></div>
+      <div class="callout" id="w2raceTxt">兩條繩子材質、鬆緊都一樣。頻率不同，誰的波先到終點？</div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：同一條繩子產生的波 <span class="tag note">點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th>波長</th><th>頻率</th><th>週期</th><th>波速</th></tr>
+    <tr><td>長</td><td><span class="fill" data-a="低"></span></td><td><span class="fill" data-a="長"></span></td><td rowspan="2"><span class="fill" data-a="不變（由介質決定）"></span></td></tr>
+    <tr><td>短</td><td><span class="fill" data-a="高"></span></td><td><span class="fill" data-a="短"></span></td></tr>
+  </table>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-1　週期波 <span class="tag note">課本 p.65</span></h3>
+  <canvas class="sim" id="w2ex1" style="max-width:640px"></canvas>
+  <div class="q">上圖 ① 和 ② 哪一個是週期波？簡述你的判斷原因。</div>
+  <ol class="sol">
+    <li>週期波的定義：<b>連續、有規律、形狀一再重複</b>的波。</li>
+    <li>① 的每一個起伏高度、寬度都一樣，一再重複。</li>
+    <li>② 的起伏忽大忽小、忽寬忽窄，沒有固定的規律。</li>
+  </ol>
+  <div class="ansbox">答：① 是週期波，因為它的波形連續且規律地重複；② 不是。</div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-2　週期波的特徵 <span class="tag note">課本 p.67；請對照課本的圖</span></h3>
+  <div class="q">波源規律持續振動 2 秒，產生的週期波波形如課本圖所示（波向右前進，還沒到達牆壁；圖中標示：波峰到波谷的高度 10 cm、P 到右邊第二個波谷的距離 20 cm）。⑴ P、R 兩點下一瞬間的振動方向？⑵ 求振幅、波長、頻率、週期。</div>
+  <ol class="sol">
+    <li>⑴ P 在<b>波谷</b>，下一瞬間會往平衡位置移動 → <b>向上</b>；R 在<b>波峰</b> → <b>向下</b>。（也可以用「P 會變成它左邊那一點現在的高度」判斷）</li>
+    <li>振幅＝波峰到波谷高度的一半：10÷2＝<b>5 cm</b>。</li>
+    <li>P（波谷）到 20 cm 處的波谷，中間隔了 2 個全波 → 波長 λ＝20÷2＝<b>10 cm</b>。</li>
+    <li>數一數：繩上共有 4 個波峰、4 個波谷＝4 個全波，花 2 秒 → 頻率 f＝4÷2＝<b>2 Hz</b>；週期 T＝1/f＝<b>0.5 s</b>（波速 v＝f×λ＝20 cm/s）。</li>
+  </ol>
+  <div class="ansbox">答：⑴ P 向上、R 向下；⑵ 振幅 5 cm、波長 10 cm、頻率 2 Hz、週期 0.5 s。</div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-2（仿）　週期波的特徵 <span class="tag note">數字和課本不同，練習同一種題型</span></h3>
+  <canvas class="sim" id="w2ex2" style="max-width:640px"></canvas>
+  <div class="q">波源規律地持續振動 <b>2 秒</b>，產生如上圖的繩波（波向右前進）。① P、R 兩點下一瞬間往哪個方向振動？② 求振幅、波長、頻率、週期、波速。</div>
+  <ol class="sol">
+    <li><b>判斷振動方向的方法：</b>波向右前進，P 下一瞬間的位置會變成「它左邊那一點」現在的高度。P 左邊比較高 → P <b>向上</b>；R 左邊比較低 → R <b>向下</b>。</li>
+    <li>振幅＝平衡位置到波峰的距離：波峰到波谷 10 cm 的一半 → <b>5 cm</b>。</li>
+    <li>2 秒內共產生 4 個全波，總長 80 cm → 波長 λ＝80÷4＝<b>20 cm</b>。</li>
+    <li>頻率＝1 秒內產生的全波數＝4÷2＝<b>2 Hz</b>；週期 T＝1/f＝<b>0.5 s</b>。</li>
+    <li>波速 v＝f×λ＝2×20＝<b>40 cm/s</b>（也可以用總長÷時間＝80÷2＝40 cm/s 驗算）。</li>
+  </ol>
+  <div class="ansbox">答：P 向上、R 向下；振幅 5 cm、波長 20 cm、頻率 2 Hz、週期 0.5 s、波速 40 cm/s。</div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 3-3　波速 <span class="tag note">課本 p.68</span></h3>
+  <div class="q">小郭看到湖面規律的水波，有片樹葉隨波上下晃動。他測量發現<b>連續 3 個波峰</b>通過樹葉的時間間隔恰為 1 秒，而相鄰兩波峰間的距離為 30 公分。下列敘述何者正確？<br>(A) 波的週期為 2 秒　(B) 波的波長為 10 公分　(C) 波的波速為 60 公分／秒　(D) 樹葉上下晃動一次費時 1 秒</div>
+  <ol class="sol">
+    <li>連續 3 個波峰之間只有 <b>2 個</b>全波（波峰①→②、②→③），花 1 秒 → 一個全波 0.5 秒，週期 T＝<b>0.5 s</b>。（A 錯，D 錯：樹葉晃一次＝一個週期 0.5 s）</li>
+    <li>相鄰兩波峰的距離就是波長 → λ＝<b>30 cm</b>。（B 錯）</li>
+    <li>f＝1/T＝2 Hz，v＝f×λ＝2×30＝<b>60 cm/s</b>。（C 對）</li>
+  </ol>
+  <div class="ansbox">答：(C)。⚠ 陷阱：「連續 3 個波峰」只夾了 2 個波。</div>
+</div>
+
+<div class="card">
+  <h3>🏖️ 情境探究：在海邊數浪，算出海浪的波速 <span class="tag note">每次按「換一片海」，海浪的頻率和波長都不同</span></h3>
+  <canvas class="sim" id="w2sea"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="btnrow"><button class="btn" id="w2seaT">⏱ 碼錶 開始／停止</button><button class="btn ghost" id="w2seaC">＋1 數一個浪峰經過木樁</button><button class="btn ghost" id="w2seaZ">↺ 歸零</button></div>
+      <div class="readout" id="w2seaR"></div>
+      <p class="note">木樁之間每隔 2 公尺。先從碼錶和計數算出頻率，再從木樁估計相鄰浪峰的距離（波長），最後算波速。</p>
+      <div class="ctl"><label>你算出的波速（公尺／秒）</label><input type="number" id="w2seaIn" step="0.1" style="width:120px;font-size:1rem;padding:4px"></div>
+      <div class="btnrow"><button class="btn warn" id="w2seaChk">對答案</button><button class="btn ghost" id="w2seaNew">🌊 換一片海</button></div>
+    </div>
+    <div class="callout" id="w2seaTxt">💡 方法提示：數 10 個浪峰經過木樁花了幾秒 → 週期＝時間÷10。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📡 計算器：看不見的波也遵守 v＝f×λ <span class="tag note">電磁波在空氣中的速率約 3×10⁸ m/s；聲音在空氣中約 340 m/s</span></h3>
+  <div class="chips" id="w2calc"></div>
+  <div class="readout" id="w2calcR" style="margin-top:8px"></div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 生活｜電源插座</div>
+    <h4>臺灣的交流電每秒來回 60 次</h4>
+    <p>臺灣家裡的交流電頻率是 <b>60 赫</b>，日本則是東部 50 赫、西部 60 赫兩種並存，電器跨區使用時有些要特別注意。</p>
+    <p class="ask">想一想：60 赫的交流電，週期是幾秒？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 健康｜心跳</div>
+    <h4>你的心臟也是一個「週期」運動</h4>
+    <p>國中生安靜時心跳大約每分鐘 60～100 下。若每分鐘 75 下，頻率就是 75÷60＝<b>1.25 赫</b>，週期是 <b>0.8 秒</b>。</p>
+    <p class="ask">試試看：量自己 15 秒的脈搏，算出你的心跳頻率和週期。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 海洋｜颱風前的長浪</div>
+    <h4>颱風還沒到，浪先到了</h4>
+    <p>颱風在遠方海面掀起的波浪，會一路傳到海岸。氣象署常在颱風還很遠時，就提醒民眾「注意長浪，不要到海邊」。這些浪的週期很長（常超過 10 秒），在深海中跑得比一般風浪快，所以比颱風本身更早抵達。</p>
+    <p class="ask">資優想一想：這表示深海中水波的波速和波長有關——和「同一介質波速固定」矛盾嗎？（提示：水波比較特別）</p>
+    <details><summary class="note">👀 看答案</summary><p class="note">不矛盾，而是「波速固定」有適用範圍。繩波、聲波的波速只由介質決定；但深水中的水面波，是靠重力把水面拉回來，波長愈長、受影響的水愈深，跑得愈快——這種「不同波長跑不同速」的現象叫做<b>色散</b>（第 4 章三稜鏡把白光分成彩虹，也是色散）。</p></details>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 科技｜手機處理器</div>
+    <h4>3 GHz 是什麼意思？</h4>
+    <p>手機或電腦規格寫的「3 GHz」，表示處理器的時脈每秒「滴答」30 億次——G 是「十億」，Hz 是「次／秒」。這和波的頻率用的是同一個單位。</p>
+    <p class="ask">想一想：一次「滴答」（週期）是幾秒？</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜波速由介質決定、位移–位置圖 vs 位移–時間圖＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🧵 波速由誰決定？</h3>
+    <p>在「繩波產生器」中切換到「拉緊一點的繩子 B」：頻率不變，波長變成 2 倍，所以波速變 2 倍。繩波的波速由繩子的<b>鬆緊</b>和<b>粗細（每單位長度的質量）</b>決定：拉得愈緊、繩子愈細，波速愈快。這和第 ④ 頁「弦愈緊、愈細，音調愈高」有關係喔！</p>
+    <div class="formula">繩波波速 <span class="eq">v</span> ∝ √（張力 ÷ 每公尺繩子的質量）<small>張力變 4 倍，波速才變 2 倍；繩子 B 的波速是繩子 A 的 2 倍，代表它的張力大約是 4 倍（同一種繩子時）</small></div>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>📈 兩種圖不要搞混</h3>
+    <div class="grid2">
+      <canvas class="sim" id="w2graphs"></canvas>
+      <div>
+        <p><b>位移–位置圖</b>（像拍照）：某一瞬間，整條繩子的樣子。相鄰兩波峰的距離是<b>波長</b>。</p>
+        <p><b>位移–時間圖</b>（像錄影只盯一點）：繩上<b>一個點</b>隨時間的位置。相鄰兩波峰的時間間隔是<b>週期</b>。</p>
+        <p class="note">課本的示波器圖（第 ④ 頁）是「位移–時間圖」。</p>
+      </div>
+    </div>
+  </div>
+  <div data-arena="t2"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t2"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t2"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-1 週期波 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8w-3-1b">
+    <li>我能說出週期波的特徵：波峰、波谷、振幅、波長（課本 p.64）</li>
+    <li>我能說出週期與頻率的意義和單位，知道 f＝1/T</li>
+    <li>我會用 v＝f×λ 計算波速、頻率或波長</li>
+    <li>我知道同一種均勻介質中，波速固定；頻率變大時波長變短</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="頻率|波長|介質">💬 <b>一句話帶走：</b>波速＝______×______；同一種均勻介質中波速固定，波速由______決定。</div>

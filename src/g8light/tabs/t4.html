@@ -1,0 +1,169 @@
+<!--NAV: 4-2 面鏡成像-->
+<div class="pagehead">
+  <span class="ref">課本 p.98–102｜4-2 ② 面鏡成像</span>
+  <h2>鏡子裡的你，在哪裡？</h2>
+  <p class="hook"><b>先想一想：</b>整理儀容的平面鏡、超商角落的凸面鏡、遊樂園的哈哈鏡，照出來的像都不一樣。面鏡為什麼能成像？所成的像有什麼性質？</p>
+  <ul class="goals"><li>說出平面鏡成像的性質：大小相等、對稱、物距＝像距、虛像</li><li>用反射光線的「延長線」找出虛像的位置</li><li>知道凹面鏡使平行光會聚於焦點、凸面鏡使平行光發散</li><li>舉出凸面鏡（擴大視野）與凹面鏡（會聚光線、放大）的應用</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 40 分鐘）：① 探討活動 4-2「虛擬平面鏡」（實體塑膠板＋硬幣；或用下面的模擬）→ ② 平面鏡成像作圖：拖動物體和眼睛，看延長線會聚在哪裡 → ③ 照全身需要多長的鏡子（迷思擂台）→ ④ 凹面鏡、凸面鏡的平行光 → ⑤ 例題 4-5 → ⑥ 車窗單向鏡。<br>
+  「虛像」的定義：不是由真實光線會聚而成，而是反射光的<b>延長線</b>會聚；放一張紙在鏡後接不到。對照第 ① 頁針孔成像的「實像」。<br>
+  鏡子裡「左右相反」其實是「前後相反」——資優班可以討論：為什麼鏡子把左右對調，卻沒把上下對調？
+</div></details>
+
+<div data-guess="t4"></div>
+
+<div class="card">
+  <h3>🪞 平面鏡成像：像在哪裡？ <span class="tag note">從上往下看；拖動物體（F）或眼睛（👁）</span></h3>
+  <canvas class="sim drag" id="l4plane"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l4pMode"><button class="chip on" data-m="top">🔎 從上往下看（作圖）</button><button class="chip" data-m="body">🧍 照全身要多長的鏡子？</button></div>
+      <div class="chips" id="l4pOpt"><button class="chip" data-k="ext">顯示延長線</button><button class="chip" data-k="paper">在鏡子後面放一張白紙</button></div>
+    </div>
+    <div>
+      <div class="readout" id="l4pR"></div>
+      <div class="callout" id="l4pTxt"></div>
+    </div>
+  </div>
+</div>
+
+<details class="card"><summary><b>🧪 探討活動 4-2「虛擬平面鏡」步驟與想一想</b>（點開）</summary>
+  <ol>
+    <li>透明塑膠板直立在方格紙上，一側放硬幣：透過塑膠板看得到硬幣的像，圖樣左右相反。（模擬中的 F 就是硬幣）</li>
+    <li>直接看塑膠板另一側的紙上：<b>沒有像</b>（模擬中按「在鏡子後面放一張白紙」）。</li>
+    <li>另一枚硬幣放到成像處，移動眼睛都能和像完全重疊；量距離：物距＝像距。</li>
+    <li>改變硬幣距離重複：仍然物距＝像距。</li>
+  </ol>
+  <p><b>想一想 1</b>：改變眼睛位置，像的位置和大小會變嗎？→ <b>不會</b>，延長線永遠交在同一點（拖動模擬中的眼睛試試）。</p>
+  <p><b>想一想 2</b>：硬幣移到塑膠板邊緣之外，還看得到像嗎？→ 像仍然存在（在對稱位置），但只有當眼睛、鏡面、像能連成直線、而且那條線穿過<b>鏡面範圍內</b>時才看得到；眼睛站在適當位置（從側面斜看）還是可能看到。</p>
+</details>
+
+<details class="card"><summary><b>🔍 探究提問（課本 p.100）：兩種面鏡組合，哪一種會讓平行光會聚？</b>（先畫圖，再點開）</summary>
+  <p>兩片平面鏡排成「中間凹進去」的形狀（像一個淺淺的 V，開口朝向光）：依反射定律畫出法線與反射線，兩邊的光都被反射往<b>中間</b>偏，<b>會聚</b>起來——很多片小平面鏡排成碗狀，就接近一面<b>凹面鏡</b>。反過來排成「中間凸出來」，反射光往外偏而<b>發散</b>，接近凸面鏡。</p>
+</details>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：平面鏡成像中物與像的關係 <span class="tag note">點空格看答案</span></h3>
+  <ul>
+    <li>大小：物<span class="fill" data-a="＝"></span>像。</li>
+    <li>方向：以鏡面為中心呈<span class="fill" data-a="對稱"></span>（看起來左右相反）。</li>
+    <li>物距<span class="fill" data-a="＝"></span>像距。</li>
+    <li><span class="fill" data-a="不會"></span>在鏡後白紙上成像，表示它是<span class="fill" data-a="虛像"></span>：由反射光的<span class="fill" data-a="延長線"></span>會聚而成。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🥄 凹面鏡與凸面鏡：平行光射過去會怎樣？ <span class="tag note">切換鏡子種類，拖動拉桿改變彎曲程度</span></h3>
+  <canvas class="sim" id="l4curve"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l4cKind"><button class="chip on" data-k="cave">凹面鏡</button><button class="chip" data-k="vex">凸面鏡</button><button class="chip" data-k="flat">平面鏡</button></div>
+      <div class="ctl"><label>鏡子彎曲的程度 <output for="l4cR"></output></label><input type="range" id="l4cR" min="1" max="5" step="1" value="3"></div>
+      <div class="chips" id="l4cSrc"><button class="chip on" data-s="par">平行光（像陽光）</button><button class="chip" data-s="f">光源放在焦點（手電筒）</button></div>
+    </div>
+    <div class="callout" id="l4cTxt"></div>
+  </div>
+</div>
+
+<div class="grid2 even">
+  <div class="card" style="margin:0 0 16px">
+    <h3>🔵 凸面鏡：正立縮小的虛像</h3>
+    <p>平行光照到凸面鏡反射後會<b>發散</b>。根據光的可逆性，四周大範圍景物的光都能經凸面鏡反射進入眼睛，所以常用來<b>擴大視野</b>：公車後照鏡、商店角落、道路轉彎處的反射鏡（課本圖 4-13）。</p>
+  </div>
+  <div class="card" style="margin:0 0 16px">
+    <h3>🔴 凹面鏡：會聚光線、放大</h3>
+    <p>平行光照到凹面鏡反射後會<b>聚集於一點</b>，稱為<b>焦點</b>。光源放在焦點，反射後形成平行光束而照得更遠（手電筒）；物體在凹面鏡近處，會成<b>正立放大</b>的虛像（化妝鏡，課本圖 4-16）。</p>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🔎 比一比：三種鏡子照同一張臉 <span class="tag note">拖動拉桿改變臉和鏡子的距離</span></h3>
+  <canvas class="sim" id="l4faces"></canvas>
+  <div class="ctl" style="margin-top:6px"><label>臉和鏡子的距離 <output for="l4fd"></output></label><input type="range" id="l4fd" min="1" max="10" step="1" value="3"></div>
+  <p class="note">凹面鏡：臉在焦點內 → 正立放大；超過焦點後 → 倒立（課本沒有要求，但你會在湯匙裡看到！）。凸面鏡：永遠正立縮小。平面鏡：永遠一樣大。</p>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-5　面鏡成像 <span class="tag note">課本 p.102</span></h3>
+  <canvas class="sim" id="l4ex5" style="max-width:560px"></canvas>
+  <div class="q">兩面平面鏡互相垂直擺放，前面有一個「F」字型燈具（如圖）。畫出燈具分別對兩面平面鏡所成像的位置與字型。若燈具向左移動 3 公分，兩面鏡中的像會如何移動？</div>
+  <ol class="sol">
+    <li>對<b>右邊</b>的直立鏡：像在鏡子另一側、距離相等，F 左右翻轉。</li>
+    <li>對<b>下方</b>的水平鏡：像在鏡子下方、距離相等，F 上下翻轉。</li>
+    <li>燈具向左移 3 cm：離右鏡遠了 3 cm → 右鏡中的像向<b>右</b>移 3 cm；對下方鏡子的距離不變 → 下方鏡中的像跟著向<b>左</b>移 3 cm。</li>
+  </ol>
+  <div class="ansbox">答：見圖（按「全部顯示」）。右鏡的像向右移 3 cm；下方鏡的像向左移 3 cm。</div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 交通｜道路反射鏡</div>
+    <h4>「物體比看起來更近」</h4>
+    <p>山路轉彎處的反射鏡、汽車右側後照鏡多用凸面鏡：看得廣，但像<b>縮小</b>了，車子看起來比實際更遠。所以很多後照鏡上印著警語：「鏡中物體比實際距離更近」。</p>
+    <p class="ask">想一想：如果改用平面鏡，有什麼優點和缺點？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜車窗變鏡子（課本漫畫）</div>
+    <h4>單向鏡的祕密在光線明暗</h4>
+    <p>白天車外很亮、車內很暗：車窗反射的外面光線，遠比從車內透出來的光強，車外的人看到的是自己的倒影；車內的人卻看得清外面。晚上車內開燈時，情況就反過來了。偵訊室的單向鏡也是：嫌犯房間要很亮、警察房間要很暗。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 奧運｜聖火點燃儀式</div>
+    <h4>用凹面鏡把陽光變成火</h4>
+    <p>每屆奧運的聖火，都在希臘奧林匹亞用<b>凹面鏡</b>聚集陽光點燃：火炬放在焦點，陽光會聚的熱足以點火。</p>
+    <p class="ask">想一想：為什麼要放在「焦點」？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 科技｜衛星天線與太陽能塔</div>
+    <h4>收集訊號、收集陽光</h4>
+    <p>碟形衛星天線是凹面的，把衛星傳來的微弱電磁波會聚到焦點上的接收器；太陽能發電塔用上千面鏡子把陽光集中到塔頂。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜兩面鏡子的無限像、鏡子的「左右顛倒」之謎＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🔁 兩面鏡子夾角 θ：會看到幾個像？ <span class="tag note">拖動拉桿</span></h3>
+    <div class="grid2">
+      <canvas class="sim" id="l4kal"></canvas>
+      <div>
+        <div class="ctl"><label>兩鏡夾角 θ <output for="l4kA"></output></label><input type="range" id="l4kA" min="30" max="180" step="15" value="90"></div>
+        <div class="callout" id="l4kTxt"></div>
+        <p class="note">萬花筒就是三面鏡子圍成的三角柱；理髮店前後兩面平行的鏡子（θ→0）會出現「無限多個」像。</p>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🤔 鏡子為什麼把左右對調，卻不把上下對調？</h3>
+    <p>其實鏡子<b>沒有</b>把左右對調！你舉右手，鏡中的「你」也舉在同一側（東邊）的手；頭在上、像的頭也在上。鏡子真正對調的是<b>前後</b>：你面向北，像面向南。我們會覺得「左右相反」，是因為想像自己「轉身」走進鏡子裡——轉身時左右交換了。</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 凹面鏡也有「成像公式」</h3>
+    <p>凹面鏡的焦距 f ＝ 曲率半徑 R 的一半（f＝R/2）。它的成像規律和凸透鏡幾乎一樣：</p>
+    <div class="formula"><span class="eq">1/p</span> ＋ <span class="eq">1/q</span> ＝ <span class="eq">1/f</span> ＝ <span class="eq">2/R</span><small>物在焦點外：倒立實像（在鏡子前方，可以投影）；物在焦點內：正立放大虛像（化妝鏡）</small></div>
+    <p class="ask">算算看：化妝鏡 f＝20 cm，臉離鏡 10 cm，像在哪裡、放大幾倍？（答：q＝−20 cm，鏡後 20 cm 的虛像，放大 2 倍）上面「三種鏡子照同一張臉」的凹面鏡就是用這個公式。</p>
+  </div>
+  <div data-arena="t4"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t4"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t4"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-2 面鏡成像 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-2b">
+    <li>我能說出平面鏡成像的性質（等大、對稱、物距＝像距、虛像）</li>
+    <li>我能用反射光的延長線找出虛像的位置</li>
+    <li>我知道凹面鏡會聚光線、凸面鏡發散光線，並能舉出應用</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="相等|像距|虛像|會聚|發散">💬 <b>一句話帶走：</b>平面鏡成像大小______、物距＝______、是______；凹面鏡使平行光______，凸面鏡使平行光______。</div>

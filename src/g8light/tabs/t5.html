@@ -1,0 +1,138 @@
+<!--NAV: 4-3 光的折射-->
+<div class="pagehead">
+  <span class="ref">課本 p.103–105｜4-3 光的折射</span>
+  <h2>水為什麼讓杯底變淺了？</h2>
+  <p class="hook"><b>科學 tell me why：</b>在空水桶中裝水，隨著水位上升，會發現桶底的高度看起來也逐漸上升。在游泳池邊看池底似乎不深，實際下水才發現並非如此。這是什麼原因？</p>
+  <ul class="goals"><li>說出折射的意義：光進入不同介質時，前進方向在交界處發生偏折</li><li>判斷光由快到慢「偏向法線」、由慢到快「偏離法線」</li><li>知道垂直入射時不偏折、但光速改變；折射也具有可逆性</li><li>用折射解釋視深比實深淺</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 40 分鐘）：① 探討活動 4-3（實體杯子＋小燈；或用下面模擬）→ ② 雷射進入水和玻璃：A 垂直、B 空氣→水、C 水→空氣、D 水和玻璃比較 → ③ 隨堂筆記 → ④ 視深與魚叉 → ⑤ 救生員問題（資優）。<br>
+  口訣：「<b>快→慢，偏向法線；慢→快，偏離法線</b>」。連結表 4-1：光速 空氣＞水＞玻璃，所以同樣入射角，玻璃的折射角最小。<br>
+  探討活動 4-3 的重點：光是從燈具出發進入眼睛，但因為光的可逆性，作圖時可以從眼睛往回畫。
+</div></details>
+
+<div data-guess="t5"></div>
+
+<div class="card">
+  <h3>🥤 探討活動 4-3 線上版：水把杯底變淺了？ <span class="tag note">眼睛固定不動，慢慢加水</span></h3>
+  <canvas class="sim" id="l5cup"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>杯中的水量 <output for="l5w"></output></label><input type="range" id="l5w" min="0" max="100" step="2" value="0"></div>
+      <div class="chips" id="l5cOpt"><button class="chip" data-k="img">👻 顯示「看到的燈具」位置</button></div>
+    </div>
+    <div class="callout" id="l5cTxt"></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>💧 雷射進入水和玻璃 <span class="tag note">拖動雷射筆改變入射角；切換介質與方向</span></h3>
+  <canvas class="sim drag" id="l5laser"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l5med"><button class="chip on" data-m="water">下方是水</button><button class="chip" data-m="glass">下方是玻璃</button><button class="chip deepb" data-m="diamond">🧠 鑽石</button></div>
+      <div class="chips" id="l5dir"><button class="chip on" data-d="down">由空氣射入（快→慢）</button><button class="chip" data-d="up">由下方射入空氣（慢→快）</button></div>
+      <div class="chips" id="l5pre"><button class="chip" data-a="0">A 垂直入射</button><button class="chip" data-a="50">入射角 50°（課本圖 D）</button></div>
+    </div>
+    <div>
+      <div class="readout" id="l5R"></div>
+      <div class="callout" id="l5txt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：光的折射現象 <span class="tag note">點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th>入射方向</th><th>由空氣中入射水中</th><th>由水中入射空氣中</th></tr>
+    <tr><td>光速</td><td>光速<span class="fill" data-a="快"></span> → 光速<span class="fill" data-a="慢"></span></td><td>光速<span class="fill" data-a="慢"></span> → 光速<span class="fill" data-a="快"></span></td></tr>
+    <tr><td>傳播速率變化</td><td>變<span class="fill" data-a="慢"></span></td><td>變<span class="fill" data-a="快"></span></td></tr>
+    <tr><td>前進方向</td><td>偏<span class="fill" data-a="向"></span>法線</td><td>偏<span class="fill" data-a="離"></span>法線</td></tr>
+    <tr><td>折射角大小</td><td>比入射角<span class="fill" data-a="小"></span></td><td>比入射角<span class="fill" data-a="大"></span></td></tr>
+  </table>
+  <p style="margin-top:8px">光由一介質斜向入射光速<span class="fill" data-a="愈慢"></span>的介質，路徑愈偏向法線、折射角愈小——所以可以用光偏折的角度，判斷光在不同介質中傳播速率的快慢。</p>
+</div>
+
+<div class="card">
+  <h3>🏊 情境：游泳池到底多深？射水魚怎麼瞄準？ <span class="tag note">拖動拉桿</span></h3>
+  <canvas class="sim" id="l5pool"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>實際的深度（實深） <output for="l5d"></output></label><input type="range" id="l5d" min="0.5" max="3" step="0.1" value="1.8"></div>
+      <div class="ctl"><label>你看的角度（離垂直方向） <output for="l5v"></output></label><input type="range" id="l5v" min="0" max="60" step="5" value="20"></div>
+    </div>
+    <div>
+      <div class="readout" id="l5pR"></div>
+      <div class="callout">從池邊往下看，池底發出（反射）的光從水射入空氣時<b>偏離法線</b>；眼睛把光往回「直直」延長，看到的池底就比實際淺。從正上方看時，<b>視深約為實深的 ¾</b>；斜著看還會更淺。⚠️ 游泳池邊標示的水深是實深，下水前一定要看清楚！</div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 生活｜插在水中的筷子</div>
+    <h4>筷子「斷掉」了？</h4>
+    <p>筷子斜插進一杯水裡，從旁邊看，水中的那一段好像往上折、變短了。水中筷子反射的光在水面偏折，我們看到的是水中那一段的「虛像」，位置比實際淺。</p>
+    <p class="ask">想一想：如果從正上方往下看，筷子還會彎嗎？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 生物｜射水魚</div>
+    <h4>會「修正折射」的神射手</h4>
+    <p>東南亞的射水魚會從水中吐出一道水柱，把停在枝葉上的昆蟲打落水中吃掉。牠在水裡看水面上的昆蟲，光線同樣被偏折，但牠能自動修正角度，準確命中。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜硬幣浮上來</div>
+    <h4>倒水「變」出硬幣</h4>
+    <p>把硬幣放在不透明的碗底，眼睛往後退到剛好看不到硬幣，請同學慢慢倒水——硬幣「浮」出來了！這就是探討活動 4-3，在家用碗和硬幣就能做。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 自然｜海市蜃樓</div>
+    <h4>柏油路上的「水窪」</h4>
+    <p>大熱天，柏油路面附近的空氣很熱、上方較冷，光在溫度不同的空氣中速率不同，路徑會慢慢彎曲。遠方天空的光被彎上來進入眼睛，路面好像有一攤反光的水——但走過去什麼都沒有。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜救生員問題（費馬原理）、折射率、全反射與光纖＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🏃‍♀️🏊 救生員該從哪裡下水？ <span class="tag note">拖動下水點</span></h3>
+    <p>救生員在沙灘上跑得快（7 m/s），在水中游得慢（2 m/s）。要最快救到溺水的人，不該直直衝過去，而要在沙灘上多跑一點、水裡少游一點。光也一樣：1662 年費馬提出<b>光走花費時間最短的路徑</b>，折射正是這個「最佳路線」。</p>
+    <canvas class="sim drag" id="l5guard"></canvas>
+    <p class="note">最快的路線剛好滿足：sin(入射角) ÷ 跑的速率 ＝ sin(折射角) ÷ 游的速率——和光的折射定律一模一樣！</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>📏 折射率 n 與斯涅爾定律</h3>
+    <p>科學家定義<b>折射率</b> n ＝ 真空光速 ÷ 介質中的光速。水 n ≈ 3×10⁸ ÷ 2.25×10⁸ ≈ 1.33；玻璃 n ＝ 1.5；鑽石約 2.42。斯涅爾定律：</p>
+    <div class="formula"><span class="eq">n</span>₁ sin θ₁ ＝ <span class="eq">n</span>₂ sin θ₂</div>
+    <p>在上面的雷射模擬中切到「由下方射入空氣」，把入射角慢慢加大：超過某個角度（<b>臨界角</b>，水約 48.6°、玻璃約 41.8°）後，光完全射不出去，全部反射回來——這叫<b>全反射</b>。光纖就是靠全反射把光困在細細的玻璃絲裡傳到遠方；鑽石的臨界角很小（約 24°），光在裡面反射很多次才出來，所以特別閃亮。</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 為什麼「視深 ≈ 實深 × ¾」？</h3>
+    <p>從正上方往下看（角度很小）。設實深 h、看起來深 h′，光在水面上離正下方的水平距離為 x。水中：tan θ水 ＝ x／h；眼睛以為光直線來：tan θ空 ＝ x／h′。角度很小時 sin ≈ tan，由斯涅爾定律 n × sin θ水 ＝ sin θ空：</p>
+    <div class="formula"><span class="eq">h′</span> ＝ <span class="eq">h</span> ／ <span class="eq">n</span> ＝ <span class="eq">h</span> × ¾（水，n＝4/3）</div>
+    <p class="ask">斜著看時角度變大，sin 和 tan 差很多，視深會更淺——在游泳池模擬把觀看角度拉到 60° 驗證。</p>
+  </div>
+  <div data-arena="t5"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t5"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t5"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-3 光的折射 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-3">
+    <li>我可以了解光的折射現象</li>
+    <li>我能判斷光偏向或偏離法線，並比較入射角與折射角</li>
+    <li>我可以了解光具有可逆性</li>
+    <li>我能用折射解釋視深比實深淺</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="偏向|偏離|不偏折|速率">💬 <b>一句話帶走：</b>光由快到慢______法線，由慢到快______法線；垂直入射時______，但______仍會改變。</div>

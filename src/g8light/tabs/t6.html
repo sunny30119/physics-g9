@@ -1,0 +1,164 @@
+<!--NAV: 4-4 透鏡成像-->
+<div class="pagehead">
+  <span class="ref">課本 p.106–113｜4-4 ① 透鏡的折射與成像</span>
+  <h2>凸透鏡、凹透鏡：光線怎麼走，像在哪裡？</h2>
+  <p class="hook"><b>科學 tell me why：</b>透過裝水的杯子看東西，物體竟然左右相反！杯子沒裝水時有這種效果嗎？改變物體和杯子的距離，看到的情況會不同嗎？</p>
+  <ul class="goals"><li>知道凸透鏡（中央厚）會聚光線、凹透鏡（中央薄）發散光線，並認識焦點、焦距</li><li>完成實驗 4-2：凸透鏡在不同物距的成像性質</li><li>會用三條特殊光線作圖找出像的位置</li><li>知道凹透鏡不論物體在哪裡，都成正立縮小的虛像</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 50 分鐘，可分兩節）：① 三稜鏡組合 → 透鏡（為什麼凸透鏡會聚光）→ ② 實驗 4-2 線上版：先「測焦距」，再把燭火從 3f 慢慢移到 0.5f，讓學生每一段填成像表 → ③ 三條特殊光線作圖（逐條打開）→ ④ 例題 4-6、4-7 → ⑤ 凹透鏡。<br>
+  口訣：「<b>一倍焦距分虛實，二倍焦距分大小</b>」——物在 f 外成實像（倒立）、f 內成虛像（正立）；物在 2f 外像縮小、2f 內像放大。<br>
+  遮半個透鏡的迷思（擂台 6）很適合在學生熟練三條光線之後問：三條光線只是「作圖用」，真實的光穿過整片透鏡。
+</div></details>
+
+<div data-guess="t6"></div>
+
+<div class="card">
+  <h3>🔺 三稜鏡組合 → 透鏡 <span class="tag note">平行雷射光通過三稜鏡組合與透鏡</span></h3>
+  <canvas class="sim" id="l6prism"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l6pK"><button class="chip on" data-k="p+">厚端相對的三稜鏡</button><button class="chip" data-k="l+">凸透鏡（中央厚、邊緣薄）</button><button class="chip" data-k="p-">尖端相對的三稜鏡</button><button class="chip" data-k="l-">凹透鏡（中央薄、邊緣厚）</button></div>
+      <div class="ctl"><label>透鏡的厚薄 → 焦距 <output for="l6pf"></output></label><input type="range" id="l6pf" min="80" max="260" step="10" value="160"></div>
+    </div>
+    <div class="callout" id="l6pTxt"></div>
+  </div>
+  <details style="margin-top:8px"><summary><b>🔍 探究提問（課本 p.107）：光經過三稜鏡為什麼這樣偏折？</b>（先在紙上畫法線，再點開）</summary>
+    <p>在三稜鏡的兩個面各畫一條法線。光從空氣進入玻璃（快→慢）<b>偏向法線</b>；從玻璃出來進入空氣（慢→快）<b>偏離法線</b>。兩次偏折剛好都把光往三稜鏡<b>較厚的底部</b>彎。所以厚端相對的兩塊三稜鏡會把光往中間會聚（像凸透鏡），尖端相對的會把光往外推開（像凹透鏡）。</p>
+  </details>
+</div>
+
+<div class="card">
+  <h3>🔍 透鏡的種類 <span class="tag note">課本 p.106：看剖面形狀分類</span></h3>
+  <div id="l6kinds"></div>
+</div>
+
+<div class="card">
+  <h3>✍️ 三條特殊光線（作圖法） <span class="tag note">課本 p.111、113</span></h3>
+  <div class="grid2 even">
+    <div class="callout"><b>凸透鏡</b><br>① 平行主軸的光，偏折後通過<b>另一側的焦點</b>。<br>② 射向鏡心的光，前進方向<b>不變</b>。<br>③ 射向<b>同側焦點</b>的光，偏折後平行主軸。</div>
+    <div class="callout"><b>凹透鏡</b><br>① 平行主軸的光，偏折後往後延伸會通過<b>與物同側的焦點</b>。<br>② 射向鏡心的光，前進方向<b>不變</b>。<br>③ 射向<b>另一側焦點</b>的光，偏折後平行主軸。</div>
+  </div>
+  <p class="note">兩條以上的光線（或它們的延長線）交會的地方，就是像的位置。真實的光線交會＝實像；延長線交會＝虛像。</p>
+</div>
+
+<div class="card">
+  <h3>🕯️ 實驗 4-2 線上版：凸透鏡光學台 <span class="tag note">拖動蠟燭改變物距；屏幕會自動移到成像最清楚的位置</span></h3>
+  <canvas class="sim drag" id="l6bench"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="chips" id="l6lens"><button class="chip on" data-k="vex">凸透鏡</button><button class="chip" data-k="cave">凹透鏡</button></div>
+      <div class="ctl"><label>焦距 f <output for="l6f"></output></label><input type="range" id="l6f" min="6" max="14" step="1" value="10"></div>
+      <div class="ctl"><label>物距（蠟燭到透鏡） <output for="l6p"></output></label><input type="range" id="l6p" min="2" max="45" step="0.5" value="30"></div>
+      <div class="chips" id="l6rays"><button class="chip on" data-r="0">① 平行主軸的光</button><button class="chip on" data-r="1">② 射向鏡心的光</button><button class="chip on" data-r="2">③ 經過焦點的光</button><button class="chip" data-r="half">🖐 遮住透鏡下半部</button></div>
+      <div class="chips" id="l6pre"><button class="chip" data-p="sun">☀️ 步驟 1：測焦距（太陽光）</button><button class="chip" data-p="cam">📷 照相機（2f 外）</button><button class="chip" data-p="eq">等大（2f）</button><button class="chip" data-p="proj">📽 投影機（f～2f）</button><button class="chip" data-p="f">剛好在焦點</button><button class="chip" data-p="mag">🔍 放大鏡（f 內）</button></div>
+    </div>
+    <div>
+      <div class="readout" id="l6R"></div>
+      <div class="callout" id="l6txt"></div>
+    </div>
+  </div>
+</div>
+
+<details class="card"><summary><b>📝 實驗 4-2 問題與討論</b>（先自己回答，再點開）</summary>
+  <ol>
+    <li><b>步驟 2 測得的 f 公分代表什麼？</b>→ 凸透鏡的<b>焦距</b>：遠方的太陽光近似平行光，會聚的最亮點就是焦點。</li>
+    <li><b>步驟 4 屏幕上的像有什麼共通性質？燈具靠近時怎麼變？</b>→ 都是<b>倒立實像</b>；燈具愈靠近透鏡（但仍在焦點外），像愈大、像距愈遠。</li>
+    <li><b>步驟 6 直接看到的像有什麼共通性質？</b>→ 都是<b>正立放大虛像</b>；燈具愈靠近透鏡，像愈小（愈靠近焦點，像愈大）。</li>
+    <li><b>探究提問：窗外景物成像在白紙上時，透鏡到白紙的距離接近焦距嗎？</b>→ 接近。景物很遠（遠大於 2f），像落在焦點附近、稍微外面一點。</li>
+  </ol>
+</details>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：透鏡成像性質簡表 <span class="tag note">在上面的光學台中移動蠟燭，對應的那一列會亮起來</span></h3>
+  <table class="simple" id="l6table">
+    <tr><th>種類</th><th>燈具位置</th><th>成像位置</th><th>實像／虛像</th><th>正立／倒立</th><th>放大／縮小</th></tr>
+    <tr data-z="inf"><td rowspan="6">凸透鏡</td><td>無窮遠處</td><td>鏡後焦點上</td><td>實像</td><td colspan="2">一點</td></tr>
+    <tr data-z="out2"><td>2 倍焦距外</td><td>鏡後 1 至 2 倍焦距間</td><td>實像</td><td>倒立</td><td>縮小</td></tr>
+    <tr data-z="at2"><td>2 倍焦距上</td><td><span class="fill" data-a="鏡後 2 倍焦距上"></span></td><td><span class="fill" data-a="實像"></span></td><td><span class="fill" data-a="倒立"></span></td><td><span class="fill" data-a="相等"></span></td></tr>
+    <tr data-z="mid"><td>1 至 2 倍焦距間</td><td><span class="fill" data-a="鏡後 2 倍焦距外"></span></td><td><span class="fill" data-a="實像"></span></td><td><span class="fill" data-a="倒立"></span></td><td><span class="fill" data-a="放大"></span></td></tr>
+    <tr data-z="atf"><td>焦點上</td><td>無窮遠處</td><td colspan="3"><span class="fill" data-a="無法成像（屏幕上無像，透過透鏡也看不到）"></span></td></tr>
+    <tr data-z="in"><td>焦點內</td><td><span class="fill" data-a="與物同側（鏡前）"></span></td><td><span class="fill" data-a="虛像"></span></td><td><span class="fill" data-a="正立"></span></td><td><span class="fill" data-a="放大"></span></td></tr>
+    <tr data-z="cave"><td>凹透鏡</td><td>任何位置</td><td><span class="fill" data-a="與物同側、焦點與鏡心之間"></span></td><td><span class="fill" data-a="虛像"></span></td><td><span class="fill" data-a="正立"></span></td><td><span class="fill" data-a="縮小"></span></td></tr>
+  </table>
+</div>
+
+
+
+<div class="card example">
+  <h3>✏️ 例題 4-6　凸透鏡成像 <span class="tag note">課本 p.111；在光學台按對應的位置驗證</span></h3>
+  <div class="q">用特殊光線作圖，判斷物體在不同位置的成像性質：a. 物在 2 倍焦距上　b. 物在 1 至 2 倍焦距之間　c. 物在焦點與透鏡之間</div>
+  <ol class="sol">
+    <li>a. 物在 2f 上：像在鏡後 2f 上，<b>實像、倒立、相等</b>。</li>
+    <li>b. 物在 f～2f：像在鏡後 2f 外，<b>實像、倒立、放大</b>（投影機）。</li>
+    <li>c. 物在焦點內：折射光發散，延長線在物的同側交會，<b>虛像、正立、放大</b>（放大鏡）。</li>
+  </ol>
+  <div class="ansbox">答：a 實像倒立相等；b 實像倒立放大；c 虛像正立放大。</div>
+  <p class="note">建議先在紙上作圖，再到光學台對答案：<button class="btn ghost" data-pre="eq">a 物在 2f</button> <button class="btn ghost" data-pre="proj">b 物在 f～2f</button> <button class="btn ghost" data-pre="mag">c 物在焦點內</button></p>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-7　凹透鏡成像 <span class="tag note">課本 p.113</span></h3>
+  <div class="q">依凹透鏡的成像作圖，判斷：a. 物離鏡遠　b. 物離鏡近 的成像性質。</div>
+  <ol class="sol">
+    <li>凹透鏡使光線發散，折射光不會交會，只有延長線在物的同側交會 → 永遠是<b>虛像</b>。</li>
+    <li>a、b 都是<b>正立、縮小</b>；物離鏡愈遠，像愈小（光學台切到凹透鏡試試）。</li>
+  </ol>
+  <div class="ansbox">答：a、b 都是虛像、正立、縮小（物愈遠像愈小）。</div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 生活｜裝水的杯子</div>
+    <h4>章首問題：杯子變成透鏡</h4>
+    <p>裝滿水的圓柱形杯子，左右方向是中央厚、邊緣薄——像一片「只在左右方向」的凸透鏡。物體在焦點外時，透過杯子看到的像<b>左右相反</b>；但上下方向杯子沒有彎曲，所以上下不會顛倒。空杯子則沒有這種效果。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 安全｜寶特瓶引起的火災</div>
+    <h4>窗邊的水瓶也會「聚光」</h4>
+    <p>消防單位曾提醒：裝水的寶特瓶、玻璃球放在陽光直射的窗邊或車內，可能像凸透鏡一樣把陽光聚在一點，點燃紙張或布料。</p>
+    <p class="ask">想一想：亮點會出現在離瓶子多遠的地方？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 歷史｜阿基米德的傳說</div>
+    <h4>聚光燒船是真的嗎？</h4>
+    <p>傳說阿基米德用鏡子聚集陽光燒毀敵船，但這個故事出現在他死後幾百年的文獻中。現代很多人重做實驗，大多認為在實戰條件下很難做到。科學家判斷傳說時，要看證據！</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜透鏡公式 1/p＋1/q＝1/f 與放大率＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 用相似三角形推出透鏡公式</h3>
+    <p>設物距 p、像距 q、焦距 f、物高 h、像高 h′。由「射向鏡心的光」得到：h′ ÷ h ＝ q ÷ p。由「平行主軸的光」經過焦點：h′ ÷ h ＝ (q − f) ÷ f。兩式相等：</p>
+    <div class="formula">q／p ＝ (q − f)／f　⟹　<span class="eq">1/p</span> ＋ <span class="eq">1/q</span> ＝ <span class="eq">1/f</span><small>放大率 m ＝ q／p；虛像時 q 取負值（高中會正式學到）</small></div>
+    <p>試算：f＝10 cm、p＝15 cm → 1/q ＝ 1/10 − 1/15 ＝ 1/30 → q ＝ 30 cm，放大 2 倍。在光學台把物距調到 15、焦距 10，看讀數是不是一樣。</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🔍 課本說法 vs 嚴格說法：物在焦點上</h3>
+    <p>課本說「物在焦點上無法成像」。嚴格來說，折射光變成<b>平行光</b>，像在「無窮遠處」。這時眼睛放鬆就能看到放大的虛像——其實正是<b>放大鏡最舒服的用法</b>！放大鏡的放大倍率常寫成 25／f（f 以公分為單位，25 cm 是一般人看得清楚的最近距離）：f＝5 cm 的放大鏡約 5 倍。</p>
+  </div>
+  <div data-arena="t6"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t6"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t6"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-4 透鏡成像 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-4a">
+    <li>我能分辨凸透鏡和凹透鏡，並說出它們對光線的作用</li>
+    <li>我能說出凸透鏡在各物距的成像性質（實驗 4-2）</li>
+    <li>我會用三條特殊光線作圖找出像的位置</li>
+    <li>我知道凹透鏡只能成正立縮小的虛像</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="會聚|發散|焦點|2 倍焦距">💬 <b>一句話帶走：</b>凸透鏡使光______、凹透鏡使光______；凸透鏡成像：______分虛實，______分大小。</div>

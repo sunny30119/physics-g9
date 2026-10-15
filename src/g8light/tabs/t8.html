@@ -1,0 +1,135 @@
+<!--NAV: 4-5 色散與三原色-->
+<div class="pagehead">
+  <span class="ref">課本 p.116–118｜4-5 ① 色散與光的三原色</span>
+  <h2>白光裡藏著彩虹</h2>
+  <p class="hook"><b>科學 tell me why：</b>雨後放晴的天空、陽光下的水霧中，有時會看見彩虹。陽光照在鏡面或玻璃的位置和角度剛好時，附近的牆上也會出現各種顏色。這些顏色是怎麼產生的？</p>
+  <ul class="goals"><li>說出色散：光經物體折射後分散成各種色光</li><li>知道陽光由各種色光混合而成（牛頓 1666 年的實驗）</li><li>知道不同色光在三稜鏡中的傳播速率不同</li><li>認識光的三原色：紅、綠、藍，以及螢幕的發色原理</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 35 分鐘）：① 猜一猜 → ② 三稜鏡：先用紅色雷射（只偏折、不分散），再換白光（分散）→ ③ 加第二個倒放的三稜鏡（牛頓的關鍵實驗）→ ④ 探究提問：不同色光在玻璃中速率相同嗎？→ ⑤ RGB 混色器 → ⑥ 螢幕放大看。<br>
+  探究提問答案：不同色光偏折程度不同（紫光最多、紅光最少），表示它們在三稜鏡中的傳播速率不同（紫光最慢）。<br>
+  色光混合（相加）和顏料混合（相減）不同，國中只要求色光三原色；顏料部分可當延伸。
+</div></details>
+
+<div data-guess="t8"></div>
+
+<div class="card">
+  <h3>🔺 三稜鏡實驗室 <span class="tag note">拖動拉桿改變入射角度；色散程度已放大，方便觀察</span></h3>
+  <canvas class="sim" id="l8prism"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l8src"><button class="chip" data-s="red">🔴 紅色雷射光</button><button class="chip on" data-s="white">☀️ 陽光（白光）</button><button class="chip" data-s="green">🟢 綠色雷射光</button></div>
+      <div class="ctl"><label>光射入的角度 <output for="l8ang"></output></label><input type="range" id="l8ang" min="8" max="40" step="1" value="18"></div>
+      <div class="chips" id="l8two"><button class="chip" data-k="two">🔁 牛頓：加上第二個倒放的三稜鏡</button></div>
+    </div>
+    <div class="callout" id="l8txt"></div>
+  </div>
+</div>
+
+<div class="card history">
+  <h3>📜 1666 年，牛頓的暗室 <span class="tag note">課本 p.116、126–127 科學家日誌</span></h3>
+  <div class="grid2 even">
+    <div>
+      <p>1665～1666 年，英國爆發瘟疫，劍橋大學停課。23 歲的牛頓回到故鄉，把房間改造成暗室，在窗板上開一個小孔，讓一束陽光射進來通過三稜鏡——牆上出現了七彩的光帶。</p>
+      <p>當時很多人以為：顏色是三稜鏡「加」到白光上的。牛頓用第二個三稜鏡把彩色光合起來，<b>又變回白光</b>；再挑出其中一種色光通過另一個三稜鏡，它只偏折、不再分出新顏色。</p>
+    </div>
+    <div class="callout good"><b>牛頓的結論：</b>陽光不是單一的白色光線，而是由<b>七彩色光混合</b>而成。這種光線經物體折射後分散成各種色光的現象，稱為<b>色散</b>。<br><br>他也發現透鏡會因色散產生「色差」（影像邊緣有彩色），於是發明了不用透鏡的<b>反射式望遠鏡</b>。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🔴🟢🔵 光的三原色混色器 <span class="tag note">拖動拉桿改變三盞燈的亮度</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="l8rgb"></canvas>
+    <div>
+      <div class="ctl"><label>🔴 紅光 <output for="l8r"></output></label><input type="range" id="l8r" min="0" max="100" step="5" value="100"></div>
+      <div class="ctl"><label>🟢 綠光 <output for="l8g"></output></label><input type="range" id="l8g" min="0" max="100" step="5" value="100"></div>
+      <div class="ctl"><label>🔵 藍光 <output for="l8b"></output></label><input type="range" id="l8b" min="0" max="100" step="5" value="0"></div>
+      <div class="chips" id="l8mix"><button class="chip" data-c="100,100,0">紅＋綠</button><button class="chip" data-c="0,100,100">綠＋藍</button><button class="chip" data-c="100,0,100">紅＋藍</button><button class="chip" data-c="100,100,100">三色全開</button><button class="chip" data-c="100,50,0">橘色怎麼調？</button></div>
+      <div class="callout" id="l8rgbTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📱 放大看手機螢幕 <span class="tag note">選一個顏色，看看螢幕上的小光點怎麼亮</span></h3>
+  <div class="grid2">
+    <canvas class="sim" id="l8pix"></canvas>
+    <div>
+      <div class="chips" id="l8pixC"><button class="chip on" data-c="255,255,0">黃色</button><button class="chip" data-c="255,255,255">白色</button><button class="chip" data-c="0,255,255">青色</button><button class="chip" data-c="255,0,255">洋紅</button><button class="chip" data-c="255,140,0">橘色</button><button class="chip" data-c="120,60,20">咖啡色</button></div>
+      <p>電視和手機螢幕的每個像素都由<b>紅、綠、藍</b>三個小發光點組成，依不同亮度比例組合，就能讓我們看到各種顏色（課本圖 4-26）。小光點太小，眼睛分辨不出來，看起來就混成了一種顏色。</p>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 天氣｜彩虹出現在哪一邊？</div>
+    <h4>背對太陽才看得到</h4>
+    <p>彩虹是陽光射進無數小水滴，經過<b>折射、反射、再折射</b>後色散形成的。所以要<b>背對太陽</b>、前方有水滴才看得到：早上彩虹出現在西邊，傍晚出現在東邊。</p>
+    <p class="ask">試試看：背對太陽用水管噴出水霧，就能做出自己的彩虹。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 歷史｜第一張彩色照片</div>
+    <h4>1861 年的三色緞帶</h4>
+    <p>馬克士威請攝影師用紅、綠、藍三片濾色鏡，分別拍攝同一條格紋緞帶，再把三張照片用三種色光疊合投影，重現出彩色——和今天的螢幕原理一樣。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜鑽石與水晶吊燈</div>
+    <h4>「火光」閃閃</h4>
+    <p>切割過的鑽石、水晶吊飾在燈光下會閃出彩色光芒，這也是色散：不同色光偏折的角度不同，從不同角度看就會看到不同顏色。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 科技｜光碟背面的彩虹</div>
+    <h4>不是色散，是「繞射」</h4>
+    <p>光碟、肥皂泡也會出現彩色，但原理不同：光碟是細密的溝紋造成光的繞射、肥皂泡是薄膜干涉。高中物理會學到這些「波動光學」現象。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜彩虹為什麼是 42°？色光與顏料的混合＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🌈 一滴水做出彩虹 <span class="tag note">拖動拉桿改變陽光射入水滴的位置</span></h3>
+    <div class="grid2">
+      <canvas class="sim" id="l8drop"></canvas>
+      <div>
+        <div class="ctl"><label>陽光射入水滴的高度（中心 0 → 邊緣 1） <output for="l8b2"></output></label><input type="range" id="l8b2" min="0" max="0.99" step="0.01" value="0.86"></div>
+        <div class="callout" id="l8dTxt"></div>
+      </div>
+    </div>
+    <p class="note">陽光在水滴裡：進入時折射 → 在背面反射 → 射出時再折射。不論射入哪裡，紅光射出的角度最多只到約 42°、紫光約 40°，光在這個角度附近最集中，所以彩虹是一個角半徑約 42° 的圓弧，紅色在外、紫色在內。</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🎨 色光相加 vs 顏料相減</h3>
+    <div class="grid2 even">
+      <div class="callout"><b>色光（螢幕、舞台燈）</b>：紅＋綠＋藍＝白；愈混愈亮。三原色是 <b>紅、綠、藍（RGB）</b>。</div>
+      <div class="callout"><b>顏料（印表機、水彩）</b>：每種顏料吸收一部分光，愈混愈暗。印表機用 <b>青、洋紅、黃（CMY）</b>＋黑。青色顏料＝吸收紅光、反射綠和藍。</div>
+    </div>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🌈🌈 霓（副虹）與亞歷山大暗帶</h3>
+    <p>有時主虹外側會出現一道較淡的<b>副虹</b>（約 51°），它的光在水滴裡反射了<b>兩次</b>，所以顏色順序<b>相反</b>：紅在內、紫在外。主虹和副虹之間的天空特別暗，叫做「亞歷山大暗帶」——因為在 42°～51° 之間，兩種路徑的光都射不過來。</p>
+  </div>
+  <div data-arena="t8"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t8"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t8"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-5 色散 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-5a">
+    <li>我可以了解陽光經過三稜鏡會分散成各種色光</li>
+    <li>我知道不同色光在三稜鏡中的傳播速率不同</li>
+    <li>我知道光的三原色是紅、綠、藍，並能說出螢幕的發色原理</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="色散|各種色光|紅、綠、藍">💬 <b>一句話帶走：</b>白光經三稜鏡分散成各種顏色叫______，證明白光由______混合而成；光的三原色是______。</div>

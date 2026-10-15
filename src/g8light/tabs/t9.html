@@ -1,0 +1,121 @@
+<!--NAV: 4-5 物體的顏色-->
+<div class="pagehead">
+  <span class="ref">課本 p.118–120｜4-5 ② 顏色的成因</span>
+  <h2>蘋果為什麼是紅的？</h2>
+  <p class="hook"><b>先想一想：</b>陽光穿過不同顏色的玻璃，地上出現各種顏色（課本圖 4-27）；陽光照到不同物體，物體也呈現各種顏色。我們看到的顏色，究竟是物體本身的，還是光的？</p>
+  <ul class="goals"><li>知道透明物體的顏色由「透射光」決定</li><li>知道不透明物體的顏色由「反射光」決定：白色反射各色光、黑色吸收各色光</li><li>能預測物體在不同色光照射下的顏色</li><li>解開章首謎題的原理</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 35 分鐘）：① 猜一猜 → ② 探討活動 4-4 暗箱：先請學生預測表格，再逐格驗證（可按「自動完成表格」對答案）→ ③ 玻璃紙濾光（疊兩張）→ ④ 例題 4-9 國旗 → ⑤ 回到第 ⓪ 頁解釋章首謎題。<br>
+  關鍵句：<b>物體不會「產生」顏色，只會「挑選」光</b>——透明物體挑選讓哪些色光通過，不透明物體挑選反射哪些色光。<br>
+  模擬中的「紅紙」設定為只反射紅光（理想情況）；真實的色紙會反射一點點其他顏色。
+</div></details>
+
+<div data-guess="t9"></div>
+
+<div class="card">
+  <h3>🎞️ 透明物體：玻璃紙濾光 <span class="tag note">選一張或兩張玻璃紙，看白光通過後剩下什麼</span></h3>
+  <canvas class="sim" id="l9filter"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>第一張玻璃紙</label><div class="chips" id="l9f1"></div></div>
+      <div class="ctl"><label>第二張玻璃紙</label><div class="chips" id="l9f2"></div></div>
+    </div>
+    <div class="callout" id="l9fTxt"></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📦 探討活動 4-4 線上版：暗箱裡的色紙 <span class="tag note">選光源，看暗箱中各色紙呈現的顏色</span></h3>
+  <canvas class="sim" id="l9box"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l9light"><button class="chip on" data-l="1,1,1">⚪ 白光</button><button class="chip" data-l="1,0,0">🔴 紅光</button><button class="chip" data-l="0,1,0">🟢 綠光</button><button class="chip" data-l="0,0,1">🔵 藍光</button><button class="chip deepb" data-l="1,1,0">🧠 黃光（紅＋綠）</button><button class="chip deepb" data-l="0,1,1">🧠 青光（綠＋藍）</button></div>
+      <div class="btnrow"><button class="btn ghost" id="l9fill">📋 自動完成記錄表</button><button class="btn ghost" id="l9clr">🙈 清空記錄表</button></div>
+    </div>
+    <div class="callout" id="l9bTxt"></div>
+  </div>
+  <table class="simple" id="l9table" style="margin-top:10px">
+    <tr><th>光源 ＼ 色紙</th><th>紅</th><th>藍</th><th>綠</th><th>黑</th><th>白</th></tr>
+  </table>
+</div>
+
+<div class="grid2 even">
+  <div class="card" style="margin:0 0 16px">
+    <h3>🟥 透明物體的顏色</h3>
+    <p>白光通過玻璃紙後，呈現與玻璃紙相同顏色的色光，因為玻璃紙<b>只讓與自己同色的色光穿透</b>，其他色光被吸收。</p>
+    <p>→ 透明物體的顏色由<b>透射光</b>的顏色決定（課本圖 4-28）。無色透明的玻璃紙讓所有光穿透。</p>
+  </div>
+  <div class="card" style="margin:0 0 16px">
+    <h3>🍎 不透明物體的顏色</h3>
+    <p>紅紙在白光、紅光下呈紅色，在藍、綠光下呈黑色 → 紅紙只<b>反射紅光</b>，吸收其他色光。白紙反射各種色光；黑紙吸收各種色光。</p>
+    <p>→ 不透明物體的顏色，與物體表面<b>吸收與反射</b>光的顏色有關（課本圖 4-29）。</p>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-9　光與顏色 <span class="tag note">課本 p.120；按「換成紅光」驗證</span></h3>
+  <canvas class="sim" id="l9flag"></canvas>
+  <div class="btnrow" style="margin:6px 0"><button class="btn ghost" id="l9flagL">🔴 換成紅光照射</button></div>
+  <div class="q">下面哪一國的國旗在<b>紅光</b>照射下，雖然顏色變了，但圖案的形狀仍然一樣？(A) 希臘　(B) 英國　(C) 加拿大</div>
+  <ol class="sol">
+    <li>紅光下：白色部分反射紅光 → 呈<b>紅色</b>；紅色部分 → 仍呈<b>紅色</b>；藍色部分吸收紅光 → 呈<b>黑色</b>。</li>
+    <li>希臘（藍＋白）：變成黑＋紅，兩種顏色仍然不同 → 圖案還在。</li>
+    <li>英國（紅＋白＋藍）：紅和白都變紅，紅十字和白邊融成一片 → 圖案改變。加拿大（紅＋白）：全部變紅，楓葉消失。</li>
+  </ol>
+  <div class="ansbox">答：(A) 希臘。</div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 藝術｜臺灣燈會的光雕</div>
+    <h4>同一面牆，變出一百種顏色</h4>
+    <p>光雕投影把特定顏色和圖案投在建築物上（課本圖 4-30）。白色或淺色的牆面能反射各種色光，所以投什麼顏色就是什麼顏色——深色的牆面就不適合當光雕的「畫布」。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 農業｜植物工廠的紅藍光</div>
+    <h4>為什麼溫室亮著紫紅色的燈？</h4>
+    <p>葉綠素主要吸收<b>紅光和藍光</b>來行光合作用，綠光大多被反射（所以葉子看起來是綠的）。臺灣的植物工廠常用紅色和藍色 LED 組合照明，省電又有效率（呼應課本 p.125 的閱讀題）。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 生活｜賣場的燈</div>
+    <h4>肉攤的燈為什麼偏紅？</h4>
+    <p>有些肉攤、蔬果攤會用偏紅或特殊色溫的燈照明，讓肉看起來更鮮紅、蔬果更鮮艷。買東西時最好在自然光下再看一次！</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 交通｜夜間穿什麼衣服？</div>
+    <h4>黑衣服最危險</h4>
+    <p>夜間行走時，黑色衣服吸收車燈的光，駕駛幾乎看不見；淺色、白色衣服反射各種色光，比較容易被看見；反光背心又更好（第 ③ 頁）。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜黃色香蕉在藍光下？「黃色」到底是什麼＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🍌 黃色香蕉的祕密</h3>
+    <p>黃色物體其實反射了<b>紅光和綠光</b>（兩者混合看起來是黃色），吸收藍光。所以在紅光下香蕉呈紅色、在綠光下呈綠色、在藍光下呈黑色。在上面的暗箱選「黃光」或「青光」，預測看看白紙、紅紙、綠紙、藍紙會變什麼顏色。</p>
+    <p class="ask">挑戰：在青光（綠＋藍）照射下，紅蘋果看起來是什麼顏色？綠葉呢？</p>
+  </div>
+  <div data-arena="t9"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t9"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t9"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-5 顏色的成因 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-5b">
+    <li>我可以了解物體的顏色是光反射（或透射）的結果（課本 p.119）</li>
+    <li>我能預測色紙在不同色光照射下的顏色</li>
+    <li>我能解釋章首謎題：為什麼透過紅色玻璃紙就看得到「牛頓」</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="透射|反射|反射|吸收">💬 <b>一句話帶走：</b>透明物體的顏色由______光決定，不透明物體的顏色由______光決定；白色______各種色光，黑色______各種色光。</div>

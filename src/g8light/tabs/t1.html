@@ -1,0 +1,144 @@
+<!--NAV: 4-1 光的直進-->
+<div class="pagehead">
+  <span class="ref">課本 p.90–92｜4-1 ① 光的直進性</span>
+  <h2>光走直線：影子和針孔成像</h2>
+  <p class="hook"><b>科學 tell me why：</b>在電影院看電影時，如果有人站起來走動，布幕上有時會出現黑色的剪影。為什麼會有這種現象？</p>
+  <ul class="goals"><li>說出光在真空或均勻介質中沿直線前進（光的直進性）</li><li>用光的直進性解釋針孔成像：上下顛倒、左右相反的實像</li><li>知道針孔距離、針孔數目、針孔大小如何影響成像</li><li>用光的直進性解釋影子的形成</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 35 分鐘）：① 猜一猜 → ② 針孔成像模擬（重現探討活動 4-1 的三個操作：調距離、多戳兩個洞、把洞加大）→ ③ 請學生自己在紙上畫直線連 LED 和小孔（課本圖 4-2），再對照模擬 → ④ 影子與手影（例題 4-1）→ ⑤ 案例：日食光斑、暗箱。<br>
+  「實像」的定義在這裡第一次出現：由真實光線會聚而成、可以投影在紙屏上的像。第 ④、⑥ 頁會再和「虛像」比較。<br>
+  資優延伸：探究提問「紙杯變長」——要比較成像大小，必須控制「LED 到針孔的距離」相同。
+</div></details>
+
+<div data-guess="t1"></div>
+
+<div class="card history">
+  <h3>📜 兩千年前的小孔</h3>
+  <div class="grid2 even">
+    <div>
+      <p>中國戰國時代的《墨經》寫道：「<b>景到，在午有端，與景長，說在端。</b>」意思是：影像倒過來了，因為光線在小孔（端）的地方交叉；像的大小和小孔的位置有關。這是世界上最早的針孔成像紀錄之一。</p>
+    </div>
+    <div>
+      <p>約一千年前，阿拉伯學者<b>海什木</b>在暗室的牆上開小孔，觀察到室外景物倒立地投在對面牆上。這種暗室叫做 camera obscura（拉丁文「黑暗的房間」）——今天的「camera（相機）」這個字就是從這裡來的！</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🕯️ 探討活動 4-1 線上版：針孔成像 <span class="tag note">左邊是側面圖，右邊是描圖紙上看到的樣子</span></h3>
+  <canvas class="sim" id="l1pin"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="ctl"><label>① 針孔與 LED 的距離 <output for="l1d"></output></label><input type="range" id="l1d" min="6" max="30" step="1" value="15"></div>
+      <div class="ctl"><label>③ 針孔大小（直徑） <output for="l1r"></output></label><input type="range" id="l1r" min="0.5" max="6" step="0.5" value="0.5"></div>
+      <div class="chips" id="l1holes"><button class="chip on" data-n="1">一個針孔</button><button class="chip" data-n="3">② 底部多戳兩個洞</button></div>
+      <div class="chips" id="l1cup"><button class="chip on" data-l="10">紙杯長 10 cm</button><button class="chip deepb" data-l="16">🧠 換長紙杯 16 cm</button></div>
+    </div>
+    <div>
+      <div class="readout" id="l1R"></div>
+      <div class="callout" id="l1txt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：針孔成像 <span class="tag note">點空格看答案</span></h3>
+  <ul>
+    <li>在紙屏上形成的是<span class="fill" data-a="實像"></span>（由真實光線構成，可以投影在紙屏上）。</li>
+    <li>像與物的方位：<span class="fill" data-a="上下顛倒、左右相反"></span>。</li>
+    <li>針孔離光源愈遠，像愈<span class="fill" data-a="小"></span>；多個針孔會產生<span class="fill" data-a="多個像"></span>；針孔變大，像變<span class="fill" data-a="亮但模糊"></span>。</li>
+    <li>這個實驗驗證了光的<span class="fill" data-a="直進性"></span>：光在真空或均勻介質中以直線前進。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>✋ 影子與手影遊戲 <span class="tag note">例題 4-1 的模擬；拖動拉桿</span></h3>
+  <canvas class="sim" id="l1shadow"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>蠟燭到手的距離 <output for="l1sl"></output></label><input type="range" id="l1sl" min="10" max="150" step="5" value="60"></div>
+      <div class="ctl"><label>手到牆的距離 <output for="l1sw"></output></label><input type="range" id="l1sw" min="20" max="200" step="10" value="100"></div>
+    </div>
+    <div>
+      <div class="readout" id="l1sR"></div>
+      <div class="callout">光照射到不透明物體時被擋住，後方光線到不了的地方就形成<b>影子</b>。古代的<b>日晷</b>就是利用晷針的影子方向來指示時間（課本圖 4-4）。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-1　光的直進性 <span class="tag note">課本 p.92</span></h3>
+  <div class="q">在暗室中點蠟燭玩手影遊戲，如果希望牆上的影子更大，可以怎麼做？</div>
+  <ol class="sol">
+    <li>從蠟燭畫兩條直線經過手的上下邊緣，延伸到牆上，兩線之間就是影子。</li>
+    <li>手<b>靠近蠟燭</b>：兩條線張開的角度變大 → 影子變大。</li>
+    <li>牆<b>離手遠一點</b>：兩條線在牆上分得更開 → 影子也變大。</li>
+  </ol>
+  <div class="ansbox">答：把手移近蠟燭（或把蠟燭移近手），或讓牆離手遠一點。</div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 天文｜2020 年 6 月 21 日日環食</div>
+    <h4>樹下的滿地「小太陽」</h4>
+    <p>日環食當天，臺灣很多人在樹下拍到地上布滿一個個「光環」。樹葉間的小縫隙就像針孔，每個光斑都是太陽的<b>針孔像</b>。平常它們是圓形的光斑，只是我們沒注意。</p>
+    <p class="ask">想一想：如果用漏勺或餅乾模具的小洞看日食，會看到什麼？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜電影院的剪影</div>
+    <h4>投影機的光被你擋住了</h4>
+    <p>投影機的光沿直線射向布幕。有人站起來擋住光，布幕上那一塊照不到光，就出現黑色剪影。人愈靠近投影機，剪影愈大。</p>
+    <p class="ask">想一想：這和手影遊戲的原理一樣嗎？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 自然｜樹林中的光束</div>
+    <h4>看得見光走的路</h4>
+    <p>清晨的樹林裡有霧或灰塵時，可以看到一道道筆直的光束從枝葉縫隙射向地面（課本圖 4-3）。空氣中的小水滴、灰塵把光散射到我們眼裡，讓光走的直線「現形」。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 藝術｜暗箱與繪畫</div>
+    <h4>畫家的「投影描圖機」</h4>
+    <p>17 世紀以後，一些歐洲畫家可能利用暗箱（camera obscura）把景物投影在紙上幫助描繪。後來在暗箱裡放上感光材料，就成了最早的照相機。</p>
+    <p class="ask">想一想：暗箱投影出來的景物，畫家看到的是正立的還是倒立的？</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜用相似三角形算像的大小＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📐 像高 ÷ 物高 ＝ 像距 ÷ 物距</h3>
+    <p>針孔成像中，物體頂端→針孔→像底端是一條直線，物體底端→針孔→像頂端是另一條直線。兩條線在針孔交叉，形成兩個<b>相似三角形</b>：</p>
+    <div class="formula">像高 ／ 物高 ＝ 像距（針孔到紙屏）／ 物距（物體到針孔）</div>
+    <p>課本的探究提問：換成長紙杯（像距變大），像會變大。但要比較兩個紙杯的成像大小，必須讓「<b>LED 到針孔的距離</b>」保持相同（控制變因）。在上面的模擬中切換「🧠 換長紙杯」試試。</p>
+    <p class="ask">挑戰：太陽直徑約 140 萬公里，距離地球約 1.5 億公里。用針孔在 1 公尺外的紙上成像，太陽的像直徑大約幾公分？（答：約 0.93 公分）</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🌗 本影與半影：光源有大小時</h3>
+    <p>手影模擬把燭火當成「一個點」。真實的光源有大小：從光源上下兩端各畫直線經過物體邊緣，會得到兩種影子——完全照不到光的<b>本影</b>（全黑）、只照到部分光的<b>半影</b>（灰灰的、邊緣模糊）。物體離牆愈遠，半影愈寬，影子邊緣愈糊。</p>
+    <p>日食就是這樣：站在月球的本影裡看到日全食，站在半影裡只看到日偏食。月球離地球稍遠時，本影到不了地面，就變成日環食（例如 2020 年 6 月 21 日）。</p>
+  </div>
+  <div data-arena="t1"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t1"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t1"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-1 光的直進性 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-1a">
+    <li>我能說出光的直進性</li>
+    <li>我能用光的直進性解釋針孔成像（上下顛倒、左右相反的實像）</li>
+    <li>我知道針孔距離、數目、大小對成像的影響</li>
+    <li>我能解釋影子的形成，並說出讓影子變大的方法</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="直線|上下顛倒、左右相反|實像">💬 <b>一句話帶走：</b>光在均勻介質中沿______前進；針孔成像是______的______。</div>

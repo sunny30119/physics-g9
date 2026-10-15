@@ -1,0 +1,137 @@
+<!--NAV: 4-1 光速-->
+<div class="pagehead">
+  <span class="ref">課本 p.92｜4-1 ② 光的傳播速率</span>
+  <h2>光到底有多快？科學家怎麼量出來的？</h2>
+  <p class="hook"><b>先想一想：</b>看見閃電後過一段時間才聽見雷聲，可見光比聲音快很多。可是光快到幾乎「一出發就到」，要怎麼量它的速率？</p>
+  <ul class="goals"><li>知道光可以在真空中傳播，聲音不行</li><li>記住光在真空中的速率約 3×10⁸ m/s，並知道光在空氣、水、玻璃中的速率依序變慢</li><li>能計算光走一段距離所需的時間（例題 4-2）</li><li>認識伽利略、羅默、斐索測量光速的方法</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 25 分鐘）：① 猜一猜（陽光 8 分鐘）→ ② 光速測量三部曲（伽利略失敗 → 羅默看天上 → 斐索轉齒輪）→ ③ 表 4-1 與光速計算器 → ④ 例題 4-2。<br>
+  「3×10⁸」的科學記號若學生還不熟，可以說成「3 後面 8 個 0」＝ 3 億公尺＝30 萬公里。<br>
+  表 4-1 中「光在水、玻璃中變慢」是第 ⑤ 頁「折射」的伏筆，請學生記住這張表。
+</div></details>
+
+<div data-guess="t2"></div>
+
+<div class="card">
+  <h3>🔦 光速測量三部曲 ①：伽利略的燈籠（1638 年記載）</h3>
+  <canvas class="sim" id="l2gal"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>兩座山頭的距離 <output for="l2gd"></output></label><input type="range" id="l2gd" min="1" max="10" step="1" value="2"></div>
+      <div class="btnrow"><button class="btn" id="l2gGo">🏮 掀開燈籠</button></div>
+    </div>
+    <div class="callout" id="l2gTxt">伽利略和助手各拿一盞有蓋子的燈籠，站在相距不到 2 公里的兩座山頭。伽利略掀開蓋子，助手一看到光就掀開自己的燈籠，伽利略記錄從掀開到看見助手燈光的時間。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🪐 光速測量三部曲 ②：羅默看木星的衛星（1676 年）</h3>
+  <canvas class="sim" id="l2rom"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>地球在公轉軌道上的位置 <output for="l2rp"></output></label><input type="range" id="l2rp" min="0" max="150" step="5" value="0"></div>
+    </div>
+    <div class="callout" id="l2rTxt"></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>⚙️ 光速測量三部曲 ③：斐索的旋轉齒輪（1849 年） <span class="tag note">拖動拉桿加快齒輪轉速，找出「回來的光第一次被擋住」的轉速</span></h3>
+  <canvas class="sim" id="l2fiz"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>齒輪轉速 <output for="l2fr"></output></label><input type="range" id="l2fr" min="0" max="30" step="0.1" value="0"></div>
+      <div class="btnrow"><button class="btn warn" id="l2fCalc">📝 用這個轉速算光速</button></div>
+    </div>
+    <div>
+      <div class="readout" id="l2fR"></div>
+      <div class="callout" id="l2fTxt">齒輪有 720 個齒，鏡子在 8633 公尺外。光從齒縫出去，來回要走 2×8633 公尺。如果在光來回的這段時間內，齒輪剛好轉過「半個齒」，回來的光就會被齒擋住，眼睛看到一片黑。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📊 表 4-1：光在不同介質中的傳播速率 <span class="tag note">課本 p.92</span></h3>
+  <table class="simple">
+    <tr><th>介質</th><th>無（真空）</th><th>空氣</th><th>水</th><th>玻璃</th></tr>
+    <tr><td>光速（公尺／秒）</td><td>3×10⁸</td><td>約 3×10⁸</td><td>2.25×10⁸</td><td>2×10⁸</td></tr>
+    <tr><td>以 c 表示</td><td>c</td><td>約為 c</td><td>≒ ¾ c</td><td>≒ ⅔ c</td></tr>
+  </table>
+  <p class="note">註：真空中的光速以 c 表示。和聲音不同，光可以在沒有介質的真空中傳播——所以波以耳「看得見」真空罩中的鈴鐺在動，卻聽不見鈴聲。光速：真空＞空氣＞水＞玻璃；聲速則是固體＞液體＞氣體——兩者的規律不同：聲音在固體中最快、在真空中無法傳播；光在真空中最快，在玻璃中反而比較慢。</p>
+</div>
+
+<div class="card">
+  <h3>🌌 計算器：光要走多久？</h3>
+  <div class="chips" id="l2calc"></div>
+  <div class="readout" id="l2calcR" style="margin-top:8px"></div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-2　光的傳播速率 <span class="tag note">課本 p.92</span></h3>
+  <div class="q">高速公路的速限約 0.03 km/s，地球到太陽的距離約 1.5×10⁸ km。若分別以 0.03 km/s 的速率及光速從地球行進到太陽，所需時間各是多少？<br>(A) 車速 5×10⁹ 秒，光速 0.5 秒　(B) 車速 5×10⁹ 秒，光速 500 秒　(C) 車速 5×10¹⁰ 秒，光速 0.5 秒　(D) 車速 5×10¹⁰ 秒，光速 500 秒</div>
+  <ol class="sol">
+    <li>時間＝距離÷速率。車：1.5×10⁸ ÷ 0.03 ＝ 1.5×10⁸ ÷ (3×10⁻²) ＝ <b>5×10⁹ 秒</b>（大約 158 年！）。</li>
+    <li>光速 3×10⁸ m/s ＝ 3×10⁵ km/s。光：1.5×10⁸ ÷ 3×10⁵ ＝ <b>500 秒</b>（約 8 分 20 秒）。</li>
+  </ol>
+  <div class="ansbox">答：(B)。⚠ 注意單位要一致：光速要換成 km/s。</div>
+</div>
+
+<div class="cases">
+  <div class="case world">
+    <div class="where">🌍 太空｜阿波羅登月留下的鏡子</div>
+    <h4>用雷射量地球到月球的距離</h4>
+    <p>阿波羅號太空人在月球上放了反射鏡。地面的天文台向它發射雷射，測量光來回的時間（約 2.5 秒），就能算出地月距離，精確到公分等級。</p>
+    <p class="ask">算算看：來回 2.56 秒，地月距離約多少公里？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜GPS 導航</div>
+    <h4>手機定位靠「光速計時」</h4>
+    <p>手機接收好幾顆衛星的訊號（電磁波，以光速前進），由訊號抵達的時間差算出你和每顆衛星的距離，再定出位置。時間只要差百萬分之一秒，位置就會差約 300 公尺！</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 天文｜看見過去</div>
+    <h4>你看到的星光，可能比你還老</h4>
+    <p>光速有限，所以看得愈遠，就是看得愈「早」。天文學家用望遠鏡觀測幾十億光年外的星系，等於看見宇宙年輕時的樣子。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 科技｜光纖網路</div>
+    <h4>家裡的光纖，訊號跑多快？</h4>
+    <p>光纖裡傳遞的是光，它在玻璃中的速率約 2×10⁸ m/s（表 4-1）。從臺北傳到高雄（約 350 公里，沿路線）只要不到 0.002 秒。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜羅默怎麼知道光要走 22 分鐘？公尺的定義＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🪐 羅默的推理</h3>
+    <p>木衛一（埃歐）大約每 42.5 小時繞木星一圈，每圈會被木星遮住一次（衛星食），像一個天上的時鐘。羅默發現：地球從「最靠近木星」的一側移到「最遠」的一側時，衛星食會累積延遲。當時估計的延遲約 22 分鐘，現代精確值約 16.7 分鐘——光多走了一個地球公轉軌道的直徑（約 3×10⁸ 公里）。</p>
+    <p class="ask">算算看：3×10⁸ km ÷ 1000 秒 ＝ 每秒多少公里？（答：3×10⁵ km/s）</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>📏 光速定義了「1 公尺」</h3>
+    <p>1983 年起，國際上把真空中的光速訂為<b>剛好 299,792,458 m/s</b>，再由它定義公尺：1 公尺＝光在真空中 1／299,792,458 秒走的距離。所以今天「光速是多少」不再需要量，反而是用光速去校準尺。</p>
+  </div>
+  <div data-arena="t2"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t2"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t2"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-1 光的傳播速率 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-1b">
+    <li>我知道光可以在真空中傳播，聲音不行</li>
+    <li>我記得真空中的光速約 3×10⁸ m/s，以及光在空氣、水、玻璃中的快慢順序</li>
+    <li>我會計算光走一段距離所需的時間</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="3×10⁸|真空|玻璃">💬 <b>一句話帶走：</b>真空中光速約______ m/s；光速在______中最快，在水、______中比較慢。</div>

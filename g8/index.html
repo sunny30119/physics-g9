@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>理化互動課本</title>
+<style>
+  :root { --primary: #1F3F66; --bg: #F2F3F0; --ink: #23302B; --muted: #66736E; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif; line-height: 1.6; }
+  header { background: var(--primary); color: #fff; padding: 28px 16px; text-align: center; }
+  header h1 { margin: 0 0 4px; font-size: 1.7rem; }
+  header p { margin: 0; opacity: .85; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 16px 40px; }
+  h2.grade { margin: 18px 0 10px; font-size: 1.3rem; border-left: 6px solid var(--c); padding-left: 10px; }
+  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  a.card { display: block; background: #fff; border-radius: 14px; padding: 22px; text-decoration: none; color: var(--ink); box-shadow: 0 1px 4px rgba(0,0,0,.1); border-top: 6px solid var(--c); transition: transform .15s; }
+  a.card:hover { transform: translateY(-3px); }
+  .em { font-size: 2.4rem; } .ch { color: var(--c); font-weight: bold; font-size: .9rem; }
+  a.card h3 { margin: 2px 0 8px; font-size: 1.35rem; } .card p { margin: 0; color: var(--muted); font-size: .92rem; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; padding-bottom: 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🔬 理化互動課本</h1>
+  <p>勝利國中 理化科｜互動模擬＋科學史＋真實案例＋迷思擂台＋練習場</p>
+</header>
+<main>
+  <h2 class="grade" style="--c:#2A7F8C">8 年級（二上）</h2>
+  <div class="row">
+    <a class="card" href="wave.html" style="--c:#2A7F8C">
+      <div class="em">🌊</div><div class="ch">第三章</div><h3>波動與聲音</h3>
+      <p>波的傳播與特徵、聲音的形成、聲音三要素、回聲與超聲波（網頁會真的發出聲音）</p>
+    </a>
+    <a class="card" href="light.html" style="--c:#B8860B">
+      <div class="em">🌈</div><div class="ch">第四章</div><h3>光、影像與顏色</h3>
+      <p>光的直進與光速、反射與面鏡、折射、透鏡成像、色散與顏色</p>
+    </a>
+  </div>
+  <h2 class="grade" style="--c:#C8682A">9 年級（三上）</h2>
+  <div class="row">
+    <a class="card" href="../g9/ch3.html" style="--c:#C8682A">
+      <div class="em">⚡</div><div class="ch">第三章</div><h3>功與能</h3>
+      <p>功與功率、動能與位能、力學能守恆、能量守恆與能源、簡單機械，附練習場與可列印學習單</p>
+    </a>
+  </div>
+</main>
+<footer>勝利國中 理化科｜課本：115 學年度國中自然</footer>
+</body>
+</html>

@@ -1,3 +1,15 @@
+# 理化互動電子課本（8 年級 g8／9 年級 g9）
+
+## 資料夾結構（2026-10-14 起）
+- `g8/`：八年級。`wave.html`（二上第 3 章 波動與聲音，7 分頁）、`light.html`（二上第 4 章 光、影像與顏色，11 分頁）
+- `g9/`：九年級。`ch3.html`（三上第 3 章 功與能）＋ `downloads/`
+- 根目錄 `index.html`：年級入口；根目錄 `ch3.html` 只是轉址到 `g9/ch3.html`（舊網址、QR code 仍可用）
+- 重建：`cd src && python3 build.py g8wave`、`python3 build.py g8light`、`python3 build.py ch3`
+- 八年級零件在 `src/g8wave/`、`src/g8light/`（波動版多一個 `05_audio.js` 發聲引擎；光版多一個 `05_optics.js` 光學工具）
+- 八年級進度：第 1 批（波動）＋第 2 批（光）完成；第 3 批（練習場、學習單、複習卷、三輪檢驗）尚未開始
+
+---
+
 # 三上理化互動電子課本（第 3 章 功與能）
 
 - 線上網址：https://sunny30119.github.io/physics-g9/ch3.html （首頁 https://sunny30119.github.io/physics-g9/ ；QR code 在 downloads/QR_第三章功與能.png）

@@ -1,0 +1,159 @@
+<!--NAV: 4-2 光的反射-->
+<div class="pagehead">
+  <span class="ref">課本 p.93–98｜4-2 ① 光的反射</span>
+  <h2>光碰到鏡子，會往哪裡彈？</h2>
+  <p class="hook"><b>科學 tell me why：</b>在鞋店試穿鞋子時，透過「試鞋鏡」可以很容易看到鞋子側面的樣子，一般的試衣鏡卻做不到。試鞋鏡有什麼不同？為什麼能有這種效果？</p>
+  <ul class="goals"><li>認識界面、法線、入射線、反射線、入射角、反射角</li><li>說出反射定律的三個內容</li><li>知道光的可逆性</li><li>分辨單向反射（鏡面反射）與漫反射</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 40 分鐘）：① 實驗 4-1（實體電池＋鏡子；或用下面「電池與狹縫鏡」模擬）→ ② 雷射與平面鏡：拖動雷射，量入射角、反射角 → ③ 摺紙板（同一平面）→ ④ 可逆性 → ⑤ 例題 4-3、4-4 → ⑥ 漫反射。<br>
+  最重要的提醒：入射角、反射角是光線和<b>法線</b>的夾角，不是和鏡面的夾角（迷思擂台 3）。<br>
+  試鞋鏡的答案：試鞋鏡是<b>往後傾斜</b>擺放的，鞋子反射的光經傾斜的鏡面反射後，剛好往上射進站立者的眼睛。
+</div></details>
+
+<div data-guess="t3"></div>
+
+<div class="card">
+  <h3>🔋 實驗 4-1 線上版：從狹縫鏡看電池 <span class="tag note">拖動眼睛（👁）沿桌邊移動；只有在特定位置才看得到電池的像</span></h3>
+  <canvas class="sim drag" id="l3exp"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l3expA"><span class="note">步驟 5：電池 A 換位置 →</span><button class="chip on" data-a="270,170">位置 1</button><button class="chip" data-a="250,230">位置 2</button><button class="chip" data-a="330,220">位置 3</button></div>
+      <div class="btnrow"><button class="btn" id="l3expB">🔋 放電池 B 遮住電池 A 的像</button><button class="btn ghost" id="l3expL">📏 畫出兩條連線</button></div>
+    </div>
+    <div class="callout" id="l3expTxt">鏡面用不透明紙遮到只剩 1 公分寬的狹縫，摺線通過狹縫中央。移動眼睛，找到「從狹縫看得見電池 A 的像」的位置。</div>
+  </div>
+</div>
+
+<details class="card"><summary><b>📝 實驗 4-1 問題與討論</b>（先自己回答，再點開對答案）</summary>
+  <ol>
+    <li><b>為什麼要把鏡面遮到只剩一條狹縫？</b>→ 讓反射點固定在摺線（法線）上的一小段，才量得出入射角和反射角。</li>
+    <li><b>電池 B 能完全遮住 A 的像，代表什麼？</b>→ B 剛好位在「A 的反射光進入眼睛」的路徑上，B 的位置標出了反射線。</li>
+    <li><b>兩電池與摺線在鏡面交點的連線，分別代表什麼？</b>→ A 的連線＝入射線；B 的連線＝反射線；摺線＝法線。</li>
+    <li><b>換位置重複，發現什麼規律？</b>→ 兩連線和法線的夾角永遠相等：入射角＝反射角。</li>
+    <li><b>探究提問：雷射光貼著紙面斜射向狹縫，會看到什麼？</b>→ 紙面上會看到入射光和反射光兩條光跡，在法線兩側、和法線夾角相等，而且都在紙面（同一平面）上。</li>
+  </ol>
+</details>
+
+<div class="card">
+  <h3>🔦 雷射與平面鏡：量入射角和反射角 <span class="tag note">拖動紅色雷射筆，改變入射方向</span></h3>
+  <canvas class="sim drag" id="l3laser"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l3opt"><button class="chip" data-k="fold">📄 紙板沿法線往後摺</button><button class="chip" data-k="rev">🔁 改從反射光那一側射回去</button><button class="chip" data-k="surf">📐 顯示和「鏡面」的夾角</button></div>
+      <div class="chips" id="l3pre"><button class="chip" data-a="20">入射角 20°</button><button class="chip" data-a="45">45°</button><button class="chip" data-a="60">60°</button><button class="chip" data-a="0">垂直入射</button></div>
+    </div>
+    <div>
+      <div class="readout" id="l3R"></div>
+      <div class="callout" id="l3txt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📖 反射定律</h3>
+  <div class="grid2 even">
+    <div>
+      <p>兩介質的交界稱為<b>界面</b>。由光線射入界面的點，作一條垂直界面的直線，稱為該入射點的<b>法線</b>。</p>
+      <p>入射界面的光線稱為<b>入射線</b>，反射的光線稱為<b>反射線</b>；它們和法線的夾角分別稱為<b>入射角</b>和<b>反射角</b>。</p>
+    </div>
+    <div class="callout good"><b>光的反射定律：</b><br>① 入射線、反射線分別在法線兩側。<br>② 入射角等於反射角。<br>③ 入射線、反射線和法線位在同一平面上。<br><br><b>光的可逆性：</b>光以相同角度從反射線方向射入，會沿原入射線的路徑反向射出。</div>
+  </div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-3　反射定律 <span class="tag note">課本 p.97；圖和課本相同（方格圖）</span></h3>
+  <canvas class="sim" id="l3ex3" style="max-width:520px"></canvas>
+  <div class="q">雷射光以上圖的情形入射平面鏡，請在圖中畫出法線及反射光，並標明入射角與反射角。</div>
+  <ol class="sol">
+    <li>在入射點畫一條<b>垂直鏡面</b>的虛線——法線。</li>
+    <li>入射線和法線的夾角就是入射角。在方格紙上看：入射線每往右 6 格就往下 4 格。</li>
+    <li>反射角＝入射角，所以在法線的<b>另一側</b>，畫一條「往右 6 格、往上 4 格」的直線，就是反射線（和入射線對稱於法線）。</li>
+  </ol>
+  <div class="ansbox">答：如圖（按「全部顯示」後，圖中會畫出法線與反射光）。用量角器量，入射角＝反射角≈56°。</div>
+</div>
+
+<div class="card example">
+  <h3>✏️ 例題 4-4　光的可逆性 <span class="tag note">課本 p.97</span></h3>
+  <div class="q">一雷射光入射平面鏡，反射後照到牆上的 A 點，入射角為 30°。若用另一雷射光從 A 點沿著反射光的路徑入射平面鏡，下列敘述何者正確？(A) 入射角為 60°　(B) 入射角為 120°　(C) 反射角為 30°　(D) 反射角為 60°</div>
+  <ol class="sol">
+    <li>原來的反射角＝入射角＝30°。</li>
+    <li>從 A 沿反射光路徑射回去：新的入射角＝原來的反射角＝30°；新的反射角也是 30°（光沿原入射路徑射出）。</li>
+  </ol>
+  <div class="ansbox">答：(C)。</div>
+</div>
+
+<div class="card">
+  <h3>✨ 延伸補充：單向反射與漫反射 <span class="tag note">切換表面</span></h3>
+  <canvas class="sim drag" id="l3diff"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="l3surf"><button class="chip on" data-k="mirror">鏡面（光滑）</button><button class="chip" data-k="paper">課本紙面（放大看凹凸不平）</button></div>
+      <p class="note">拖動眼睛 👁 到不同位置，看看會不會看到刺眼的光。</p>
+    </div>
+    <div class="callout" id="l3dTxt"></div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 生活｜黑板反光</div>
+    <h4>坐在某些位置看不清黑板</h4>
+    <p>光滑的白板（或舊黑板）會發生類似鏡面的單向反射：坐在反射光方向上的同學，看到一片刺眼的白光，字反而看不清。粗糙的黑板表面會漫反射，從各個角度都看得清楚。</p>
+    <p class="ask">想一想：老師可以怎麼調整，減少反光？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 交通｜反光背心與標線</div>
+    <h4>把車燈「送回」駕駛眼中</h4>
+    <p>反光背心、道路標線裡有很多小玻璃珠或稜鏡結構，能把車燈射來的光<b>反射回原方向</b>（利用光的可逆性），駕駛就能遠遠看到它們。</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 太空｜月亮的光</div>
+    <h4>月亮是一面很「粗糙」的鏡子</h4>
+    <p>月球表面凹凸不平，把太陽光漫反射到各個方向，所以不論在地球哪裡，都看得到整個月面亮亮的；如果月球像鏡子一樣光滑，我們只會看到一個刺眼的小亮點。</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜試鞋鏡</div>
+    <h4>斜放的鏡子</h4>
+    <p>試鞋鏡的底部離牆一段距離、頂端往後靠在牆上，鏡面微微朝上。依反射定律，從鞋子射向鏡面的光，反射後會往上偏，剛好進入站著的人的眼睛。直立的試衣鏡就要彎腰才看得到鞋子。</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜海龍的最短路徑＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>📏 為什麼入射角會等於反射角？——光走最短的路</h3>
+    <p>約西元 60 年，亞歷山卓的海龍發現：光從 A 經鏡面反射到 B，所有可能的路徑中，實際的路徑是<b>最短</b>的。拖動鏡面上的反射點 P，看看總長度什麼時候最小。</p>
+    <canvas class="sim drag" id="l3hero"></canvas>
+    <p class="note">巧妙的證明：把 B 對鏡面作「鏡像」得到 B′。PB＝PB′，所以 AP＋PB＝AP＋PB′；兩點之間直線最短，A、P、B′ 成一直線時最短——這時入射角剛好等於反射角。</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🔄 鏡子轉 θ，反射光轉 2θ</h3>
+    <p>入射光不動，把鏡子轉 θ 角：法線也跟著轉 θ，入射角改變 θ，反射角也改變 θ，所以反射光一共轉了 <b>2θ</b>。</p>
+    <p>上面的模擬是「鏡子不動、轉雷射筆」，可以換個方式驗證：入射角從 20° 改成 30°（變了 10°），量一量<b>入射線和反射線的夾角</b>——從 40° 變成 60°，變了 <b>20°＝2×10°</b>。如果入射線固定不動（改成轉鏡子），這 20° 就全部變成反射光轉動的角度。</p>
+    <p class="ask">應用：古代測量儀器「六分儀」、雷射掃描器都用到這個「角度加倍」。若想讓反射光轉 60°，鏡子要轉幾度？（答：30°）</p>
+  </div>
+  <div data-arena="t3"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t3"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t3"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜4-2 光的反射 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8l-4-2a">
+    <li>我可以正確畫出入射線、法線和反射線</li>
+    <li>我可以說明入射角與反射角的關係</li>
+    <li>我能說出反射定律的三個內容與光的可逆性</li>
+    <li>我能分辨單向反射與漫反射</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="法線|入射角|反射角|同一平面">💬 <b>一句話帶走：</b>入射線、反射線在______兩側，______＝______，三線在______上。</div>

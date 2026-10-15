@@ -7,7 +7,7 @@ import json, random, re, subprocess, pathlib, html as H
 from worksheets import WS
 
 root = pathlib.Path(__file__).parent
-OUT = root.parent / 'downloads'; OUT.mkdir(exist_ok=True)
+OUT = root.parent / 'g9' / 'downloads'; OUT.mkdir(exist_ok=True)
 TMP = root.parent / 'research' / '_tmp_print'; TMP.mkdir(parents=True, exist_ok=True)
 CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 L = 'ABCD'

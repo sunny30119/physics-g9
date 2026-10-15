@@ -1,0 +1,176 @@
+<!--NAV: 3-1 波與波動-->
+<div class="pagehead">
+  <span class="ref">課本 p.60–63｜3-1 ① 波與波動</span>
+  <h2>波跑走了，水卻留在原地？</h2>
+  <p class="hook"><b>科學 tell me why：</b>把一支點燃的蠟燭放在喇叭前，當喇叭發出較強的聲音時，可以看到燭火在搖晃。喇叭明明沒有吹風，燭火為什麼會晃？</p>
+  <ul class="goals"><li>說出波、波動、波源（振源）、介質的意義</li><li>分辨力學波（需要介質）和非力學波（不需要介質）</li><li>用「介質振動方向」和「波前進方向」分辨橫波與縱波</li><li>知道介質不會隨著波前進</li></ul>
+</div>
+
+<details class="teacher"><summary>👩‍🏫 教學提示</summary><div class="inner">
+  流程建議（約 30 分鐘）：① 猜一猜（寶特瓶）→ ② 「水波與小鴨」看介質不前進 → ③ 「彈簧波」重現探討活動 3-1（橫波 → 縱波 → 套髮圈）→ ④ 寫定義、分類遊戲 → ⑤ 人浪模擬（可以請全班真的做一次人浪：先站起來坐下＝橫波，再改成左右推＝縱波）→ ⑥ 地震 P 波與 S 波。<br>
+  常見迷思：「波會把東西帶著走」「聲音是空氣吹過來」。蠟燭晃動的答案：喇叭推動空氣「前後振動」，燭火跟著前後晃，但空氣並沒有一路吹過來（若是風，燭火會一直朝同一個方向倒）。<br>
+  實作建議：探討活動 3-1 若有實體彈簧，先實作再用模擬對照；模擬可以「暫停、慢動作」，看清楚實體做不到的細節。
+</div></details>
+
+<div data-guess="t1"></div>
+
+<div class="card">
+  <h3>🦆 水波與小鴨：波往前跑，小鴨在做什麼？ <span class="tag note">側面看水面；紅色箭頭是小鴨的移動</span></h3>
+  <canvas class="sim" id="w1duck"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>波的高低（振幅） <output for="w1dA"></output></label><input type="range" id="w1dA" min="5" max="35" step="1" value="22"></div>
+      <div class="btnrow"><button class="btn" id="w1dGo">⏸ 暫停</button><button class="btn ghost" id="w1dSlow">🐢 慢動作</button><button class="btn ghost" id="w1dTrail">👣 顯示小鴨的軌跡</button></div>
+    </div>
+    <div class="callout" id="w1dTxt">波峰一直往右跑，小鴨卻只在原地上上下下。把「軌跡」打開，看看小鴨過了 10 秒後在哪裡。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📖 波與波動：四個名詞</h3>
+  <div class="grid2 even">
+    <div>
+      <p>水、繩子或彈簧等，受到風吹或擺動等干擾，產生的凸起、凹下或疏鬆緊密的部分，稱為<b>波</b>；波向前傳遞出去的現象，稱為<b>波動</b>。</p>
+      <p>造成物質擾動的來源稱為<b>波源</b>（也稱為振源）；傳遞波的媒介物質，稱為<b>介質</b>。例如：傳播水波需要水、傳播繩波需要繩子。</p>
+    </div>
+    <div>
+      <table class="simple">
+        <tr><th>例子</th><th>波源</th><th>介質</th></tr>
+        <tr><td>打水漂的水波</td><td>跳動的石頭</td><td>水</td></tr>
+        <tr><td>手甩繩子的繩波</td><td>手</td><td>繩子</td></tr>
+        <tr><td>喇叭發出的聲音</td><td>喇叭振動的紙盆</td><td>空氣</td></tr>
+        <tr><td>地震</td><td>斷層錯動處（震源）</td><td>岩石、地層</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="grid2 even" style="margin-top:10px">
+    <div class="callout">🌊 <b>力學波</b>：需要介質才能傳播的波動。例如：繩波、水波、聲波、地震波。</div>
+    <div class="callout">✨ <b>非力學波</b>：不需要介質也能傳播的波動。例如：光波、無線電波、Wi-Fi 等電磁波——所以太陽光能穿過真空的太空照到地球。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🧪 探討活動 3-1 線上版：彈簧波的運動情形 <span class="tag note">點彈簧上任一點，可以把「髮圈」移到那裡</span></h3>
+  <canvas class="sim drag" id="w1spring"></canvas>
+  <div class="grid2" style="margin-top:10px">
+    <div class="controls">
+      <div class="chips" id="w1sMode"><button class="chip on" data-m="T">① 手上下擺動（橫波）</button><button class="chip" data-m="L">② 手左右推動（縱波）</button></div>
+      <div class="chips" id="w1sKind"><button class="chip on" data-k="1">擺動一次</button><button class="chip" data-k="c">③ 連續擺動</button></div>
+      <div class="btnrow"><button class="btn" id="w1sGo">✋ 開始擺動</button><button class="btn ghost" id="w1sPause">⏸ 暫停</button><button class="btn ghost" id="w1sSlow">🐢 慢動作</button></div>
+      <p class="note">彈簧放在光滑桌面上，右端很遠（在畫面外）。黃色的是<b>髮圈</b>，下方的小圖記錄髮圈的位置。</p>
+    </div>
+    <div>
+      <div class="readout" id="w1sR"></div>
+      <div class="callout" id="w1sTxt">先選 ① 按「開始擺動」，再選 ②，比較兩種波的樣子。</div>
+    </div>
+  </div>
+</div>
+
+<div class="card notes">
+  <h3>📝 隨堂筆記：整理橫波與縱波 <span class="tag note">點空格看答案</span></h3>
+  <table class="simple">
+    <tr><th>波形</th><th>介質振動方向與波前進方向</th><th>波的樣子</th><th>例子</th></tr>
+    <tr><td><b>橫波</b>（高低波）</td><td>互相<span class="fill" data-a="垂直"></span></td><td>高低起伏</td><td>繩波、彈簧上下擺、地震 S 波</td></tr>
+    <tr><td><b>縱波</b>（疏密波）</td><td>互相<span class="fill" data-a="平行"></span></td><td><span class="fill" data-a="疏密相間"></span></td><td><span class="fill" data-a="聲波"></span>、彈簧左右推、地震 P 波</td></tr>
+  </table>
+  <p style="margin-top:8px">共同點：介質<span class="fill" data-a="不會"></span>隨著波動前進，只在原處附近來回振動；往前傳的是<span class="fill" data-a="擾動（能量）"></span>。</p>
+</div>
+
+<div class="card">
+  <h3>🎯 分類挑戰 ①：力學波還是非力學波？</h3>
+  <div id="w1sort1"></div>
+</div>
+
+<div class="card">
+  <h3>🏟️ 情境模擬：運動場的「人浪」 <span class="tag note">點選一位觀眾，他會變成紅色，追蹤他</span></h3>
+  <canvas class="sim drag" id="w1crowd"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="chips" id="w1cMode"><button class="chip on" data-m="T">站起來再坐下（橫波）</button><button class="chip" data-m="L">往旁邊擠一下再回來（縱波）</button></div>
+      <div class="ctl"><label>人浪速度 <output for="w1cV"></output></label><input type="range" id="w1cV" min="4" max="30" step="1" value="20"></div>
+      <div class="btnrow"><button class="btn" id="w1cGo">▶ 發起人浪</button><button class="btn ghost" id="w1cRe">↺ 重來</button></div>
+    </div>
+    <div class="callout" id="w1cTxt">2002 年《自然》期刊的研究：足球場的人浪大約每秒經過 <b>20 個座位</b>（約每秒 12 公尺）。按「發起人浪」，再點一位觀眾，看他人浪過後在哪裡。</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>🌏 情境模擬：地震的 P 波與 S 波，和地震速報 <span class="tag note">拖動拉桿改變你和震央的距離</span></h3>
+  <canvas class="sim" id="w1quake"></canvas>
+  <div class="grid2" style="margin-top:8px">
+    <div class="controls">
+      <div class="ctl"><label>你和震源的距離 <output for="w1qD"></output></label><input type="range" id="w1qD" min="10" max="200" step="5" value="80"></div>
+      <div class="ctl"><label>速報系統計算＋發布所需時間 <output for="w1qC"></output></label><input type="range" id="w1qC" min="5" max="25" step="1" value="10"></div>
+      <div class="btnrow"><button class="btn" id="w1qGo">▶ 地震發生！</button></div>
+      <p class="note">P 波（縱波，疏密波）在地殼中約每秒 6 公里；S 波（橫波）約每秒 3.5 公里，但搖晃比較劇烈。數值是大約值，實際依地層而定。</p>
+    </div>
+    <div>
+      <div class="readout" id="w1qR"></div>
+      <div class="callout" id="w1qTxt"></div>
+    </div>
+  </div>
+</div>
+
+<div class="cases">
+  <div class="case">
+    <div class="where">🇹🇼 地科｜2024 花蓮地震</div>
+    <h4>強震即時警報：和 S 波賽跑</h4>
+    <p>2024 年 4 月 3 日花蓮外海發生規模 7 級以上的強震。中央氣象署利用地震儀先收到的 <b>P 波</b>估算震度，發布強震即時警報，許多地區的手機在劇烈搖晃（S 波）前就響了。</p>
+    <p class="ask">想一想：離震央很近的花蓮市區，為什麼可能「警報和搖晃幾乎同時到」？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 歷史｜達文西的麥浪</div>
+    <h4>波跑走了，麥子留在原地</h4>
+    <p>大約 500 年前，達文西在筆記中寫道：風吹過麥田，可以看到麥浪跑過整片田，但麥子都留在自己的位置上；水波也一樣，波離開了，水卻沒有離開。</p>
+    <p class="ask">想一想：你在生活中還看過哪些「東西沒走、波在走」的例子？</p>
+  </div>
+  <div class="case world">
+    <div class="where">🌍 海洋｜海嘯</div>
+    <h4>深海中的海嘯，比高鐵還快</h4>
+    <p>在約 4000 公尺深的大洋中，海嘯傳播的速率每小時可達 700 多公里，和噴射客機差不多，但海面只起伏幾十公分，船上的人幾乎感覺不到。海嘯靠近淺海岸邊時才會變慢、變高，形成巨大的水牆。</p>
+    <p class="ask">想一想：海嘯從智利傳到日本，是「智利的海水」跑到日本了嗎？</p>
+  </div>
+  <div class="case">
+    <div class="where">🇹🇼 生活｜喇叭前的燭火</div>
+    <h4>聲音不是風</h4>
+    <p>把蠟燭放在喇叭前，燭火會隨著音樂<b>前後晃動</b>，而不是一直被吹向同一邊。因為喇叭紙盆一前一後振動，推動空氣前後振動——空氣在原地附近來回，振動往前傳，這就是聲波（縱波）。</p>
+    <p class="ask">想一想：如果改用電風扇吹，燭火會怎麼動？</p>
+  </div>
+</div>
+
+<details class="deep"><summary>🧠 資優挑戰｜水波其實在「轉圈圈」、S 波找到液態外核＋迷思擂台</summary><div class="inner">
+  <div class="card" style="margin:0 0 10px">
+    <h3>🔄 水波的秘密：水分子其實在畫圓</h3>
+    <p>課本把水波簡化成「水上下運動」。更仔細觀察會發現：深水中的水波，水分子其實沿著<b>小圓圈</b>運動——波峰經過時往前一點、波谷經過時往後一點，所以水波同時有橫波和縱波的成分。打開上面「水波與小鴨」的<b>軌跡</b>，仔細看小鴨的路徑是不是有點像橢圓？（模擬裡加了一點點前後移動。）</p>
+  </div>
+  <div class="card" style="margin:0 0 10px">
+    <h3>🌍 橫波不能在液體中傳：用 S 波發現地球的液態外核</h3>
+    <p>縱波靠介質「壓縮、拉開」傳遞，固體、液體、氣體都可以傳；橫波靠介質「左右（上下）互相拉扯」，液體和氣體的粒子之間拉不住彼此，所以<b>橫波幾乎只能在固體中傳播</b>。</p>
+    <p class="note">那水面的水波為什麼有上下起伏（橫波的成分）？因為水面被推高後，是靠<b>重力</b>（和表面張力）把它拉回來，不是靠液體內部互相拉扯。所以水面波是特例，水的「內部」仍然傳不了橫波。</p>
+    <p>地震學家發現：大地震後，地球另一側有一大片區域收不到 S 波（橫波）。1926 年，英國科學家傑佛瑞斯根據這類觀測，推論<b>地球的外核是液態的</b>——我們從來沒有挖到地心，卻靠「波」知道了地心的樣子。</p>
+    <p class="ask">想一想：聲音在空氣中只能是縱波，你能用上面的說法解釋嗎？</p>
+  </div>
+  <div data-arena="t1"></div>
+</div></details>
+
+<div class="card">
+  <h3>🎬 看影片 <span class="tag note">點縮圖直接在這裡播放；需要網路</span></h3>
+  <div class="vids" data-vid="t1"></div>
+</div>
+
+<div class="card">
+  <h3>🔗 延伸看看</h3>
+  <div class="res" data-res="t1"></div>
+</div>
+
+<div class="card">
+  <h3>✅ 學習 Check｜3-1 波與波動 <span class="tag note">勾選會記在這台裝置上</span></h3>
+  <ul class="selfcheck" data-key="g8w-3-1a">
+    <li>我能說出波、波動、波源、介質的意義</li>
+    <li>我能說出橫波與縱波的差異（課本 p.62）</li>
+    <li>我能舉例說明力學波與非力學波</li>
+    <li>我能說明介質不會隨著波動前進</li>
+  </ul>
+</div>
+
+<div class="takeaway" data-ans="擾動（能量）|介質|垂直|平行">💬 <b>一句話帶走：</b>波動傳遞的是______，______只在原地附近振動；介質振動方向和波前進方向______的是橫波，______的是縱波。</div>

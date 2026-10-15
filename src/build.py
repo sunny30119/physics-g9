@@ -1,12 +1,18 @@
 """把 src/ 底下的零件組成單一 HTML 檔。
-用法：python3 build.py ch3
+用法：python3 build.py ch3｜g8wave｜g8light
+輸出：ch3 → g9/（九年級）；g8wave、g8light → g8/（八年級）
 零件：common/style.css、common/core.js、<章>/shell.html、<章>/tabs/t*.html（含 <!--NAV: 標題--> 第一行）、<章>/js/*.js
 """
 import re, sys, pathlib
 
 root = pathlib.Path(__file__).parent
 ch = sys.argv[1] if len(sys.argv) > 1 else 'ch3'
-OUT = {'ch3': '第三章_功與能_互動課本.html'}[ch]
+BOOKS = {   # 章 → (年級資料夾, 網址檔名, 中文檔名)
+    'ch3':   ('g9', 'ch3.html',   '第三章_功與能_互動課本.html'),
+    'g8wave':  ('g8', 'wave.html',  '二上第三章_波動與聲音_互動課本.html'),
+    'g8light': ('g8', 'light.html', '二上第四章_光影像與顏色_互動課本.html'),
+}
+FOLDER, WEB, OUT = BOOKS[ch]
 
 def read(p): return (root / p).read_text(encoding='utf-8')
 
@@ -36,7 +42,8 @@ html = html.replace('{{NAV}}', '\n'.join(nav))
 html = html.replace('{{TABS}}', '\n'.join(panels))
 html = html.replace('{{JS}}', js)
 html = clean(html)
-out = root.parent / OUT
+dest = root.parent / FOLDER; dest.mkdir(exist_ok=True)
+out = dest / OUT
 out.write_text(html, encoding='utf-8')
-(root.parent / f'{ch}.html').write_text(html, encoding='utf-8')   # 網頁版用英文檔名（網址比較短）
+(dest / WEB).write_text(html, encoding='utf-8')   # 網頁版用英文檔名（網址比較短）
 print(f'OK → {out}  ({len(html)//1024} KB, {len(tabs)} 分頁)')

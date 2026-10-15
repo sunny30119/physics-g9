@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>波動與聲音｜二上互動課本</title>
+<style>
+{{CSS}}
+:root { --primary: #17535E; --primary-2: #2A7F8C; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <h1>🌊 第三章 波動與聲音<small>國二上自然・理化｜互動電子課本</small></h1>
+    <div class="top-tools">
+      <div class="seg" id="modeSeg" title="學生：自學用｜資優：展開紫色資優挑戰｜老師：再加上教學提示與舉手計數">
+        <button data-mode="stu">學生</button><button data-mode="deep" class="deepon">資優</button><button data-mode="teach" class="teachon">老師</button>
+      </div>
+      <button class="tool-btn" id="sndBtn" title="開／關網頁的聲音（模擬會真的發出聲音）">🔊 聲音開</button>
+      <button class="tool-btn" id="pickBtn" title="隨機抽座號">🎲 抽號</button>
+      <button class="tool-btn" id="projBtn" title="字放大、隱藏教師提示">📽 投影</button>
+      <button class="tool-btn" id="fsBtn" title="全螢幕">⛶</button>
+    </div>
+  </div>
+  <div class="rotate-tip">📱 把手機橫放，模擬圖會比較大、比較清楚｜🎧 這本課本會真的發出聲音，戴耳機時請先把音量調小</div>
+  <div class="tabwrap">
+    <button class="tabscroll" id="tabL" aria-label="分頁往左捲">◀</button>
+    <nav class="tabs" id="tabNav">
+{{NAV}}
+    </nav>
+    <button class="tabscroll" id="tabR" aria-label="分頁往右捲">▶</button>
+  </div>
+</header>
+
+<main>
+{{TABS}}
+<div class="footer">鍵盤 <kbd>←</kbd> <kbd>→</kbd> 或簡報筆可以換分頁｜課本：115 學年度國中自然 2 上 第 3 章（p.58–87）｜資料查證日期：2026-10-14｜勝利國中 理化科</div>
+</main>
+
+<div class="picker" id="picker"><div class="box">
+  <div>🎲 抽到的座號</div><div class="num" id="pickNum">?</div>
+  <div class="note">全班人數 <input id="pickMax" type="number" value="30" min="2" max="60" style="width:60px"></div>
+  <div class="btnrow" style="justify-content:center;margin-top:12px"><button class="btn" id="pickAgain">再抽一次</button><button class="btn ghost" id="pickClose">關閉</button></div>
+</div></div>
+
+<script>
+const STORE_KEY = 'phy-g8-wave-v1';
+{{JS}}
+boot();
+</script>
+</body>
+</html>
