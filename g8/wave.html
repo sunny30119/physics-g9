@@ -58,7 +58,7 @@ header.top {
 }
 .tool-btn:hover { background: rgba(255,255,255,.12); }
 nav.tabs {
-  display: flex; gap: 4px; padding: 0 12px; overflow-x: auto; scrollbar-width: thin;
+  display: flex; gap: 4px; padding: 0 12px; overflow-x: auto;
   background: var(--primary-2);
 }
 nav.tabs button {
@@ -256,7 +256,7 @@ canvas.sim { background: #EEF3F8; }
 .quote { font-size: 1.05rem; border-left: 3px solid #D9C49A; padding: 4px 12px; margin: 8px 0; color: #5B4A2A; background: #FFFDF7; }
 
 /* 時間軸 */
-.timeline { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 12px; scroll-snap-type: x mandatory; }
+.timeline { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 12px; scroll-snap-type: x proximity; }
 .timeline .ev { flex: 0 0 170px; scroll-snap-align: start; background: #fff; border-radius: 12px; padding: 10px 12px; cursor: pointer;
   border: 2px solid transparent; box-shadow: 0 1px 3px rgba(0,0,0,.1); text-align: left; font-family: inherit; color: var(--ink); }
 .timeline .ev .yr { font-weight: bold; color: var(--accent); font-size: 1.1rem; }
@@ -402,13 +402,33 @@ body[data-mode="stu"] .dpo { display: none; }
 
 /* 分頁列：看得見的捲軸＋左右捲動按鈕 */
 .tabwrap { display: flex; align-items: stretch; background: var(--primary-2); }
-.tabwrap nav.tabs { flex: 1 1 auto; min-width: 0; scrollbar-width: auto; scrollbar-color: #FFD27A rgba(255,255,255,.15); padding-bottom: 2px; }
+.tabwrap nav.tabs { flex: 1 1 auto; min-width: 0; padding-bottom: 2px; }
 .tabwrap nav.tabs::-webkit-scrollbar { height: 9px; }
 .tabwrap nav.tabs::-webkit-scrollbar-track { background: rgba(255,255,255,.15); }
 .tabwrap nav.tabs::-webkit-scrollbar-thumb { background: #FFD27A; border-radius: 6px; }
 .tabscroll { flex: 0 0 auto; width: 34px; border: 0; background: rgba(0,0,0,.18); color: #fff; font-size: 1rem; cursor: pointer; }
 .tabscroll:hover { background: rgba(0,0,0,.32); }
 .tabscroll:disabled { opacity: .25; cursor: default; }
+
+/* 所有可以左右捲動的區塊（時間軸、太寬的表格）：看得見的捲軸＋◀ ▶ 按鈕，電腦用滑鼠也能左右拉 */
+.hswrap { position: relative; display: flex; align-items: stretch; gap: 6px; }
+.hswrap > .hsbody { flex: 1 1 auto; min-width: 0; overflow-x: auto; }
+/* Chrome／Edge／Safari：用 ::-webkit-scrollbar 畫出「一直看得到」的捲軸（Mac 預設會藏起來）；Firefox 才用標準屬性 */
+@supports not selector(::-webkit-scrollbar) {
+  .hswrap > .hsbody { scrollbar-width: auto; scrollbar-color: #8A9BAE #E6EBF0; }
+  .tabwrap nav.tabs { scrollbar-width: auto; scrollbar-color: #FFD27A rgba(255,255,255,.15); }
+}
+.hswrap > .hsbody::-webkit-scrollbar { height: 12px; }
+.hswrap > .hsbody::-webkit-scrollbar-track { background: #E6EBF0; border-radius: 6px; }
+.hswrap > .hsbody::-webkit-scrollbar-thumb { background: #8A9BAE; border-radius: 6px; border: 2px solid #E6EBF0; }
+.hswrap > .hsbody::-webkit-scrollbar-thumb:hover { background: #5F7186; }
+.hsbtn { flex: 0 0 auto; width: 30px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--primary); font-size: 1rem; cursor: pointer; }
+.hsbtn:hover { background: #F0F4F8; }
+.hsbtn:disabled { opacity: .25; cursor: default; }
+.hswrap:not(.over) > .hsbtn { display: none; }
+.hswrap > .hsbody > table.simple { margin: 0; }
+.hsnote { font-size: .78rem; color: var(--muted); margin: 2px 0 0 36px; }
+.hswrap:not(.over) + .hsnote { display: none; }
 
 :root { --primary: #17535E; --primary-2: #2A7F8C; }
 </style>
@@ -2181,6 +2201,44 @@ function bootExtra() {
   mountFills();
   mountSelfcheck();
   if (typeof TIMELINE !== 'undefined') $$('[data-timeline]').forEach(h => mountTimeline(h, TIMELINE));
+  mountAllHScroll();
+}
+
+/* ---------- 左右捲動：時間軸、太寬的表格都包一層 .hswrap，加看得見的捲軸、◀ ▶ 按鈕、滑鼠滾輪左右捲 ---------- */
+function mountHScroll(el) {
+  if (!el || el.closest('.hswrap')) return;
+  const wrap = document.createElement('div'); wrap.className = 'hswrap';
+  const L = document.createElement('button'), R = document.createElement('button');
+  L.className = R.className = 'hsbtn'; L.textContent = '◀'; R.textContent = '▶';
+  L.setAttribute('aria-label', '往左捲'); R.setAttribute('aria-label', '往右捲');
+  let body = el;
+  if (!el.matches('.timeline')) { body = document.createElement('div'); el.parentNode.insertBefore(wrap, el); body.appendChild(el); }
+  else el.parentNode.insertBefore(wrap, el);
+  body.classList.add('hsbody');
+  wrap.append(L, body, R);
+  const note = document.createElement('div'); note.className = 'hsnote'; note.textContent = '↔ 可以左右拉：拖下方捲軸、按 ◀ ▶，或在上面滾動滑鼠滾輪';
+  wrap.after(note);
+  const upd = () => {
+    const over = body.scrollWidth > body.clientWidth + 2;
+    wrap.classList.toggle('over', over);
+    L.disabled = body.scrollLeft <= 2; R.disabled = body.scrollLeft + body.clientWidth >= body.scrollWidth - 2;
+  };
+  L.onclick = () => body.scrollBy({ left: -body.clientWidth * 0.7, behavior: 'smooth' });
+  R.onclick = () => body.scrollBy({ left: body.clientWidth * 0.7, behavior: 'smooth' });
+  body.addEventListener('wheel', e => {   // 直向滾輪改成左右捲；捲到底時讓頁面照常上下捲
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || !wrap.classList.contains('over')) return;
+    const atEnd = e.deltaY > 0 ? body.scrollLeft + body.clientWidth >= body.scrollWidth - 2 : body.scrollLeft <= 2;
+    if (atEnd) return;
+    body.scrollLeft += e.deltaY; e.preventDefault();
+  }, { passive: false });
+  body.addEventListener('scroll', upd);
+  window.addEventListener('resize', upd);
+  new ResizeObserver(upd).observe(body);
+  upd();
+}
+function mountAllHScroll() {
+  $$('.timeline').forEach(mountHScroll);
+  $$('table.simple').forEach(mountHScroll);
 }
 
 /* ==== 00_data.js ==== */

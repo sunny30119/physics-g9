@@ -161,4 +161,42 @@ function bootExtra() {
   mountFills();
   mountSelfcheck();
   if (typeof TIMELINE !== 'undefined') $$('[data-timeline]').forEach(h => mountTimeline(h, TIMELINE));
+  mountAllHScroll();
+}
+
+/* ---------- 左右捲動：時間軸、太寬的表格都包一層 .hswrap，加看得見的捲軸、◀ ▶ 按鈕、滑鼠滾輪左右捲 ---------- */
+function mountHScroll(el) {
+  if (!el || el.closest('.hswrap')) return;
+  const wrap = document.createElement('div'); wrap.className = 'hswrap';
+  const L = document.createElement('button'), R = document.createElement('button');
+  L.className = R.className = 'hsbtn'; L.textContent = '◀'; R.textContent = '▶';
+  L.setAttribute('aria-label', '往左捲'); R.setAttribute('aria-label', '往右捲');
+  let body = el;
+  if (!el.matches('.timeline')) { body = document.createElement('div'); el.parentNode.insertBefore(wrap, el); body.appendChild(el); }
+  else el.parentNode.insertBefore(wrap, el);
+  body.classList.add('hsbody');
+  wrap.append(L, body, R);
+  const note = document.createElement('div'); note.className = 'hsnote'; note.textContent = '↔ 可以左右拉：拖下方捲軸、按 ◀ ▶，或在上面滾動滑鼠滾輪';
+  wrap.after(note);
+  const upd = () => {
+    const over = body.scrollWidth > body.clientWidth + 2;
+    wrap.classList.toggle('over', over);
+    L.disabled = body.scrollLeft <= 2; R.disabled = body.scrollLeft + body.clientWidth >= body.scrollWidth - 2;
+  };
+  L.onclick = () => body.scrollBy({ left: -body.clientWidth * 0.7, behavior: 'smooth' });
+  R.onclick = () => body.scrollBy({ left: body.clientWidth * 0.7, behavior: 'smooth' });
+  body.addEventListener('wheel', e => {   // 直向滾輪改成左右捲；捲到底時讓頁面照常上下捲
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || !wrap.classList.contains('over')) return;
+    const atEnd = e.deltaY > 0 ? body.scrollLeft + body.clientWidth >= body.scrollWidth - 2 : body.scrollLeft <= 2;
+    if (atEnd) return;
+    body.scrollLeft += e.deltaY; e.preventDefault();
+  }, { passive: false });
+  body.addEventListener('scroll', upd);
+  window.addEventListener('resize', upd);
+  new ResizeObserver(upd).observe(body);
+  upd();
+}
+function mountAllHScroll() {
+  $$('.timeline').forEach(mountHScroll);
+  $$('table.simple').forEach(mountHScroll);
 }
